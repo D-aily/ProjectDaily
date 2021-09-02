@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>D:aily</title>
-<style>
+<style> 
 *{margin: 0; padding: 0;}
 	#wrap{text-align:center; font-size: 30px;} 
 	#header{width: 100%; height: 35px; background-color:#DCDCDC; text-align:left; font-size: 20px; }
