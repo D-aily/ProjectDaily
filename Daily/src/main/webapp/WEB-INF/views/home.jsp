@@ -40,10 +40,10 @@
 		<div id="menu">
 			<div class="menu-container">
 				<ul>
-					<li><a href="#">게시판1</a></li>
-					<li><a href="#">게시판2</a></li>
-					<li><a href="#">게시판3</a></li>
-					<li><a href="#">게시판4</a><li>
+					<li><a href="#">상의</a></li>
+					<li><a href="#">하의</a></li>
+					<li><a href="#">아우터</a></li>
+					<li><a href="#">가방</a><li>
 				</ul>
 			</div>
 		</div>
