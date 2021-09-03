@@ -37,17 +37,23 @@ public class HomeController {
 		return "home";
 	}//home
 	
-	
+	//매장위치
 	@RequestMapping(value = "/kakaotest")
 	public ModelAndView kakaotest(ModelAndView mv) {
 		mv.setViewName("kakao/kakaoTest");
 		return mv;
 	} //kakaotest
 
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 

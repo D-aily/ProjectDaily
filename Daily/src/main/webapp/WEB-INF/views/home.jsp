@@ -22,8 +22,8 @@
 	<div id="wrap">
 		<div id="header">
 			<div class="header-container">
-			<span>고객센터</span>&nbsp;&nbsp;
-			<a href="kakaotest">매장위치</a>
+				<a href="#">고객센터</a>&nbsp;&nbsp;
+				<a href="kakaotest">매장위치</a>
 			</div>
 		</div> 
 		<!-- header -->
