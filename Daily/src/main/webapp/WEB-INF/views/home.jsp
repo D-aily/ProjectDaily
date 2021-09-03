@@ -23,7 +23,7 @@
 		<div id="header">
 			<div class="header-container">
 			<span>고객센터</span>&nbsp;&nbsp;
-			<span>매장위치</span>
+			<a href="kakaotest">매장위치</a>
 			</div>
 		</div> 
 		<!-- header -->
