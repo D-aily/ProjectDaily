@@ -1,0 +1,177 @@
+
+
+새로운 db 생성 daiy
+===========================================================
+
+create database daily ;
+
+============================================================
+
+------추가 해야 할 필드-------
+product - regdate image  check
+member - regdate birthd    check
+wish_list - regdate
+review - regdate image
+product_qna - regdate
+qna - regdate
+---------------------------------
+
+create databases daily
+use daily
+
+----------------------------------
+create table member (
+	id varchar(100)  PRIMARY KEY,
+	pw varchar(100) not null,
+	name varchar(30) not null,
+	address varchar(100) not null,
+	phone varchar(20) not null UNIQUE,
+	birthd date not null, 
+	state char(1) default 'T',
+	date DATETIME DEFAULT NOW(),
+	lv char(1) DEFAULT '1', 
+	money int DEFAULT 0,
+	point int DEFAULT 0
+)
+
+
+
+
+
+create table product (
+	productnum int  PRIMARY KEY,
+	name varchar(50) not null,
+	content varchar(1000),
+	date DATETIME DEFAULT NOW(),
+	image varchar(100),
+	state char(1) default 'T',
+	price1 int not null,
+	price2 int,
+	price3 int,
+	quantity1 int,
+	quantity2 int,
+	product_seq int,
+	kind char(1),
+	count int,
+	score int
+)
+
+
+
+
+create table wish_list(
+	wlnum int primary key,
+	id varchar(100) not null,
+	productnum int not null,
+	 CONSTRAINT FK_wish_id FOREIGN KEY (id) REFERENCES member(id),
+	 CONSTRAINT FK_wish_productnum FOREIGN KEY (productnum) REFERENCES product(productnum),
+	quantity int default 1,
+	date DATETIME DEFAULT NOW(),
+	wish_seq int
+)
+	
+
+
+
+
+
+
+create table orders(
+	ordersnum int primary key,
+	id varchar(100) not null,
+	CONSTRAINT FK_order_id FOREIGN KEY (id) REFERENCES member(id),
+	order_seq int
+)
+
+
+
+
+
+
+create table review(
+	reviewnum int primary key,
+	productnum int not null,
+	id varchar(100) not null,
+	CONSTRAINT FK_review_id FOREIGN KEY (id) REFERENCES member(id),
+	 CONSTRAINT FK_review_productnum FOREIGN KEY (productnum) REFERENCES product(productnum),
+	content varchar(1000),
+	date DATETIME DEFAULT NOW(),
+	review_seq int,
+	state char(1) default 'T',
+	image varchar(100),
+	score int check( 0<score<6) default 5 
+)
+
+
+
+
+
+create table product_qna(
+	prodqnanum int primary key,
+	productnum int not null,
+	id varchar(100) not null,
+	CONSTRAINT FK_prodqna_id FOREIGN KEY (id) REFERENCES member(id),
+	 CONSTRAINT FK_prodqna_productnum FOREIGN KEY (productnum) REFERENCES product(productnum),
+	content varchar(1000),
+	date DATETIME DEFAULT NOW(),
+	qnanum_seq int,
+	state char(1),
+	secret char(1)
+)
+
+
+
+
+
+
+
+create table pna(
+	qnanum int not null auto_increment primary key,
+	qnanum_seq int,
+	id varchar(10),
+	CONSTRAINT FK_pna_id FOREIGN KEY (id) REFERENCES member(id),	
+	content varchar(500),
+	root int,
+	indnet int,
+	date DATETIME DEFAULT NOW(),
+	state char(1),
+	secret char(1)
+)
+
+
+
+============================================================
+member(회원) 데이터 넣어주기 
+=====================================
+
+insert into member (id,pw,name,address,phone,birthd,state,lv,money,point) 
+values('aaa11','12345!','홍길동','성남시분당구미금역','010-1234-5678','2020-09-04','T','1',0,0); 
+
+insert into member (id,pw,name,address,phone,birthd,state,lv,money,point) 
+values('aaa22','12345!','피카츄','성남시분당구야탑역','010-2312-5093','2020-09-04','T','1',0,0); 
+
+insert into member (id,pw,name,address,phone,birthd,state,lv,money,point) 
+values('aaa33','12345!','웅이','성남시분당구정자역','010-4532-7785','2020-09-04','T','1',0,0); 
+
+insert into member (id,pw,name,address,phone,birthd,state,lv,money,point) 
+values('aaa44','12345!','지우','성남시분당구오리역','010-3265-9734','2020-09-04','T','1',0,0); 
+
+
+
+
+=======================================================================
+update 확인 
+
+update member  set pw='123456!',
+		name='햄토리',
+		address='지옥시불지옥구A지구',
+		phone='010-4444-4444',
+		birthd='2020-04-25',
+		state='T',
+		lv='1',
+		money=0,
+		point=0 where id='aaa11'
+		   
+
+
+
