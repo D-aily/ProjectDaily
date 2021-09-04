@@ -7,6 +7,8 @@ public class ProductVO {
 	private int productnum;
 	private String name;
 	private String content;
+	private String date;
+	private String image;
 	private char state;
 	private int price1 ;
 	private int price2 ;
