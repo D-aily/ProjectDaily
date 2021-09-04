@@ -8,8 +8,10 @@ public class ReviewVO {
 	private int productnum;
 	private String id;
 	private String content;
+	private String date;
 	private int review_seq;
 	private char state;
+	private String image;
 	private int score;
 	
 }

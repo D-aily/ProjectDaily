@@ -8,5 +8,6 @@ public class Wish_listVO {
 	private String id;
 	private String productnum;
 	private String quantity;
+	private String date;
 	private int wish_seq ;
 }
