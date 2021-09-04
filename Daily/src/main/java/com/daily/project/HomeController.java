@@ -26,7 +26,7 @@ public class HomeController {
 	@RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
+		logger.info("homepage 스따뚜! ~");
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
@@ -37,17 +37,23 @@ public class HomeController {
 		return "home";
 	}//home
 	
-	
+	//매장위치
 	@RequestMapping(value = "/kakaotest")
 	public ModelAndView kakaotest(ModelAndView mv) {
 		mv.setViewName("kakao/kakaoTest");
 		return mv;
 	} //kakaotest
 
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 
