@@ -15,7 +15,6 @@ public class ProductVO {
 	private int price3 ;
 	private int quantity1;
 	private int quantity2;
-	private int product_seq;
 	private char kind;
 	private int count ;
 	private int score;

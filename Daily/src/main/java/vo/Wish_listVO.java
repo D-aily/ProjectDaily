@@ -9,5 +9,4 @@ public class Wish_listVO {
 	private String productnum;
 	private String quantity;
 	private String date;
-	private int wish_seq ;
 }

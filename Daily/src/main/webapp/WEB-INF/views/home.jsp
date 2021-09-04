@@ -11,7 +11,6 @@
 	<div id="wrap">
 		<div id="header">
 			<div class="header-container">
-<<<<<<< HEAD
 				<div class="header">
 					<div class="header-menu">
 					 <span>
@@ -25,10 +24,6 @@
 					 </span>
 					</div>
 				</div>
-=======
-				<a href="#">고객센터</a>&nbsp;&nbsp;
-				<a href="kakaotest">매장위치</a>
->>>>>>> 38cdfd1bb56cf1f10978990433a058f68e8df4ad
 			</div>
 		</div> 
 		<!-- header -->
