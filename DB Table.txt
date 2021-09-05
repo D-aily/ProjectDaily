@@ -155,12 +155,12 @@ values('aaa44','12345!','지우','성남시분당구오리역','010-3265-9734','
 product(상품) 데이터 넣어주기
 
 Insert into product (productnum,name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
-Values(1,'티셔츠','목늘어남이 적은 기본 무지 티셔츠','2021-09-04','T',3000,6000,(price2-price1),30,20,'1',
+Values(1,'티셔츠','목늘어남이 적은 기본 무지 티셔츠',now(),'T',3000,6000,(price2-price1),30,20,'1',
 5);
 
 Insert into product 
 (name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
-Values('폴로티셔츠','폴로에 제작한 카라티셔츠','2021-09-04','T',12000,98000,(price2-price1),30,20,'1',
+Values('긴팔티셔츠','롱 슬리브 티셔츠',now(),'T',9000,15000,(price2-price1),30,20,'1',
 4);
 
 Insert into product 
