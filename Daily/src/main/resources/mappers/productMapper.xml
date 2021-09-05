@@ -15,7 +15,7 @@
   	state,price2,kind,count,score from product where productnum = #{productnum}
   </select>
   	
-  <insert id="insert">
+  <!-- <insert id="insert">
   	<selectKey keyProperty="productnum" resultType="int" order="BEFORE">
   		select IFNULL(max(productnum),0)+1 from product
   	</selectKey>
@@ -23,7 +23,7 @@
   	state,price1,price2,price3,quantity1,quantity2,kind,count,score) 
   	values (#{productnum},#{name),#{content},#{image},#{state},#{price1},#{price2},
   			#{price3},#{quantity1},#{quantity2},#{kind},0,0)
-  </insert>
+  </insert> -->
 	
   <update id="update">
   	update product set name = #{name}, content = #{content}, image = #{image}
