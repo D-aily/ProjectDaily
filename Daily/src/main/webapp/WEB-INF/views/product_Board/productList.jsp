@@ -15,6 +15,7 @@
 			<th>content</th>
 			<th>date</th>
 			<th>image</th>
+			
 		</tr>
 		<c:forEach var="list" items="${product}">
 			<tr height="40">

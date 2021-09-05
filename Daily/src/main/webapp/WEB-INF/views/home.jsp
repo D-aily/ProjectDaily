@@ -7,6 +7,8 @@
 <title>D:aily</title>
 </head>
 <link rel="stylesheet" type="text/css" href="resources/myLib/mainhome.css">
+<script src="resources/myLib/jquery-3.6.0.min.js"></script>
+<script src="resources/myLib/jq_headerfixed.js"></script>
 <body>
   <!--서비스 바 (고객센터 매장위치) -->
   <div class="servicebar">
