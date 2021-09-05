@@ -10,12 +10,11 @@ $(function() {
 				'position': 'fixed',
 				'top': '0'
 			});
-			
-		$('.servicebar').show();
-}// bar고정
-	 
-})// window scroll	 	
-	
-	
-	
+
+			$('.servicebar').show();
+		}// bar고정
+
+	})// window scroll	 	
+
+
 }); // ready
