@@ -47,7 +47,7 @@
   </div>
   <div class="nav">
     <div class="nav_center_item">
-      <div class="nav_item"><a href="">Cloth</a></div>
+      <div class="nav_item"><a href="pdlist">Cloth</a></div>
       <div class="nav_item"><a href="">Perfume</a></div>
       <div class="nav_item"><a href="">Best</a></div>
       <div class="nav_item"><a href="">New Item</a></div>
