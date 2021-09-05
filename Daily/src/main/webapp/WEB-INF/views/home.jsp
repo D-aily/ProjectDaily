@@ -7,12 +7,14 @@
 <title>D:aily</title>
 </head>
 <link rel="stylesheet" type="text/css" href="resources/myLib/mainhome.css">
+<script src="resources/myLib/jquery-3.6.0.min.js"></script>
+<script src="resources/myLib/jq_headerfixed.js"></script>
 <body>
   <!--서비스 바 (고객센터 매장위치) -->
   <div class="servicebar">
     <div class="servicebar_left_item">
-      <div class="service_item"><a href="kakaotest">고객센터</a></div>
-      <div class="service_item">매장위치</div>
+      <div class="service_item">고객센터</div>
+      <div class="service_item"><a href="kakaotest">매장위치</a></div>
     </div>
   </div>
   <!--헤더 (타이틀로고 로그인 ) -->
