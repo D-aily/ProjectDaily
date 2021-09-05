@@ -4,6 +4,7 @@ import java.util.List;
 
 import vo.MemberVO;
 
+
 public interface MemberService {
 
 //----------------------------------------------

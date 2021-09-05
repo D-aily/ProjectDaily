@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>D:aily</title>
 </head>
-<link rel="stylesheet" type="text/css" href="resources/myLib/mainhome.css">
+<link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
 <script src="resources/myLib/jquery-3.6.0.min.js"></script>
 <script src="resources/myLib/jq_headerfixed.js"></script>
 <body>

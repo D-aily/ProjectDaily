@@ -7,13 +7,6 @@ create database daily ;
 
 ============================================================
 
-------추가 해야 할 필드-------
-product - regdate image  check
-member - regdate birthd    check
-wish_list - regdate
-review - regdate image
-product_qna - regdate
-qna - regdate
 ---------------------------------
 
 create databases daily
@@ -26,7 +19,7 @@ create table member (
 	name varchar(30) not null,
 	address varchar(100) not null,
 	phone varchar(20) not null UNIQUE,
-	birthd date not null, 
+	birth date not null, 
 	state char(1) default 'T',
 	date DATETIME DEFAULT NOW(),
 	lv char(1) DEFAULT '1', 
@@ -138,16 +131,16 @@ create table pna(
 member(회원) 데이터 넣어주기 
 =====================================
 
-insert into member (id,pw,name,address,phone,birthd,state,lv,money,point) 
+insert into member (id,pw,name,address,phone,birth,state,lv,money,point) 
 values('aaa11','12345!','홍길동','성남시분당구미금역','010-1234-5678','2020-09-04','T','1',0,0); 
 
-insert into member (id,pw,name,address,phone,birthd,state,lv,money,point) 
+insert into member (id,pw,name,address,phone,birth,state,lv,money,point) 
 values('aaa22','12345!','피카츄','성남시분당구야탑역','010-2312-5093','2020-09-04','T','1',0,0); 
 
-insert into member (id,pw,name,address,phone,birthd,state,lv,money,point) 
+insert into member (id,pw,name,address,phone,birth,state,lv,money,point) 
 values('aaa33','12345!','웅이','성남시분당구정자역','010-4532-7785','2020-09-04','T','1',0,0); 
 
-insert into member (id,pw,name,address,phone,birthd,state,lv,money,point) 
+insert into member (id,pw,name,address,phone,birth,state,lv,money,point) 
 values('aaa44','12345!','지우','성남시분당구오리역','010-3265-9734','2020-09-04','T','1',0,0); 
 
 
@@ -180,7 +173,7 @@ update member set pw='123456!',
 		name='햄토리',
 		address='지옥시불지옥구A지구',
 		phone='010-4444-4444',
-		birthd='2020-04-25',
+		birth='2020-04-25',
 		state='T',
 		lv='1',
 		money=0,
