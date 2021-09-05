@@ -5,10 +5,28 @@
 <head>
 <meta charset="UTF-8">
 <title>D:aily</title>
-</head>
 <link rel="stylesheet" type="text/css" href="resources/myLib/mainhome.css">
+</head>
 <body>
-  <!--서비스 바 (고객센터 매장위치) -->
+<table>
+		<tr height="40" bgcolor="PaleTurquoise">
+			<th>productnum</th>
+			<th>name</th>
+			<th>content</th>
+			<th>date</th>
+			<th>image</th>
+		</tr>
+		<c:forEach var="list" items="${product}">
+			<tr height="40">
+				<td>${list.productnum}</td>
+				<td>${list.name}</td>
+				<td>${list.content}</td>
+				<td>${list.date}</td>
+				<td align="center">${list.image}</td>
+			</tr>
+		</c:forEach>
+	</table>
+<!--서비스 바 (고객센터 매장위치) -->
   <div class="servicebar">
     <div class="servicebar_left_item">
       <div class="service_item">고객센터</div>
@@ -53,31 +71,13 @@
     </div>
   </div>
   <br>
-  <!--main 공간지정 -->
-  <div class="main">
-    <!--컨텐트 공간지정 -->
-    <div class="content">
-      <!--이미지 공간지정 -->
-      <div class="img_box1">
-        <img src="resources/img/young-woman-4266712_1920.jpg" id="main_img">
-      </div>
-      <!--부제목 공간지정 -->
-      <div class="img_content_subtitle">
-        cloth
-      </div>
-      <!--제목 공간지정 -->
-      <div class="img_content_title">
-        2021-2022 가을 컬렉션
-      </div>
-      <!--쇼핑버튼 공간지정 -->
-      <div class="img_shopping">
-        <button type="button" id="img_shopping1" name="button">
-		<a href="">쇼핑하기</a>
-        </button>
-      </div>
-    </div>
-
-    <!--상품 간단 목록 리스트  공간지정 -->
+	<div>
+	<!-- 
+		이공간은 조건 검색을 할수있게 할예정	 -->
+	
+	
+	</div>
+    <!--상품 간단 목록 리스트 1st줄  공간지정 -->
     <div class="product">
       <div class="product_titlebar">
         <div class="product_title">
@@ -131,53 +131,65 @@
       </div>
     </div>
 
-    <br>
+    <br><br>
+	<!--상품 간단 목록 리스트 2nd줄  공간지정 -->
+	<div class="product">
+      <div class="product_titlebar">
+        <div class="product_title">
+          cloth
+        </div>
+        <div class="product_title_item">
+          더보기
+        </div>
+      </div>
+      <br>
 
-    <div class="content2">
-      <div class="img_box2">
-        <img src="resources/img/suit-690048_1280.jpg" id="main_img2">
-      </div>
-      <div class="img_content_subtitle">
-        Best
-      </div>
-      <div class="img_content_title">
-        2021-2022 Suit 컬렉션
-      </div>
-      <div class="img_shopping">
-        <button type="button" id="img_shopping2" name="button">
-         <a href="">쇼핑하기</a>
-        </button>
-      </div>
-    </div>
+      <div class="product_center_item">
+        <div class="product_item_box">
+          <div class="product_img_box">
+            <img src="resources/img/black-1984277_1280.jpg" id="product_img1">
+          </div>
 
-    <div class="content3">
-      <!--이미지 공간지정 -->
-      <div class="img_box3_list">
-        <div class="img_box3">
-          <img src="resources/img/man-1866574_1280.jpg" id="main_img">
+          <div class="product_name">상품명 5</div>
+          <div class="product_price">가격</div>
+          <div class="product_review">리뷰 수</div>
+
+        </div>
+        <div class="product_item_box">
+          <div class="product_img_box">
+            <img src="resources/img/calvin-klein-5325443_1280.jpg" id="product_img2">
+          </div>
+
+          <div class="product_name">상품 6</div>
+          <div class="product_price">가격</div>
+          <div class="product_review">리뷰 수</div>
         </div>
 
+        <div class="product_item_box">
+          <div class="product_img_box">
+            <img src="resources/img/essential-oil-3073901_1920.jpg" id="product_img3">
+          </div>
 
-      </div>
-      <!--부제목 공간지정 -->
-      <div class="img_content_subtitle">
-        cloth
-      </div>
-      <!--제목 공간지정 -->
-      <div class="img_content_title">
-        2021-2022 가을 컬렉션
-      </div>
-      <!--쇼핑버튼 공간지정 -->
-      <div class="img_shopping">
-        <button type="button" id="img_shopping3" name="button">
-           <a href="">쇼핑하기</a>
-        </button>
+          <div class="product_name">상품 7</div>
+          <div class="product_price">가격</div>
+          <div class="product_review">리뷰 수</div>
+        </div>
+
+        <div class="product_item_box">
+          <div class="product_img_box">
+            <img src="resources/img/mens-perfume-394683_1280.jpg" id="product_img4">
+          </div>
+          <div class="product_name">상품 8</div>
+          <div class="product_price">가격</div>
+          <div class="product_review">리뷰 수</div>
+        </div>
       </div>
     </div>
 
-
-  </div>
-
+    <br>
+	<!--상품 간단 목록 리스트 3rd줄  공간지정 -->
+      
+<!-- footer 공간 -->
   <div style="background-color:black;">
     <div class="adventage">
       <div class="adventage_content">
@@ -254,7 +266,6 @@
       <br>
       COPYRIGHT © CHRISTIAN Daily COUTURE KOREA ALL RIGHTS RESERVED.
     </div>
-  </div>
+  </div>	
 </body>
-
 </html>
