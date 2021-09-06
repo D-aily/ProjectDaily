@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
+Built-By: h-h
+=======
 Built-By: ctho
+>>>>>>> 3f2aa52a418974a41289d83fd12c75bbf17e1156
 Build-Jdk: 15.0.2
 Created-By: Maven Integration for Eclipse
 
