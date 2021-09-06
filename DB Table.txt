@@ -113,16 +113,17 @@ create table product_qna(
 
 
 
-create table pna(
+create table Qna(
 	qnanum int not null auto_increment primary key,
 	id varchar(10),
 	CONSTRAINT FK_pna_id FOREIGN KEY (id) REFERENCES member(id),	
-	content varchar(500),
+	title varchar(200),
+	content varchar(1000),
 	root int,
-	indnet int,
+	step int,
 	date DATETIME DEFAULT NOW(),
-	state char(1),
-	secret char(1)
+	state char(1) default 'T',
+	secret char(1) default '1'
 )
 
 
@@ -167,18 +168,26 @@ Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-0
 4);
 
 =======================================================================
-update 확인 
+qna(질문) 데이터 넣어주기 
 
-update member set pw='123456!',
-		name='햄토리',
-		address='지옥시불지옥구A지구',
-		phone='010-4444-4444',
-		birth='2020-04-25',
-		state='T',
-		lv='1',
-		money=0,
-		point=0 where id='aaa11';
-		   
+insert into qna 
+(id,title,content,root,step,secret)
+values("aaa11","상품 질문입니다."," 오.. 상품이 심상치 않은데? 반품 해주세요",1,0,'1');
+
+insert into qna 
+(id,title,content,root,step,secret)
+values("aaa11","상품 질문입니다."," 오.. 상품이 심상치 않은데? 반품 해주세요",2,0,'1');
+
+insert into qna 
+(id,title,content,root,step,secret)
+values("aaa22","질문입니다..."," 오.. 상품이 심상치 않은데? ",3,0,'1');
+
+insert into qna 
+(id,title,content,root,step,secret)
+values("aaa33","질문입니다...","  심상치 않은데? 반품 해주세요",4,0,'1');
+
+
+=======================================================================
 
 
 
