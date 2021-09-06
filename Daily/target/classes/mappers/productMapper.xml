@@ -7,7 +7,7 @@
 	<!-- 기본 CRUD + countUp 추가 -->
   <select id="selectList" resultType="vo.ProductVO">
   	select productnum,name,content,date,image,
-  	state,price2,kind,count,score from product order by productnum
+  	state,price2,kind,count,score from product order by productnum desc
   </select>
   	
   <select id="selectOne" resultType="vo.ProductVO">
