@@ -405,10 +405,14 @@ a:active {
       color: white;
     }
 	/* a태그들*/
+    .footer_box{
+    background-color: #f1f1f1;
+    }
     .footer_content{
       text-align: center;
     }
     /* 사업정보 */
     .foter_info{
       text-align: center;
+      color: #9e9e9e;
     }
