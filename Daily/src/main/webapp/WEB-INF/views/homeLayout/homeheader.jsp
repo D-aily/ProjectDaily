@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Header</title>
 </head>
 <link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
@@ -13,7 +13,7 @@
 	 <!--서비스 바 (고객센터 매장위치) -->
   <div class="servicebar">
     <div class="servicebar_left_item">
-      <div class="service_item">고객센터</div>
+      <div class="service_item"><a href="servicecenter">고객센터</a></div>
       <div class="service_item"><a href="kakaotest">매장위치</a></div>
     </div>
   </div>
