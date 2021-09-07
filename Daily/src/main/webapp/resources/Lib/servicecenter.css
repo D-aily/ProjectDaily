@@ -1,4 +1,4 @@
-	a {
+	a:not(.header_logo) {
 		color: gray;
 		text-decoration-line: none;
 	}

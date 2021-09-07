@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>D:aily</title>
 </head>
-<script src="resources/myLib/jq_headerfixed.js"></script>
 <body>
  	
  	<!-- header (로그인 ,마이페이지,위시리스트) -->

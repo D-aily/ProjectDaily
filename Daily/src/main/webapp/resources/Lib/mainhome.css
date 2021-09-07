@@ -1,18 +1,46 @@
 
-a {
+/* 제목 색갈 안변하게   */
+a:not(.home) {
 	color:gray; 
 	text-decoration:none; 
 	font-weight:bold;
 	
 	}	
-a:hover { color:DimGray; 
+
+a:hover:not(.home) { color:DimGray; 
 		  font-size: 1.2em; 
 		 } 
-a:active { 
+
+a:active:not(.home) { 
 	color:SeaGreen; 
 	} 
+/* 제목 색갈 안변하게   */
+.home{
+	color:black;
+	text-decoration:none; 
+	font-weight:bold;
+}
 
-
+	
+ /* 상품 리스트 나열 CSS */
+.product_main{
+	margin: 0 auto;
+}
+.product_list{
+  			   flex-wrap: wrap;
+   			   justify-content: space-between;
+   			   margin: 30px;
+			   list-style-type: disc;
+			   padding: 0;
+  			 }
+li { 
+	padding:0;
+	text-align: center;
+	list-style-type: none;
+     }  		
+     
+   /* 필터 바 css 구현 부 */  
+	 
 
 /* home페이지 css 구현 부  */
 /* 서비스 바 (고객센터 매장위치)*/
@@ -101,7 +129,7 @@ a:active {
       font-weight: bold;
       font-family: 'Edwardian Script ITC', Arial, sans-serif;
     }
-
+	
     /*헤더 (오른쪽공간분할 로그인 마이페이지 위시리스트 ) */
     .header_right_item {
       display: flex;
@@ -307,7 +335,7 @@ a:active {
       display: block;
       margin: auto;
       width: 400px;
-      height: 500px;
+      height: 400px;
       overflow: hidden;
       margin: 0 auto;
       text-align: center;

@@ -6,7 +6,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import jdk.internal.org.jline.utils.Log;
 import lombok.extern.log4j.Log4j;
 import vo.QnaVO;
 
