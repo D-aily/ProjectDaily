@@ -1,3 +1,18 @@
+2021-09-07 오후
+<변경사항>
+* Qna DAO 오류
+-> import jdk.internal.org.jline.utils.Log; (?) 제거
+
+* Mainhome.css
+Product_list ,li 추가
+product_img_box height 설정500->400으로 수정
+Filter 구현중....
+
+상품 리스트 css 구현해봄(확인부탁)
+
+
+
+=================================================
 2021-09-07
 <변경사항>
 테이블명이 변경pna -> Qna 
@@ -16,18 +31,3 @@ mapper 추가
 view폴더 servicecenter 추가
 
 아직 작업중 ~ ing 
-
-
-
-=================================================
-
-member.vo
-	birthd -> birth
-
-myLib->Lib
-	home.jsp
-		<link myLib->Lib>
-	
-기존에 민호씨가 넣어둔 코드 에러 수정
-	MemberServiceImpl - @service 안넣어서 에러.
-	 

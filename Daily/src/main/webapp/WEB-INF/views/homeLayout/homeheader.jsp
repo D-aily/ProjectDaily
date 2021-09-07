@@ -34,7 +34,7 @@
     </div>
     <!--헤더center (타이틀로고 ) -->
     <div class="header_logo">
-      D:aily
+      <a href="home">D:aily</a>
     </div>
     <!--헤더right (로그인 마이페이지 위시리스트 ) -->
     <div class="header_right_item">
