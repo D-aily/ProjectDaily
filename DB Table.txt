@@ -113,7 +113,7 @@ create table product_qna(
 
 
 
-create table Qna(
+create table qna(
 	qnanum int not null auto_increment primary key,
 	id varchar(10),
 	CONSTRAINT FK_pna_id FOREIGN KEY (id) REFERENCES member(id),	
