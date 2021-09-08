@@ -34,11 +34,15 @@
     </div>
     <!--헤더center (타이틀로고 ) -->
     <div class="header_logo">
+<<<<<<< HEAD
+      <a href="home">D:aily</a>
+=======
       <a  class="home" href="home">D:aily</a>
+>>>>>>> origin/master
     </div>
     <!--헤더right (로그인 마이페이지 위시리스트 ) -->
     <div class="header_right_item">
-      <div class="header_item"><a href="">로그인</a></div>
+      <div class="header_item"><a href="loginform">로그인</a></div>
       <div class="header_item"><a href="">마이페이지</a></div>
       <div class="header_item"><a href="">위시리스트</a></div>
     </div>

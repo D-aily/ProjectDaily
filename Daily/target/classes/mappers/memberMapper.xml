@@ -18,8 +18,10 @@
 	</select>
 	
 	<insert id="insert">
-		insert into member (id,pw,name,address,phone,birthd,state,lv,money,poiont)
-		values(#{id},#{pw},#{name},#{address},#{phone},#{birthd},#{state},#{lv},#{money},#{poiont})
+	<!--insert into member(id, pw, name, address, phone, birth)
+	values('test','test','test','test','test','2020-09-05'); -->
+		insert into member(id, pw, name, address, phone, birth)
+		values(#{id},#{pw},#{name},#{address},#{phone},#{birth})
 	</insert>
 		<!--date 추가시간 자동 입력  -->
 	
