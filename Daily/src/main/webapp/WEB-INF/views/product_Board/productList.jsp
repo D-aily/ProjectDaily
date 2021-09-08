@@ -70,7 +70,7 @@
     <div class="product_price">가격</div>
     <div class="product_review">리뷰 수</div>
    </li>
-  
+  <br>
   <li class="product_item">
     <div class="product_img_box">
      <a><img src="resources/img/black-1984277_1280.jpg" id="product_img1">
@@ -100,7 +100,7 @@
     <div class="product_price">가격</div>
     <div class="product_review">리뷰 수</div>
    </li>
-   
+   <br>
    <li class="product_item">
     <div class="product_img_box">
      <a><img src="resources/img/black-1984277_1280.jpg" id="product_img1">
