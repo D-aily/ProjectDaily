@@ -1,7 +1,23 @@
-	a:not(.header_logo) {
-		color: gray;
-		text-decoration-line: none;
-	}
+a:not(.home) {
+	color:gray; 
+	text-decoration:none; 
+	font-weight:bold;
+	
+	}	
+
+a:hover:not(.home) { color:DimGray; 
+		  font-size: 1.2em; 
+		 } 
+
+a:active:not(.home) { 
+	color:SeaGreen; 
+	} 
+/* 제목 색갈 안변하게   */
+.home{
+	color:black;
+	text-decoration:none; 
+	font-weight:bold;
+}
 
 	/*   header  */
 	.Servicecenter_header {
