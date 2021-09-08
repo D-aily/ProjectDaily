@@ -16,6 +16,9 @@
  	
  	<!-- main (메인 화면) -->
  	<jsp:include page="homeLayout/homemain.jsp"></jsp:include>
+
+ 	<!--boutique(부티그 설명)  -->
+ 	<jsp:include page="homeLayout/homeboutique.jsp"></jsp:include>
  	
  	<!-- footer (고객센터,배송 및 반품,FAQ,법적고지,개인정보처리방침,일반 판매 조건 ) -->
  	<jsp:include page="homeLayout/homefooter.jsp"></jsp:include>
