@@ -17,6 +17,7 @@
       <div class="nav_item"><a href="">Best</a></div>
       <div class="nav_item"><a href="">New Item</a></div>
       <div class="nav_item"><a href="">Sales</a></div>
+      <div class="nav_item"><a href="pdregistf">pdinsert</a></div>
     </div>
   </div>
   <br>
