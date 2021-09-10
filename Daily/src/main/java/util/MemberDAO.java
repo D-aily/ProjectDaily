@@ -18,7 +18,15 @@ public class MemberDAO {
 	
 	
 // ----------------------------------------------------------
-	// CRUD
+	// findpw
+	public int findpw(MemberVO vo) {
+		return sqlSession.selectOne(NS+"findpw",vo);
+	}
+	
+	// findid
+	public MemberVO findid(MemberVO vo) {
+		return sqlSession.selectOne(NS+"findid",vo);
+	}
 	
 	// selectList 
 	public List<MemberVO> selectList(){

@@ -15,6 +15,17 @@ public class MemberServiceImpl implements MemberService {
 	MemberDAO dao;
 	
 	@Override
+	public int findpw(MemberVO vo) {
+		return dao.findpw(vo);
+	}
+	
+	@Override
+	public MemberVO findid(MemberVO vo) {
+		// 아이디 찾기
+		return dao.findid(vo);
+	}
+	
+	@Override
 	public List<MemberVO> selectList() {
 		// TODO 회원 리스트
 		return dao.selectList();
