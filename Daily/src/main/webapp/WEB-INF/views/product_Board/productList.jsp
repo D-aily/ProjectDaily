@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>D:aily</title>
+<title>D:aily :: Product List</title>
 <link rel="stylesheet" type="text/css" href="resources/myLib/mainhome.css">
 </head>
 <body>
@@ -16,9 +18,10 @@
  	<!-- nav  (메뉴바)-->
  	<jsp:include page="/WEB-INF/views/homeLayout/homenav.jsp"></jsp:include>
 <!-- product main content(필터,메인상품,등등) -->
-<main class="product_main">
+
+<div class="product_main">
  <!-- 상품 리스트 공간지정 -->
- <div class="page_content">
+ <div class="product_content">
  
  <!-- filter 공간지정 -->
   <div class="filters">
@@ -38,111 +41,34 @@
    
   </div>
   
+ <c:forEach var="list" items="${Product}"> 
   <!-- 상품list 공간지정 -->
-  <ul class="product_list">
+  <div class="product_list">
+  
    <!-- 상품 공간지정 -->
-   <li class="product_item">
+   <div class="product_item">
     <div class="product_img_box">
      <a><img src="resources/img/black-1984277_1280.jpg" id="product_img1">
      </a>
     </div>
-    <div class="product_name">상품명 1</div>
-    <div class="product_price">가격</div>
-    <div class="product_review">리뷰 수</div>
-   </li>
-   
-    <li class="product_item">
-    <div class="product_img_box">
-     <a><img src="resources/img/black-1984277_1280.jpg" id="product_img1">
-     </a>
+    <!-- 상품 정보 공간지정 -->
+    <div class="product_info">
+     <div class="product_name">${list.name}</div> 
+     <div class="product_price"><span>$</span>
+     <fmt:formatNumber value="${list.price2}" pattern="#,###,###,###"/>
+      <!-- 숫자를 , 로 표시하기위함 -->
+     </div>
+     <div class="product_review">리뷰평점 :${list.score}</div>
     </div>
-    <div class="product_name">상품명 1</div>
-    <div class="product_price">가격</div>
-    <div class="product_review">리뷰 수</div>
-   </li>
-   
-    <li class="product_item">
-    <div class="product_img_box">
-     <a><img src="resources/img/black-1984277_1280.jpg" id="product_img1">
-     </a>
-    </div>
-    <div class="product_name">상품명 1</div>
-    <div class="product_price">가격</div>
-    <div class="product_review">리뷰 수</div>
-   </li>
-  
-  <li class="product_item">
-    <div class="product_img_box">
-     <a><img src="resources/img/black-1984277_1280.jpg" id="product_img1">
-     </a>
-    </div>
-    <div class="product_name">상품명 1</div>
-    <div class="product_price">가격</div>
-    <div class="product_review">리뷰 수</div>
-   </li>
-   
-   <li class="product_item">
-    <div class="product_img_box">
-     <a><img src="resources/img/black-1984277_1280.jpg" id="product_img1">
-     </a>
-    </div>
-    <div class="product_name">상품명 1</div>
-    <div class="product_price">가격</div>
-    <div class="product_review">리뷰 수</div>
-   </li>
-   
-   <li class="product_item">
-    <div class="product_img_box">
-     <a><img src="resources/img/black-1984277_1280.jpg" id="product_img1">
-     </a>
-    </div>
-    <div class="product_name">상품명 1</div>
-    <div class="product_price">가격</div>
-    <div class="product_review">리뷰 수</div>
-   </li>
-   
-   <li class="product_item">
-    <div class="product_img_box">
-     <a><img src="resources/img/black-1984277_1280.jpg" id="product_img1">
-     </a>
-    </div>
-    <div class="product_name">상품명 1</div>
-    <div class="product_price">가격</div>
-    <div class="product_review">리뷰 수</div>
-   </li>
-   
-   <li class="product_item">
-    <div class="product_img_box">
-     <a><img src="resources/img/black-1984277_1280.jpg" id="product_img1">
-     </a>
-    </div>
-    <div class="product_name">상품명 1</div>
-    <div class="product_price">가격</div>
-    <div class="product_review">리뷰 수</div>
-   </li>
-  </ul>
-  
+    
+   </div>
+ </div>
+  </c:forEach>
   
  </div> <!-- page_content -->
-</main> <!-- main -->
+</div> <!-- main -->
 
-
-<hr>
-<table>
-	<tr height="40" bgcolor="PaleTurquoise">
-			<th>productnum</th>
-			<th>name</th>
-			<th>content</th>
-			<th>date</th>
-			<th>image</th>
-			<th>state</th>
-			<th>가격</th>
-			<th>종류</th>
-			<th>조회수</th>
-			<th>평점</th>
-			
-		</tr>
-		<c:forEach var="list" items="${Product}">
+	
 			<tr height="40">
 				<td>${list.productnum}</td>
 				<td>${list.name}</td>
@@ -155,8 +81,7 @@
 				<td>${list.count}</td>
 				<td>${list.score}</td>
 			</tr>
-		</c:forEach>
-	</table>
+
 	<jsp:include page="/WEB-INF/views/homeLayout/homefooter.jsp"></jsp:include>
 </body>
 </html>

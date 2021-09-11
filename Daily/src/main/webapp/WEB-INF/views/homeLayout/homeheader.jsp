@@ -13,7 +13,7 @@
 	 <!--서비스 바 (고객센터 매장위치) -->
   <div class="servicebar">
     <div class="servicebar_left_item">
-      <div class="service_item"><a href="servicecenter">고객센터</a></div>
+      <div class="service_item"><a href="qnalist">고객센터</a></div>
       <div class="service_item"><a href="kakaotest">매장위치</a></div>
     </div>
   </div>
@@ -38,8 +38,10 @@
     </div>
     <!--헤더right (로그인 마이페이지 위시리스트 ) -->
     <div class="header_right_item">
-      <div class="header_item"><a href="loginform">로그인</a></div>
-      <div class="header_item"><a href="">마이페이지</a></div>
+      <div class="header_item"><a href="loginf">로그인</a></div>
+      <div class="header_item"><a href="joinf">회원가입</a></div>
+      <div class="header_item"><a href=logout>로그아웃</a></div>
+      <div class="header_item"><a href="mdetail">마이페이지</a></div>
       <div class="header_item"><a href="">위시리스트</a></div>
     </div>
 </body>

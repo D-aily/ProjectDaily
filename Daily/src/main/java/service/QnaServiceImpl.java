@@ -16,13 +16,7 @@ public class QnaServiceImpl implements QnaService {
 	
 	@Override
 	public int replyInsert(QnaVO vo) {
-		return dao.replyinsert(vo);
-	}
-	
-	// 글쓰기 관리자변경
-	@Override
-	public int adminupdateupdate(QnaVO vo) {
-		return dao.adminupdate(vo);
+		return dao.replyInsert(vo);
 	}
 	
 // 기본 CRUD =================================================	

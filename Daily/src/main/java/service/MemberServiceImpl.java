@@ -26,7 +26,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVO selectOne(MemberVO vo) {
 		// TODO 회원 한명 
-		return selectOne(vo);
+		return dao.selectOne(vo);
 	}
 	@Override
 	public int insert(MemberVO vo) {

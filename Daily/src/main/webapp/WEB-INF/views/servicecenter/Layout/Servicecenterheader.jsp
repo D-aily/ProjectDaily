@@ -22,16 +22,13 @@
 	<div class="qna_nav">
 		<div class="qna_nav_center">
 			<div class="qna_nav_item">
-				<a href="">Q&a</a>
+				<a href="qnalist">Q&a</a>
 			</div>
 			<div class="qna_nav_item">
-				<a href="">1:1게시판</a>
+				<a href="ntclist">공지사항</a>
 			</div>
 			<div class="qna_nav_item">
-				<a href="">FAQ</a>
-			</div>
-			<div class="qna_nav_item">
-				<a href="">자주묻는 질문</a>
+				<a href="faqlist">FAQ</a>
 			</div>
 		</div>
 

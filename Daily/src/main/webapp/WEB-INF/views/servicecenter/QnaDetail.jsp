@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Servicecenter</title>
+<title>Detail</title>
 </head>
 <link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
 <link rel="stylesheet" type="text/css"
@@ -21,17 +21,18 @@
 	<div>
 		<jsp:include page="../homeLayout/homenav.jsp"></jsp:include>
 	</div>
-	<div>
+	<jsp:include page="../servicecenter/Layout/Servicecenterheader.jsp"></jsp:include>
+
+	<div class="tablebox">
 
 		<!-- 고객센터 메뉴바 ,안내 -->
-		<jsp:include page="../servicecenter/QnaLayout/Qnaheader.jsp"></jsp:include>
 
 		<!-- list -->
 		<table>
 
 			<tr height="40">
 				<td bgcolor="SkyBlue">번호</td>
-				<td>${Qnadetail.Qnalist}</td>
+				<td>${Qnadetail.qnanum}</td>
 			</tr>
 			<tr height="40">
 				<td bgcolor="SkyBlue">아이디</td>
@@ -59,24 +60,27 @@
 				</c:if>
 			</tr>
 		</table>
+	</div>
+	<div>
 		<br>
 		<hr>
 
-		<c:if test="${SessionID==null}">
+		<c:if test="${loginID!=null}">
 			<div class="list_item">
-			<c:if test="${loginID==Apple.id || SessionID=='admin'}">
-				<a href="qnadetail?qnanum=${Qnadetail.qnanum}&jcode=Update">문의글 수정</a>
-				<a href="qnadelete?qnanum=${Qnadetail.qnanum}&id=${list.id}">${list.title}</a>
-			</c:if>
-			
-				<a href="replyf?root=${Qnadetail.root}&step=${Qnadetail.step}">답글등록</a>&nbsp;
-			
+				<c:if test="${loginID==Qnadetail.id || Lv =='5'}">
+					<a href="qnadetail?qnanum=${Qnadetail.qnanum}&jcode=Update">문의글
+						수정</a>
+					<a href="qnadelete?qnanum=${Qnadetail.qnanum}">글삭제</a>
+
+					<a href="replyf?root=${Qnadetail.root}&step=${Qnadetail.step}">답글등록</a>&nbsp;
+				</c:if>
+				<a href="qnalist">돌아가기</a>&nbsp;
 			</div>
 		</c:if>
 
 		<c:if test="${message!=null}">
 			<hr>
-			<div style="background-color:#dbffff;">${message}</div>
+			<div style="background-color: #dbffff;">${message}</div>
 		</c:if>
 
 	</div>

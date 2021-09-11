@@ -10,13 +10,13 @@
 		update qna set step=step+1 where root=#{root} and step>=#{step}
 	</update>
 	 
-	<insert id="replyinsert">
-		<selectKey keyProperty="seq" resultType="int" order="BEFORE">
+	<insert id="replyInsert">
+		<selectKey keyProperty="qnanum" resultType="int" order="BEFORE">
 			select ifnull(max(qnanum),0)+1 from qna
 		</selectKey>
 		insert into qna
 		(id,title,content,root,step,secret)
-		values(#{id},#{title},#{qnanum},#{step},#{secret})
+		values(#{id},#{title},#{content},#{root},#{step},#{secret})
 	</insert>
 
 
@@ -24,18 +24,21 @@
 
 	<!-- qnalist 검색 상태'T'-->
 	<select id="selectList" resultType="vo.QnaVO">
-		select * from qna where state = 'T' order by qnanum;
+		select * from qna where state = 'T' order by root desc, step asc;
 	</select>
 
 	<!-- Qna 상세정보보기 -->
 	<select id="selectOne" resultType="vo.QnaVO">
-		select * from qna where where qnanum = #{qnanum}
+		select * from qna where qnanum = #{qnanum}
 	</select>
 
 	<insert id="insert">
+	<selectKey keyProperty="qnanum" resultType="int" order="BEFORE">
+		select ifnull(max(qnanum),0)+1 from qna 
+	</selectKey> 
 		insert into qna
 		(id,title,content,root,step,secret)
-		values(#{id},#{title},#{qnanum},0,#{secret})
+		values(#{id},#{title},#{content},#{qnanum},0,#{secret})
 	</insert>
  	<!-- 
  	 select step from qna where qnanum = max(qnanum)
@@ -44,12 +47,12 @@
  	 -->
 	<!-- 사용자가 쓴글 변경 -->
 	<update id="update">
-		update qna set title=#{title},
-		content=#{content} where qnanum=#{qnanum}
+		update qna set title=#{title}, content=#{content}, secret=#{secret} where qnanum=#{qnanum}
 	</update>
 	
 	<!-- 관리자가 쓴글, 상태 변경 -->
 	<update id="adminupdate">
+	
 		update qna set title=#{title},
 		content=#{content},
 		state=#{state},
