@@ -13,7 +13,7 @@
  	<jsp:include page="homeLayout/homeheader.jsp"></jsp:include>
  	
  	<!-- nav  (메뉴바)-->
- 	<jsp:include page="homeLayout/homenav.jsp"></jsp:include>
+ 	<jsp:include page="homeLayout/homemenubar.jsp"></jsp:include>
  	
  	<!-- main (메인 화면) -->
  	<jsp:include page="homeLayout/homemain.jsp"></jsp:include>

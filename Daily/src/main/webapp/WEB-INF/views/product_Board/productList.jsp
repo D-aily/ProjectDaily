@@ -16,7 +16,7 @@
  	<jsp:include page="/WEB-INF/views/homeLayout/homeheader.jsp"></jsp:include>
  	
  	<!-- nav  (메뉴바)-->
- 	<jsp:include page="/WEB-INF/views/homeLayout/homenav.jsp"></jsp:include>
+ 	<jsp:include page="/WEB-INF/views/homeLayout/homemenubar.jsp"></jsp:include>
 <!-- product main content(필터,메인상품,등등) -->
 
 <div class="product_main">

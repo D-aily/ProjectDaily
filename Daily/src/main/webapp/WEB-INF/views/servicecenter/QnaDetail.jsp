@@ -19,7 +19,7 @@
 		<jsp:include page="../homeLayout/homeheader.jsp"></jsp:include>
 	</div>
 	<div>
-		<jsp:include page="../homeLayout/homenav.jsp"></jsp:include>
+		<jsp:include page="../homeLayout/homemenubar.jsp"></jsp:include>
 	</div>
 	<jsp:include page="../servicecenter/Layout/Servicecenterheader.jsp"></jsp:include>
 

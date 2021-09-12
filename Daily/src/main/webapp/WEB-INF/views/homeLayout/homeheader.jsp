@@ -27,7 +27,7 @@
 	<!--헤더 (타이틀로고 로그인 ) -->
 	<div class="container">
 		<div class="row ">
-			<div class="col">
+			<div class="col-md-4">
 				<div class="d-flex flex-row bd-highlight mb-3 header_left_item">
 					<div class="p-2 bd-highlight ">
 						<input type="text" name="search" class="search_box"
@@ -39,12 +39,12 @@
 				</div>
 
 			</div>
-			<div class="col text-center">
+			<div class="col-md-4 text-center">
 				<div class="header_logo ">
 					<a class="home" href="#"> D:aily </a>
 				</div>
 			</div>
-			<div class="col">
+			<div class="col-md-4">
 				<div class="d-flex flex-row-reverse bd-highlight header_right_item">
 					<div class="p-2 bd-highlight header_item">
 						<a href="">위시리스트</a>

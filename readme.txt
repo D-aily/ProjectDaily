@@ -1,16 +1,13 @@
-2021.09.12
 
-Q&A 게시판 (qna)- CRUD
-공지사항(ntc)- CRUD
-자주묻는 질문 (faq) - CRUD
+2021.09.12
+<변경사항>
+
+Q&A 게시판(qna) - CRUD
+공지사항 (ntc)- CRUD
+자주묻는 질문 (FAQ) - CRUD
 
 jsp에서 secret컬럼 eq 'char 타입' 안먹는문제 발생 int타입으로 변경
-(member의 lev) DBtable.txt 변경
-
-membercontroller 
-test용으로 넣었어요
-
-
+member 의 lv 컬럼 변경 (DB table 참고)
 
 
 
@@ -36,8 +33,4 @@ productList 폼 변경
 Product_regist (상품등록)페이지 ~ing
 
 3.productVO 변수 추가
-
-=================================================================
-
-
 
