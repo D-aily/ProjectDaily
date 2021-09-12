@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>D:aily</title>
+<link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
 </head>
 <body>
  	
@@ -23,5 +24,4 @@
  	<!-- footer (고객센터,배송 및 반품,FAQ,법적고지,개인정보처리방침,일반 판매 조건 ) -->
  	<jsp:include page="homeLayout/homefooter.jsp"></jsp:include>
 </body>
-
 </html>
