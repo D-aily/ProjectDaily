@@ -13,7 +13,7 @@
 	<div class="nav">
 		<div class="nav_center_item">
 			<div class="nav_item group">
-				<a class="dropdown nav_item"> Cloth </a> <br> <br>
+				<a class="dropdown nav_item" href="pdlist"> Cloth </a> <br> <br>
 				<ul class="dropdown-menu">
 					<li><a class="dropdown-item" href="pdlist">Menu item</a></li>
 					<li><a class="dropdown-item" href="pdlist">Menu item</a></li>
