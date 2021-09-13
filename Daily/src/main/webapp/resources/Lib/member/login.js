@@ -1,6 +1,40 @@
 $(function() {
 	
-
+	$('#findidbtn').click(function(){
+		$.ajax({
+			type:"post",
+			url:"findid",
+			data: {
+				name:$('#name').val(),
+				phone:$('#phone').val()
+			},
+			success:function(resultPage) {
+				$('#titleArea').html('아이디 찾기');
+				$('#resultArea').html(resultPage);
+			},
+			error:function() {
+				$('#resultArea').html("login Error");
+			}
+		});//ajax
+	});//findidbtn
+	 
+	$('#loginbtn').click(function(){
+		$.ajax({
+			type:"post",
+			url:"login",
+			data: {
+				id:$('#id').val(),
+				password:$('#pw').val()
+			},
+			success:function(resultPage) {
+				location.replace(resultPage);
+			},
+			error:function() {
+				alert('ERROR')
+			}	
+		});//ajax
+	});//loginbtn
+	
 	$('#loginform').click(function(){
 		$.ajax({
 			type:"post",
