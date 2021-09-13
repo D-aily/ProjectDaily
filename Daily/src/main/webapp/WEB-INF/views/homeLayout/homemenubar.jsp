@@ -15,9 +15,9 @@
 			<div class="nav_item group">
 				<a class="dropdown nav_item"> Cloth </a> <br> <br>
 				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Menu item</a></li>
-					<li><a class="dropdown-item" href="#">Menu item</a></li>
-					<li><a class="dropdown-item" href="#">Menu item</a></li>
+					<li><a class="dropdown-item" href="pdlist">Menu item</a></li>
+					<li><a class="dropdown-item" href="pdlist">Menu item</a></li>
+					<li><a class="dropdown-item" href="pdlist">Menu item</a></li>
 				</ul>
 			</div>
 
