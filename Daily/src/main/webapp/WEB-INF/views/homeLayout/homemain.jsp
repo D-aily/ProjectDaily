@@ -50,7 +50,7 @@
 		<div class="img_content_title">2021-2022 여성 가을 컬렉션</div>
 		<!--쇼핑버튼 공간지정 -->
 		<div class="img_shopping">
-			<button type="button" id="img_shopping1" name="button">
+			<button type="button" id="shopping_button" name="button">
 				<h2>쇼핑하기</h2>
 			</button>
 		</div>
@@ -149,7 +149,7 @@
 				<div class="img_content_title">2021-2022 남성 가을 컬렉션</div>
 				<!--쇼핑버튼 공간지정 -->
 				<div class="img_shopping">
-					<button type="button" id="img_shopping1" name="button">
+					<button type="button" id="shopping_button" name="button">
 						<h2>쇼핑하기</h2>
 					</button>
 				</div>
@@ -171,7 +171,7 @@
 				<div class="img_content_subtitle">Best</div>
 				<div class="img_content_title">2021-2022 Suit 컬렉션</div>
 				<div class="img_shopping">
-					<button type="button" id="img_shopping2" name="button">
+					<button type="button" id="shopping_button" name="button">
 						<h2>쇼핑하기</h2>
 					</button>
 				</div>
@@ -183,110 +183,133 @@
 	<br>
 
 	<div class="container">
-    <!--컨텐트 캐러벨 -->
+		<!--컨텐트 캐러벨 -->
 
-    <div id="carouselExampleControls" class="carousel_full slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="row align-items-center">
-            <div class="container">
-                <div class="row my-4 align-items-center">
-                <div class="col"><img src="resources/img/dieter-blom-kokau7OYfe4-unsplash.jpg" class="d-block w-100">
-                  <div class="">
-                    <div class="product_name">상품명 1</div>
-            				<div class="product_price">가격</div>
-            				<div class="product_review">리뷰 수</div>
-                  </div>
-                </div>
-                <div class="col"><img src="resources/img/gregory-hayes-AjJsc0hk9s0-unsplash.jpg" class="d-block w-100">
-                  <div class="product_name">상품명 1</div>
-            				<div class="product_price">가격</div>
-            				<div class="product_review">리뷰 수</div>
-                </div>
-                <div class="col"><img src="resources/img/nate-johnston-dLbz-zn89EU-unsplash.jpg" class="d-block w-100">
-                  <div class="product_name">상품명 1</div>
-            				<div class="product_price">가격</div>
-            				<div class="product_review">리뷰 수</div>
-                </div>
-                <div class="col"><img src="resources/img/mohamad-khosravi-Ll6ggwPpKIo-unsplash.jpg" class="d-block w-100">
-                  <div class="product_name">상품명 1</div>
-            				<div class="product_price">가격</div>
-            				<div class="product_review">리뷰 수</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="row align-items-center">
-            <div class="container">
-                <div class="row my-4 align-items-center">
-                <div class="col"><img src="resources/img/lukacs-krisztina-by-TNnbC4uc-unsplash.jpg" class="d-block w-100">
-                  <div class="">
-                    <div class="product_name">상품명 1</div>
-            				<div class="product_price">가격</div>
-            				<div class="product_review">리뷰 수</div>
-                  </div>
-                </div>
-                <div class="col"><img src="resources/img/dieter-blom-Y8Me4ZbyEb4-unsplash.jpg" class="d-block w-100">
-                  <div class="product_name">상품명 1</div>
-            				<div class="product_price">가격</div>
-            				<div class="product_review">리뷰 수</div>
-                </div>
-                <div class="col"><img src="resources/img/jacob-blankenship-lfJil4DrWRU-unsplash.jpg" class="d-block w-100">
-                  <div class="product_name">상품명 1</div>
-            				<div class="product_price">가격</div>
-            				<div class="product_review">리뷰 수</div>
-                </div>
-                <div class="col"><img src="resources/img/grigore-ricky-TVUUz6bMFSQ-unsplash.jpg" class="d-block w-100">
-                  <div class="product_name">상품명 1</div>
-            				<div class="product_price">가격</div>
-            				<div class="product_review">리뷰 수</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="row align-items-center">
-            <div class="container">
-                <div class="row my-4 align-items-center">
-                <div class="col"><img src="resources/img/nojan-namdar-a3RhaDG_pNM-unsplash.jpg" class="d-block w-100">
-                  <div class="">
-                    <div class="product_name">상품명 1</div>
-            				<div class="product_price">가격</div>
-            				<div class="product_review">리뷰 수</div>
-                  </div>
-                </div>
-                <div class="col"><img src="resources/img/wiktor-marcinkowski-U5tPDKLRVgc-unsplash.jpg" class="d-block w-100">
-                  <div class="product_name">상품명 1</div>
-            				<div class="product_price">가격</div>
-            				<div class="product_review">리뷰 수</div>
-                </div>
-                <div class="col"><img src="resources/img/mei-ling-mirow-Kbl1RYTPIDA-unsplash.jpg" class="d-block w-100">
-                  <div class="product_name">상품명 1</div>
-            				<div class="product_price">가격</div>
-            				<div class="product_review">리뷰 수</div>
-                </div>
-                <div class="col"><img src="resources/img/andrew-wise-R_UlRPqb8Iw-unsplash.jpg" class="d-block w-100">
-                  <div class="product_name">상품명 1</div>
-            				<div class="product_price">가격</div>
-            				<div class="product_review">리뷰 수</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
+		<div id="carouselExampleControls" class="carousel_full slide"
+			data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<div class="row align-items-center">
+						<div class="container">
+							<div class="row my-4 align-items-center">
+								<div class="col">
+									<img src="resources/img/dieter-blom-kokau7OYfe4-unsplash.jpg"
+										class="d-block w-100">
+									<div class="">
+										<div class="product_name">상품명 1</div>
+										<div class="product_price">가격</div>
+										<div class="product_review">리뷰 수</div>
+									</div>
+								</div>
+								<div class="col">
+									<img src="resources/img/gregory-hayes-AjJsc0hk9s0-unsplash.jpg"
+										class="d-block w-100">
+									<div class="product_name">상품명 1</div>
+									<div class="product_price">가격</div>
+									<div class="product_review">리뷰 수</div>
+								</div>
+								<div class="col">
+									<img src="resources/img/nate-johnston-dLbz-zn89EU-unsplash.jpg"
+										class="d-block w-100">
+									<div class="product_name">상품명 1</div>
+									<div class="product_price">가격</div>
+									<div class="product_review">리뷰 수</div>
+								</div>
+								<div class="col">
+									<img
+										src="resources/img/mohamad-khosravi-Ll6ggwPpKIo-unsplash.jpg"
+										class="d-block w-100">
+									<div class="product_name">상품명 1</div>
+									<div class="product_price">가격</div>
+									<div class="product_review">리뷰 수</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="row align-items-center">
+						<div class="container">
+							<div class="row my-4 align-items-center">
+								<div class="col">
+									<img
+										src="resources/img/lukacs-krisztina-by-TNnbC4uc-unsplash.jpg"
+										class="d-block w-100">
+									<div class="">
+										<div class="product_name">상품명 1</div>
+										<div class="product_price">가격</div>
+										<div class="product_review">리뷰 수</div>
+									</div>
+								</div>
+								<div class="col">
+									<img src="resources/img/dieter-blom-Y8Me4ZbyEb4-unsplash.jpg"
+										class="d-block w-100">
+									<div class="product_name">상품명 1</div>
+									<div class="product_price">가격</div>
+									<div class="product_review">리뷰 수</div>
+								</div>
+								<div class="col">
+									<img
+										src="resources/img/jacob-blankenship-lfJil4DrWRU-unsplash.jpg"
+										class="d-block w-100">
+									<div class="product_name">상품명 1</div>
+									<div class="product_price">가격</div>
+									<div class="product_review">리뷰 수</div>
+								</div>
+								<div class="col">
+									<img src="resources/img/grigore-ricky-TVUUz6bMFSQ-unsplash.jpg"
+										class="d-block w-100">
+									<div class="product_name">상품명 1</div>
+									<div class="product_price">가격</div>
+									<div class="product_review">리뷰 수</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="row align-items-center">
+						<div class="container">
+							<div class="row my-4 align-items-center">
+								<div class="col">
+									<img src="resources/img/nojan-namdar-a3RhaDG_pNM-unsplash.jpg"
+										class="d-block w-100">
+									<div class="">
+										<div class="product_name">상품명 1</div>
+										<div class="product_price">가격</div>
+										<div class="product_review">리뷰 수</div>
+									</div>
+								</div>
+								<div class="col">
+									<img
+										src="resources/img/wiktor-marcinkowski-U5tPDKLRVgc-unsplash.jpg"
+										class="d-block w-100">
+									<div class="product_name">상품명 1</div>
+									<div class="product_price">가격</div>
+									<div class="product_review">리뷰 수</div>
+								</div>
+								<div class="col">
+									<img
+										src="resources/img/mei-ling-mirow-Kbl1RYTPIDA-unsplash.jpg"
+										class="d-block w-100">
+									<div class="product_name">상품명 1</div>
+									<div class="product_price">가격</div>
+									<div class="product_review">리뷰 수</div>
+								</div>
+								<div class="col">
+									<img src="resources/img/andrew-wise-R_UlRPqb8Iw-unsplash.jpg"
+										class="d-block w-100">
+									<div class="product_name">상품명 1</div>
+									<div class="product_price">가격</div>
+									<div class="product_review">리뷰 수</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 
