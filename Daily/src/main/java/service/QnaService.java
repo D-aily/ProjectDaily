@@ -14,7 +14,6 @@ public interface QnaService {
 	QnaVO selectOne(QnaVO vo);
 	int insert (QnaVO vo);
 	int update (QnaVO vo);
-	int adminupdateupdate (QnaVO vo);
 	int delete (QnaVO vo);
 		
 }//interface 

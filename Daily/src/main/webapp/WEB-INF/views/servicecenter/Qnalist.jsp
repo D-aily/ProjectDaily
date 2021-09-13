@@ -19,58 +19,15 @@
 		<jsp:include page="../homeLayout/homeheader.jsp"></jsp:include>
 	</div>
 	<div>
-		<jsp:include page="../homeLayout/homenav.jsp"></jsp:include>
+		<jsp:include page="../homeLayout/homemenubar.jsp"></jsp:include>
 	</div>
 	<div>
-		<!-- Servicecenter header-->
-		<div class="Servicecenter_header">고객센터</div>
 
-		<!-- Servicecenter_nav-bar -->
-		<div class="qna_nav">
-			<div class="qna_nav_center">
-				<div class="qna_nav_item">
-					<a href="">Q&a</a>
-				</div>
-				<div class="qna_nav_item">
-					<a href="">1:1게시판</a>
-				</div>
-				<div class="qna_nav_item">
-					<a href="">FAQ</a>
-				</div>
-				<div class="qna_nav_item">
-					<a href="">자주묻는 질문</a>
-				</div>
-			</div>
+		<!-- 고객센터 메뉴바 ,안내 -->
+		<jsp:include page="../servicecenter/Layout/Servicecenterheader.jsp"></jsp:include>
 
-		</div>
-
-		<!-- Servicecenter_info -->
-		<div class="info">
-			<div class="info_left">
-				<div class="info_left_img">
-					<img src="resources/img/serviceicon.png">
-				</div>
-				<div class="info_left_warap">
-					<div class="info_word_a">D:aily 고객 만족 센터</div>
-					<div class="info_word_b">1234-1234</div>
-					<div class="info_word_c">평일 10:00 ~ 17:00 점심 13:00 ~ 14:00</div>
-					<div>주말, 공휴일휴무</div>
-				</div>
-			</div>
-
-			<div class="info_right">
-				<div class="info_right_img">
-					<img src="resources/img/picon.png">
-				</div>
-				<div class="info_right_warap">
-					<div class="info_word_a">편리한 실시간상담</div>
-					<div class="info_word_d">카톡친구추가 Dailyshopping</div>
-					<div class="info_word_c">평일 11:00 ~ 17:00</div>
-					<div>주말, 공휴일휴무</div>
-				</div>
-			</div>
-		</div>
-
+	
+	
 		<!-- list -->
 		<table>
 
@@ -80,26 +37,72 @@
 				<th>아이디</th>
 				<th>제목</th>
 				<th>등록일</th>
-				<th>공개여부</th>
+				<th hidden="hidden">공개여부</th>
 			</tr>
-			<c:forEach var="list" items="${Qnalist}">
+
+
+			<c:forEach var="list" items="${Qnalist}" varStatus="status">
+
 				<tr>
 					<td>${list.qnanum}</td>
-					<td>${list.id}</td>
-					<td>${list.title}</td>
+					<td><c:out value="${list.id}"></c:out></td>
+
+
+					<!-- 로그인시에만 글을 볼수 있도록 -->
+					<c:if test="${loginID!=null}">
+					<td>
+					<!-- 답글 계층도 x -->
+						<c:if test="${list.step>0}">
+							<c:forEach begin="1" end="${list.step}">
+								<span>&nbsp;&nbsp;</span>
+								<span style="color: Purple">re..</span>
+							</c:forEach>
+						</c:if>
+						
+						<c:choose>
+							<c:when test="${list.secret eq 1}">
+								<a href="qnadetail?qnanum=${list.qnanum}&id=${list.id}">${list.title}</a>
+							</c:when>
+							<c:when
+								test="${ list.secret eq 2 && list.id == loginID || Lv == '5'}">
+								<a href="qnadetail?qnanum=${list.qnanum}&id=${list.id}">비밀글
+										입니다.</a>
+							</c:when>
+							<c:when test="${list.secret eq 2}"> 
+								비밀글 입니다.
+							</c:when>
+						</c:choose>
+						</td>
+					</c:if>
+					<!-- 비 로그인시 -->
+					<c:if test="${loginID==null}">
+						<c:if test="${list.secret eq 1}">
+							<td><a href="qnadetail?qnanum=${list.qnanum}&id=${list.id}">${list.title}</a></td>
+						</c:if>
+
+						<c:if test="${list.secret eq 2}">
+							<td>비밀글 입니다.</td>
+						</c:if>
+					</c:if>
+
 					<td>${list.date}</td>
-					<td>${list.secret}</td>
+					<td hidden="hidden">${list.secret}</td>
 				</tr>
 			</c:forEach>
-
-
 		</table>
+		<br>
+		<hr>
+
+		<c:if test="${loginID!=null}">
+			<div class="list_item">
+				<a href="qnainsertf">문의글 쓰기</a>
+			</div>
+
+		</c:if>
 
 		<!-- paging -->
-		<div>
-		
-		</div>
-	
+		<div></div>
+
 
 	</div>
 	<!--main  -->

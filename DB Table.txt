@@ -5,12 +5,13 @@
 
 create database daily ;
 
+drop database daily;
 ============================================================
 
 ---------------------------------
 
-create databases daily
-use daily
+create database daily;
+use daily;
 
 ----------------------------------
 create table member (
@@ -22,10 +23,10 @@ create table member (
 	birth date not null, 
 	state char(1) default 'T',
 	date DATETIME DEFAULT NOW(),
-	lv char(1) DEFAULT '1', 
+	lv int DEFAULT 1 not null, 
 	money int DEFAULT 0,
 	point int DEFAULT 0
-)
+);
 
 
 
@@ -46,7 +47,7 @@ create table product (
 	kind char(1),
 	count int,
 	score int
-)
+);
 
 
 
@@ -59,7 +60,7 @@ create table wish_list(
 	 CONSTRAINT FK_wish_productnum FOREIGN KEY (productnum) REFERENCES product(productnum),
 	quantity int default 1,
 	date DATETIME DEFAULT NOW()	
-)
+);
 	
 
 
@@ -71,7 +72,7 @@ create table orders(
 	ordersnum int NOT NULL AUTO_INCREMENT primary key,
 	id varchar(100) not null,
 	CONSTRAINT FK_order_id FOREIGN KEY (id) REFERENCES member(id)
-)
+);
 
 
 
@@ -89,7 +90,7 @@ create table review(
 	state char(1) default 'T',
 	image varchar(100),
 	score int check( 0<score<6) default 5 
-)
+);
 
 
 
@@ -105,7 +106,7 @@ create table product_qna(
 	date DATETIME DEFAULT NOW(),
 	state char(1),
 	secret char(1)
-)
+);
 
 
 
@@ -123,8 +124,46 @@ create table qna(
 	step int,
 	date DATETIME DEFAULT NOW(),
 	state char(1) default 'T',
-	secret char(1) default '1'
-)
+	secret int default 1
+);
+
+
+
+
+
+** FAQ (자주묻는 질문)(관리자가 일부 항목만 작성)
+create table faq(
+	faqnum int not null auto_increment primary key,
+	id varchar(10),
+	CONSTRAINT FK_faq_id FOREIGN KEY (id) REFERENCES member(id),	
+	title varchar(200),
+	content varchar(1000),
+	date DATETIME DEFAULT NOW()
+	);
+
+insert into faq ()
+
+
+
+
+
+
+
+** 공지사항 (관리자 만 작성 )
+create table ntc(
+	ntcnum int not null auto_increment primary key,
+	id varchar(10),
+	CONSTRAINT FK_ntc_id FOREIGN KEY (id) REFERENCES member(id),	
+	title varchar(800),
+	content varchar(1000),
+	date DATETIME DEFAULT NOW()
+);
+
+
+
+
+
+
 
 
 
@@ -132,17 +171,20 @@ create table qna(
 member(회원) 데이터 넣어주기 
 =====================================
 
-insert into member (id,pw,name,address,phone,birth,state,lv,money,point) 
-values('aaa11','12345!','홍길동','성남시분당구미금역','010-1234-5678','2020-09-04','T','1',0,0); 
+insert into member (id,pw,name,address,phone,birth,state,money,point) 
+values('aaa11','12345!','홍길동','성남시분당구미금역','010-1234-5678','2020-09-04','T',0,0); 
+
+insert into member (id,pw,name,address,phone,birth,state,money,point) 
+values('aaa22','12345!','피카츄','성남시분당구야탑역','010-2312-5093','2020-09-04','T',0,0); 
+
+insert into member (id,pw,name,address,phone,birth,state,money,point) 
+values('aaa33','12345!','웅이','성남시분당구정자역','010-4532-7785','2020-09-04','T',0,0); 
+
+insert into member (id,pw,name,address,phone,birth,state,money,point) 
+values('aaa44','12345!','지우','성남시분당구오리역','010-3265-9734','2020-09-04','T',0,0); 
 
 insert into member (id,pw,name,address,phone,birth,state,lv,money,point) 
-values('aaa22','12345!','피카츄','성남시분당구야탑역','010-2312-5093','2020-09-04','T','1',0,0); 
-
-insert into member (id,pw,name,address,phone,birth,state,lv,money,point) 
-values('aaa33','12345!','웅이','성남시분당구정자역','010-4532-7785','2020-09-04','T','1',0,0); 
-
-insert into member (id,pw,name,address,phone,birth,state,lv,money,point) 
-values('aaa44','12345!','지우','성남시분당구오리역','010-3265-9734','2020-09-04','T','1',0,0); 
+values('admin','12345!','관리자','성남시분당구미금역','010-1234-5328','2020-09-04','T',5,0,0); 
 
 
 ======================================================================
@@ -172,22 +214,53 @@ qna(질문) 데이터 넣어주기
 
 insert into qna 
 (id,title,content,root,step,secret)
-values("aaa11","상품 질문입니다."," 오.. 상품이 심상치 않은데? 반품 해주세요",1,0,'1');
+values("aaa11","상품 질문입니다."," 오.. 상품이 심상치 않은데? 반품 해주세요",1,0,1);
 
 insert into qna 
 (id,title,content,root,step,secret)
-values("aaa11","상품 질문입니다."," 오.. 상품이 심상치 않은데? 반품 해주세요",2,0,'1');
+values("aaa11","상품 질문입니다."," 오.. 상품이 심상치 않은데? 반품 해주세요",2,0,1);
 
 insert into qna 
 (id,title,content,root,step,secret)
-values("aaa22","질문입니다..."," 오.. 상품이 심상치 않은데? ",3,0,'1');
+values("aaa22","질문입니다..."," 오.. 상품이 심상치 않은데? ",3,0,1);
 
 insert into qna 
 (id,title,content,root,step,secret)
-values("aaa33","질문입니다...","  심상치 않은데? 반품 해주세요",4,0,'1');
+values("aaa33","질문입니다...","  심상치 않은데? 반품 해주세요",4,0,1);
+
+insert into qna 
+(id,title,content,root,step,secret)
+values("aaa22","질문입니다..."," 제발돼라",5,0,2);
+
+insert into qna 
+(id,title,content,root,step,secret)
+values("aaa22","질문입니다...","  제발돼라",6,0,2);
+
 
 
 =======================================================================
+
+ntc 공지사항 데이터 
+
+insert into ntc (id,title,content) values('admin','향수 신상품이 등록되었습니다','1.daily 수제향수 2.xx향수 3.yy향수');
+
+insert into ntc (id,title,content) values('admin','sale 품목이 등록되었습니다','가을맞이 상품 할인 최대 20% 적용 품목 ..~');
+
+insert into ntc (id,title,content) values('admin','이번 한달간 적립금 이벤트','적립금은 충전시 8%증가합니다 ');
+
+
+
+
+=======================================================================
+faq 자주묻는 질문 데이터 
+
+insert into faq (id,title,content) values('admin','배송은 언제되는 것인가여?','주문직후 바로 배송 처리합니다.');
+
+insert into faq (id,title,content) values('admin','반품에 대한 문제','고객센터 전화번호로 문의주시면 빠르게 해결할수이있습니다');
+
+insert into faq (id,title,content) values('admin','적립금/쿠폰/회원관련','적립금은 충전 즉시 적립됩니다.');
+
+
 
 
 

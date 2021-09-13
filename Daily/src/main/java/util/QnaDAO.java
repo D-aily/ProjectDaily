@@ -21,9 +21,9 @@ public class QnaDAO {
 	
 	
 	//답글 등록 
-	public int replyinsert(QnaVO vo){
+	public int replyInsert(QnaVO vo){
 		log.info("Qna_step_Update count =>"+sqlSession.update(NS+"stepUpdate",vo));
-		return sqlSession.insert(NS+"replyinsert",vo);
+		return sqlSession.insert(NS+"replyInsert",vo);
 	}
 	
 
@@ -48,11 +48,6 @@ public class QnaDAO {
 	// update
 	public int update(QnaVO vo) {
 		return sqlSession.update(NS + "update", vo);
-	}
-
-	// adminupdate
-	public int adminupdate(QnaVO vo) {
-		return sqlSession.update(NS + "adminupdate", vo);
 	}
 
 	// delete

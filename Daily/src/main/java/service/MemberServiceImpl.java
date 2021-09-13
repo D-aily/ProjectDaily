@@ -10,17 +10,21 @@ import vo.MemberVO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-	
 	@Autowired
 	MemberDAO dao;
 	
+	
+	
+	
+	//----------------------------------------------
+		// 기본 CRUD
 	@Override
 	public List<MemberVO> selectList() {
 		// TODO 회원 리스트
 		return dao.selectList();
 	}
 	@Override
-	public MemberVO selectOne(MemberVO vo) { 
+	public MemberVO selectOne(MemberVO vo) {
 		// TODO 회원 한명 
 		return dao.selectOne(vo);
 	}

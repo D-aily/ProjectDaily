@@ -12,7 +12,7 @@ public class MemberVO {
 	private String birth; 
 	private char state; 
 	private String date; 
-	private char lev ; 
+	private int lv ; 
 	private int money; 
 	private int point; 
 }
