@@ -10,7 +10,7 @@ public class ProductVO {
 	private String name;
 	private String content;
 	private String date;
-	private String image; //출력할 DB에 저장된 이미지 경로
+	private String image; //출력할 DB에 저장된 이미지 경로 및 파일명
 	private char state; // 판매상태(판매중'T'<->'F')
 	private int price1 ; //원가
 	private int price2 ; //판매가
@@ -22,7 +22,7 @@ public class ProductVO {
 	private int count ; //조회수
 	private int score; //상품평
 	
-	private MultipartFile imagef; 
-	//입력시 form에 이미지 정보를 전달받기위한 매개변수
+	// private MultipartFile imagef; 
+	//입력시 form에 이미지 정보를 전달받기위한 매개변수 특별한 파일
 	
 }

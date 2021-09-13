@@ -56,6 +56,17 @@
 		<beans:property name="order" value="1" />
 	</beans:bean>
 	
-
+	<!-- ** Image Upload :  MultipartResolver -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="-1"></beans:property>
+	</beans:bean>
+	<!-- => id , name 변경 불가능 
+	( 대부분의  Resolver 로 끝나는 클래스의 경우에는 이미 정해져 있기 때문에 변경 불가능 하다 )
+	=> maxUploadSize 는 지정하지 않으면 default 값은 -1 이며 크기 무제한 이 됨.  -->
+	
+	<!-- ** Image DownLoad 
+       => 다운로드를 처리할 ViewResolver 클래스 등록
+         => id="download" 와  컨트롤러의 매핑메서드에서 리턴된 view name 과 같아야 한다.    -->
+   <beans:bean id="download" class="downTest.DownloadView"/>
 	
 </beans:beans>

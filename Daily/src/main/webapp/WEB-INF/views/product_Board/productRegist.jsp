@@ -15,18 +15,17 @@
 <!-- nav  (메뉴바)-->
 <jsp:include page="/WEB-INF/views/homeLayout/homenav.jsp"></jsp:include>
 
-
- <!-- 상품 등록 Form -->
-<form action="pdinsert" method="post" enctype="multipart/form-data" >
+<c:if test="${message!=null}">
+ => ${message}<br>
+	</c:if>
+ <!-- 상품 등록 Form enctype="multipart/form-data"-->
+<form action="pdregist" method="get" >
 <table class="regist_table">
 <th> 상품 등록 </th>
 <tr><td>상품명</td>
 	<td><input type="text" name="name" id="name"></td></tr>
 <tr><td>상세 설명</td>
 	<td><textarea name="content" rows="10" cols="20"></textarea></td></tr>
-	
-<tr><td>등록 날짜</td>
-	<td><input type="text" name="date" id="date"></td></tr>
 <tr><td>사진</td>
 	<td><img src="" class="select_img"><br>
 	<input type="file" name="imagef" id="imagef"></td></tr>

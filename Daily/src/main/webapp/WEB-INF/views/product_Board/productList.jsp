@@ -40,7 +40,9 @@
    </div>
    
   </div>
-  
+  	<c:if test="${message!=null}">
+ => ${message}<br>
+	</c:if>
  <c:forEach var="list" items="${Product}"> 
   <!-- 상품list 공간지정 -->
   <div class="product_list">
@@ -63,24 +65,11 @@
     
    </div>
  </div>
+ 
   </c:forEach>
   
  </div> <!-- page_content -->
 </div> <!-- main -->
-
-	
-			<tr height="40">
-				<td>${list.productnum}</td>
-				<td>${list.name}</td>
-				<td>${list.content}</td>
-				<td>${list.date}</td>
-				<td>${list.image}</td>
-				<td>${list.state}</td>
-				<td>${list.price2}</td>
-				<td>${list.kind}</td>
-				<td>${list.count}</td>
-				<td>${list.score}</td>
-			</tr>
 
 	<jsp:include page="/WEB-INF/views/homeLayout/homefooter.jsp"></jsp:include>
 </body>

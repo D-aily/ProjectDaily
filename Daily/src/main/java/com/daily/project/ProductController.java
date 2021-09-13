@@ -3,9 +3,9 @@ package com.daily.project;
 import java.io.IOException;
 import java.util.List;
 
-import javax.jws.WebParam.Mode;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,10 +47,10 @@ public class ProductController {
 	//상품 등록
 	@RequestMapping(value = "/pdregist")
 	public ModelAndView pdregist(ModelAndView mv, ProductVO vo, HttpServletRequest request )throws IOException {
-		
+		System.out.println("insert =>"+vo);
 		if(service.insert(vo) > 0) {
 			mv.addObject("message","상품 등록이 완료되었습니다.");
-			mv.setViewName("product_Board/productList");
+			mv.setViewName("home");
 		}else {
 			mv.addObject("message", "상품 등록이 실패하였습니다. 다시 시도해주세요!");
 			mv.setViewName("product_Board/productRegist");
@@ -65,7 +65,7 @@ public class ProductController {
 		
 		vo = service.selectOne(vo);
 		if(vo != null) {
-			request.setAttribute("product", vo);
+			request.setAttribute("Product", vo);
 			if("U".equals(request.getParameter("jcode"))) {
 				//업데이트로 넘어가기
 				mv.setViewName("product_Board/productUpdate");
