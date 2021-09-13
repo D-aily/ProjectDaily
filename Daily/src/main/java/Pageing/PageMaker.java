@@ -18,7 +18,7 @@ public class PageMaker {
 	
 	private Searchpage page; 
 	
-	public void setPage(Searchpage page) {
+	public void setPage(Searchpage page) { // 요청페이지값 
 		this.page =page;
 	}
 	
