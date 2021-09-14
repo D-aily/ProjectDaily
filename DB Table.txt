@@ -207,24 +207,24 @@ Values('롱더블코트','기장감이 길고 오버핏의 코트','2021-09-04',
 
 Insert into product 
 (name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
-Values('블랙가죽가방','하이브랜드 구찌에서 제작한 블랙 벨트','2021-09-14','T',225000,998000,(price2-price1),20,20,'4',
+Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
 4);
 
 Insert into product 
 (name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
-Values('구찌화이트백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
+Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
 4);
 Insert into product 
 (name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
-Values('구찌네이비백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
+Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
 4);
 Insert into product 
 (name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
-Values('구찌그레이백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
+Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
 4);
 Insert into product 
 (name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
-Values('구찌히든백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
+Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
 4);
 =======================================================================
 qna(질문) 데이터 넣어주기 
