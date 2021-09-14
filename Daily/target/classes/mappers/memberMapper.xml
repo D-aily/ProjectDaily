@@ -9,12 +9,6 @@
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     -기본 CRUD SQL문
  -->
- 	
- 	
- 	<select id="findid" resultType="vo.MemberVO">
- 		select * from member where name=${name} and phone=${phone}
- 	</select>
- 
 	<select id="selectList" resultType="vo.MemberVO">
 		select * from member where lv != '5' order by id;
 	</select>

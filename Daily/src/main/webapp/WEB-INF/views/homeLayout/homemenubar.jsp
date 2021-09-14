@@ -24,7 +24,7 @@
 			<div class="nav_item group">
 				<a class="dropdown nav_item"> Perfume </a> <br> <br>
 				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Menu item</a></li>
+					<li><a class="dropdown-item" href="pdregistf">Menu item</a></li>
 					<li><a class="dropdown-item" href="#">Menu item</a></li>
 					<li><a class="dropdown-item" href="#">Menu item</a></li>
 				</ul>
