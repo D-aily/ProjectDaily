@@ -8,8 +8,8 @@ import lombok.ToString;
 public class PageRow {
 	private int rowPerPage; // 1페이지당 row개수
 	private int	currPage; // 현재페이지
-	private int sno ; // 시작페이지
-	private int eno ; // 끝페이지 
+	private int sno ; // 열(목록)시작번호 
+	private int eno ; // 열(목록)끝번호  
 	
 	public PageRow() {
 		this.rowPerPage=5;

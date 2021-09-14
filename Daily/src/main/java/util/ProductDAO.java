@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import Pageing.Searchpage;
 import vo.ProductVO;
 
 @Repository
@@ -15,7 +16,16 @@ public class ProductDAO {
 	
 	private static final String NS = "daily.mapper.ProductMapper.";
 	
-// ----------------------------------------------------------
+
+	
+	//pageList
+	public int searchRowsCount(Searchpage page ){
+		return sqlSession.selectOne(NS+"searchRowsCount",page);
+	}
+	public List<ProductVO> searchList(Searchpage page) {
+		return sqlSession.selectList(NS+"searchList",page);
+	}
+	
 	// CRUD + countUp
 	
 	//selectList

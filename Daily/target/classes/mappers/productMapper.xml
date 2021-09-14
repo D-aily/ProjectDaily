@@ -1,42 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="daily.mapper.ProductMapper">
-  	
-  	
+<mapper namespace="daily.mapper.ProductMapper">
+
+	<sql id="search">
+		<if test="keyword != null">
+			<bind name="keyVal" value="'%'+keyword+'%'" />
+		</if>
+		<choose>
+			<!-- 이름 product -->
+			<when test="searchType=='p'.toString()">
+				and name Like #{keyVal} )
+			</when>
+			<!-- 판매가 cost -->
+			<when test="searchType=='c'.toString()">
+				and price2 Like #{keyVal} )
+			</when>
+			<!-- 종류 kind -->
+			<when test="searchType=='k'.toString()">
+				and kind Like #{keyVal} )
+			</when>
+			<!-- 상품평 score -->
+			<when test="searchType=='s'.toString()">
+				and score Like #{keyVal} )
+			</when>
+			<!-- 이름+종류 통합검색-->
+			<when test="(keyword != null) and (searchType == null)">
+				and name Like '%' || #{keyword} || '%'
+				or kind Like '%' || #{keyword} || '%')
+			</when>
+			<otherwise>)</otherwise> 
+		</choose>
+			
+	</sql>
+
+
+
+
+	<select id="searchRowsCount" resultType="int">
+	<![CDATA[
+		select count(*) from product where ( productnum > 0 ]]>
+		<include refid="search"></include>
+		<!-- 조건문의 id : search -->
+	</select>
+
+	<!-- -->
+	<select id="searchList" resultType="vo.ProductVO">
+	<![CDATA[
+		select productnum,name,content,date,state,price1,price2,price3,
+		quantity1,quantity2,kind,count,score from product 
+		where (productnum > 0 ]]>
+		<include refid="search"></include>
+		<!-- 조건문의 id : search -->
+		where product limit #{rowPerPage} OFFSET #{sno}
+		<!-- between #{sno} and #{eno} -->
+	</select>
+
+
+
+
+
 	<!-- 기본 CRUD + countUp 추가 -->
-  <select id="selectList" resultType="vo.ProductVO">
-  	select productnum,name,content,date,image,
-  	state,price1,price2,price3,quantity1,quantity2,kind,count,score from product order by productnum desc
-  </select>
-  	
-  <select id="selectOne" resultType="vo.ProductVO">
-  	select productnum,name,content,date,image,
-  	state,price2,kind,count,score from product where productnum = #{productnum}
-  </select>
-  	
-  <insert id="insert">
-  	<selectKey keyProperty="productnum" resultType="int" order="BEFORE">
-  		select IFNULL(max(productnum),0)+1 from product
-  	</selectKey> 
-  	insert into product (name,content,date,image,
-  	state,price1,price2,price3,quantity1,quantity2,kind,count,score) 
-  	values (#{name},#{content},now(),#{image},#{state},#{price1},#{price2},
-  			#{price3},#{quantity1},#{quantity2},#{kind},0,0)
-  </insert> 
-	
-  <update id="update">
-  	update product set name = #{name}, content = #{content}, image = #{image}
-  	state = #{state}, price1 = #{price1}, price2 = #{price2}, quantity1 = #{quantity1},
-  	quantity2 = #{quantity2}, kind = #{kind} where productnum = #{productnum}
-  </update>	
-	
-  <update id="countUp">
-  	update product set count = count+1 where productnum = #{productnum}
-  </update>
-	
-  <delete id="delete">
-  	delete from product where productnum = #{productnum}
-  </delete>
-  
-  </mapper>
+	<select id="selectList" resultType="vo.ProductVO">
+		select productnum,name,content,date,image,
+		state,price1,price2,price3,quantity1,quantity2,kind,count,score from
+		product order by productnum desc
+	</select>
+
+	<select id="selectOne" resultType="vo.ProductVO">
+		select productnum,name,content,date,image,
+		state,price2,kind,count,score from product where productnum = #{productnum}
+	</select>
+
+	<insert id="insert">
+		<selectKey keyProperty="productnum" resultType="int"
+			order="BEFORE">
+			select IFNULL(max(productnum),0)+1 from product
+		</selectKey>
+		insert into product (name,content,date,image,
+		state,price1,price2,price3,quantity1,quantity2,kind,count,score)
+		values
+		(#{name},#{content},now(),#{image},#{state},#{price1},#{price2},
+		#{price3},#{quantity1},#{quantity2},#{kind},0,0)
+	</insert>
+
+	<update id="update">
+		update product set name = #{name}, content = #{content}, image = #{image}
+		state = #{state}, price1 = #{price1}, price2 = #{price2}, quantity1 =
+		#{quantity1},
+		quantity2 = #{quantity2}, kind = #{kind} where productnum = #{productnum}
+	</update>
+
+	<update id="countUp">
+		update product set count = count+1 where productnum = #{productnum}
+	</update>
+
+	<delete id="delete">
+		delete from product where productnum = #{productnum}
+	</delete>
+
+</mapper>

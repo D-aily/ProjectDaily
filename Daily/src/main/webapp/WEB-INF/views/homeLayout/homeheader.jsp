@@ -9,6 +9,19 @@
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
+<script>
+$(function(){
+	$("#searchBtn").on("click",function(){
+		self.location="psplist"
+		+"${pageMaker.makeQuery(1)}"
+		+"&searchType="
+		+$('#searchType').val()
+		+&'keyword='
+		+$('#keyword').val()
+	})
+	
+})// ready 
+</script>
 </head>
 <body>
 	<!--서비스 바 (고객센터 매장위치) -->
@@ -29,12 +42,12 @@
 		<div class="row ">
 			<div class="col-md-4">
 				<div class="d-flex flex-row bd-highlight mb-3 header_left_item">
-					<div class="p-2 bd-highlight ">
-						<input type="text" name="search" class="search_box"
+					<div class="p-2 bd-highlight">
+						<input type="text" name="keyword" id="keyword" value="${pageMaker.page.keyword}" class="search_box"
 							placeholder="상품을 검색해보세요">
 					</div>
 					<div class="p-2 bd-highlight button_left">
-						<input type="button" class="search_button">
+						<button id="searchBtn" class="search_button"></button>
 					</div>
 				</div>
 

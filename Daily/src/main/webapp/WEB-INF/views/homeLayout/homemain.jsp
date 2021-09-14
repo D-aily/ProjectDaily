@@ -71,7 +71,7 @@
 		<div class="row my-4 align-items-center">
 			<div class="col-sm">
 				<div class="row">
-					<img src="resources/img/black-1984277_1280.jpg" id="product_img1">
+					<img src="resources/img/black.jpg" id="product_img1">
 				</div>
 
 				<div class="product_name">상품명 1</div>
@@ -81,7 +81,7 @@
 			</div>
 			<div class="col-sm">
 				<div class="row">
-					<img src="resources/img/calvin-klein-5325443_1280.jpg"
+					<img src="resources/img/calvin-klein.jpg"
 						id="product_img2">
 				</div>
 

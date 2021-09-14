@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import Pageing.PageMaker;
+import Pageing.Searchpage;
 import service.ProductService;
 import vo.ProductVO;
 
@@ -24,6 +26,25 @@ public class ProductController {
 
 	@Autowired
 	ProductService service; // 전역 변수 서비스
+	
+	
+	//searchpagelist 
+	@RequestMapping(value="psplist")
+	public ModelAndView psplist(ModelAndView mv, Searchpage sp , PageMaker pageMaker) {
+		
+		sp.setSnoEno();
+		
+		mv.addObject("spList",service.searchList(sp));
+		pageMaker.setPage(sp);
+		pageMaker.setTotalRowCount(service.searchRowsCount(sp));
+		
+		System.out.println("*** pageMaker =>"+ pageMaker);
+		mv.addObject("pageMaker",pageMaker);
+		mv.setViewName("product_Board/pSearchList");
+		
+		return mv;
+	}
+	
 	
 	//상품 리스트
 	@RequestMapping(value = "/pdlist")

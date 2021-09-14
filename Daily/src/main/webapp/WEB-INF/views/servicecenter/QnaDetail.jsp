@@ -46,6 +46,7 @@
 				<td bgcolor="SkyBlue">내용</td>
 				<td><textarea rows="10" cols="40" readonly>${Qnadetail.content}</textarea></td>
 			</tr>
+			
 			<tr height="40">
 				<td bgcolor="SkyBlue">등록일</td>
 				<td>${Qnadetail.date}</td>

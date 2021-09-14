@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import Pageing.Searchpage;
 import util.ProductDAO;
 import vo.ProductVO;
 
@@ -14,7 +15,17 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	ProductDAO dao;
 	
-//----------------------------------------------
+	
+	@Override
+	public int searchRowsCount(Searchpage page) {
+		return dao.searchRowsCount(page);
+	}
+	
+	@Override
+	public List<ProductVO> searchList(Searchpage page) {
+		return dao.searchList(page);
+	}
+	
 	// 기본 CRUD	+ countUp
 	@Override
 	public List<ProductVO> selectList() {
