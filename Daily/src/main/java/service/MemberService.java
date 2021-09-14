@@ -12,7 +12,7 @@ public interface MemberService {
 	
 	List<MemberVO> selectList();
 	MemberVO selectOne(MemberVO vo);
-	MemberVO findpw(MemberVO vo);
+	int findpw(MemberVO vo);
 	MemberVO findid(MemberVO vo);
 	int insert(MemberVO vo);
 	int update(MemberVO vo);
