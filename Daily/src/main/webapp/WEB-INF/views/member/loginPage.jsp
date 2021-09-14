@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>D:aily :: 아이디 찾기</title>
+<title>D:aily :: 로그인</title>
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
-<script src="resources/Lib/member/login.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
 <style>
-form {
+#form {
 	text-align: center;
 	margin: 0 auto;
 }
@@ -22,29 +22,39 @@ form {
 	border-radius: 10%;
 }
 
-img {
-	margin-top: 20px;
-	margin-bottom: 80px;
-}
 
-input {
+.btn {
 	width: 300px;
 	margin: 10px;
 }
 </style>
 </head>
 <body>
-		<form action="findid" method="post">
-			<h1>아이디 찾기</h1>
-			<input type="text" name="name" id="name" placeholder="이름을 입력해주세요."><br>
-			<input type="text" name="phone" id="phone" placeholder="핸드폰번호를 입력해주세요."><br>
+<!-- header (로그인 ,마이페이지,위시리스트) -->
+	<div>
+		<jsp:include page="../homeLayout/homeheader.jsp"></jsp:include>
+	</div>
+	<div>
+		<jsp:include page="../homeLayout/homemenubar.jsp"></jsp:include>
+	</div>
+
+<!-- 로그인 부분 -->
+	<div id="resultArea" class="border">
+		<form action="login" method="post" id="form">
+			<h1>로그인</h1>
+			<input type="text" name="id" id="id" placeholder="아이디를 입력해주세요."><br>
+			<input type="password" name="pw" id="pw" placeholder="비밀번호를 입력해주세요."><br>
 			<br>
 			<hr>
 			<div id="loginmenu">
-				<input type="submit" value="아이디 찾기">
-				<input type="button" value="회원가입" id="signup">
-				<input type="button" value="비밀번호 찾기" id="findpw">
+				<input type="submit" value="로그인" class="btn"><br>
+				<input type="button" value="회원가입" class="btn" onclick="location.href='signuppage'">
+				<input type="button" value="아이디/비밀번호 찾기" class="btn" onclick="location.href='findidpage'">
+
 			</div>
 		</form>
+	</div>
+	
+	
 </body>
 </html>

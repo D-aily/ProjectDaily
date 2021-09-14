@@ -7,9 +7,9 @@
 <meta charset="UTF-8">
 <title>D:aily :: 아이디 찾기</title>
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
-<script src="resources/Lib/member/login.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
 <style>
-form {
+#form {
 	text-align: center;
 	margin: 0 auto;
 }
@@ -22,34 +22,29 @@ form {
 	border-radius: 10%;
 }
 
-img {
-	margin-top: 20px;
-	margin-bottom: 80px;
-}
-
-input {
+.btn {
 	width: 300px;
 	margin: 10px;
 }
 </style>
 </head>
 <body>
+	<!-- header (로그인 ,마이페이지,위시리스트) -->
 	<div>
-		<span>아이디 찾기</span><br>
-		<td>${finder}님의아이디는"${findidresult.id}"입니다</td>
+		<jsp:include page="../homeLayout/homeheader.jsp"></jsp:include>
 	</div>
-	<br>
 	<div>
-		<span id="loginform">로그인</span> <span id="findpw">비밀번호 찾기</span>
+		<jsp:include page="../homeLayout/homemenubar.jsp"></jsp:include>
 	</div>
-	<br><br>
-	<hr>
-	<div id="loginmenu">
-		<input type="button" value="로그인">
-		<input type="button" value="회원가입" id="signup">
-		<input type="button" value="비밀번호 찾기" id="findpw">
+	<!-- 아이디 찾기 결과 form -->
+	<div id="resultArea" class="border">
+	<br>${finder}님의아이디는"${findidresult.id}"입니다 <br>
+		<hr>
+		<div id="loginmenu">
+			<input type="button" value="회원가입" class="btn" onclick="location.href='signuppage'">
+			<input type="button" value="비밀번호 찾기" class="btn" onclick="location.href='findpwpage'">
+		</div>
 	</div>
 </body>
 </html>
-		
-	
+
