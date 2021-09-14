@@ -47,7 +47,11 @@
 
 			</div>
 			<c:if test="${message!=null}">
+<<<<<<< HEAD
  				=> ${message}<br>
+=======
+ => ${message}<br>
+>>>>>>> d66852bf8c6158ba9ad76f80bfbc3db373caa6de
 			</c:if>
 			<c:forEach var="list" items="${Product}">
 				<!-- 상품list 공간지정 -->
@@ -102,6 +106,7 @@
 	<!-- main -->
 
 	<hr>
+<<<<<<< HEAD
 
 	<c:if test="${loginID!=null && Lv == '5'}">
 		<div class="list_item">
@@ -119,5 +124,37 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
 		crossorigin="anonymous"></script>
+=======
+
+	<table>
+		<c:forEach var="list" items="${Faqlist}" varStatus="status">
+			<tr>
+				<td>${list.faqnum}</td>
+				<td><c:out value="${list.id}"></c:out></td>
+				<td><a href="faqdetail?faqnum=${list.faqnum}&id=${list.id}">${list.title}</a></td>
+				<td>${list.date}</td>
+			</tr>
+		</c:forEach>
+	</table>
+	<br>
+	<hr>
+
+	<c:if test="${loginID!=null && Lv == '5'}">
+		<div class="list_item">
+			<a href="/productRegist">상품 등록</a>
+		</div>
+
+	</c:if>
+
+	<!-- paging -->
+	<div></div>
+
+
+
+
+
+
+	<jsp:include page="/WEB-INF/views/homeLayout/homefooter.jsp"></jsp:include>
+>>>>>>> d66852bf8c6158ba9ad76f80bfbc3db373caa6de
 </body>
 </html>

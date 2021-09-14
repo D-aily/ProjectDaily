@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,17 +48,21 @@
 			<div class="col-md-4">
 				<div class="d-flex flex-row-reverse bd-highlight header_right_item">
 					<div class="p-2 bd-highlight header_item">
-						<a href="">위시리스트</a>
+						<a href="wishlist">위시리스트</a>
 					</div>
 					<div class="p-2 bd-highlight header_item">
-						<a href="mdetail">마이페이지</a>
+						<a href="mypage">마이페이지</a>
 					</div>
-					<div class="p-2 bd-highlight header_item">
-						<a href=logout>로그아웃</a>
-					</div>
-					<div class="p-2 bd-highlight header_item">
-						<a href="loginf">로그인</a>
-					</div>
+					<c:if test="${loginInfo!=null}">
+						<div class="p-2 bd-highlight header_item">
+							<a href=logout>로그아웃</a>
+						</div>
+					</c:if>
+					<c:if test="${loginInfo==null}">
+						<div class="p-2 bd-highlight header_item">
+							<a href="loginform">로그인</a>
+						</div>
+					</c:if>
 				</div>
 			</div>
 		</div>

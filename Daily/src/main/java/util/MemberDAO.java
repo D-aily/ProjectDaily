@@ -16,9 +16,15 @@ public class MemberDAO {
 	
 	private static final String NS = "daily.mapper.MemberMapper.";
 	
+	// findpw
+	public MemberVO findid(MemberVO vo) {
+		return sqlSession.selectOne(NS+"findid",vo);
+	}
 	
-// ----------------------------------------------------------
-	// CRUD
+	// findpw
+	public MemberVO findpw(MemberVO vo) {
+		return sqlSession.selectOne(NS+"findpw",vo);
+	}
 	
 	// selectList 
 	public List<MemberVO> selectList(){
