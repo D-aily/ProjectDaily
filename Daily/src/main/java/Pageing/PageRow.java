@@ -12,7 +12,7 @@ public class PageRow {
 	private int eno ; // 열(목록)끝번호  
 	
 	public PageRow() {
-		this.rowPerPage=5;
+		this.rowPerPage=4;
 		this.currPage=1;
 	}
 	
@@ -24,7 +24,7 @@ public class PageRow {
 	}
 	
 	public void setRowPerPage(int rowPerPage) {
-		if (rowPerPage<5 || rowPerPage>30) {
+		if (rowPerPage<4 || rowPerPage>30) {
 			this.rowPerPage=5;
 		}
 		else this.rowPerPage=rowPerPage;

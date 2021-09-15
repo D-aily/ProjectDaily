@@ -29,8 +29,8 @@ public class ProductDAO {
 	}
 	
 	// 상품옵션 통합검색 
-	public List<ProductVO> searchtypesearchList(Searchpage page) {
-		return sqlSession.selectList(NS+"searchtypesearchList", page);
+	public List<ProductVO> optionsearchList(Searchpage page) {
+		return sqlSession.selectList(NS+"optionsearchList", page);
 	}
 	
 	

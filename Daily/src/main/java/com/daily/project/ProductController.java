@@ -28,17 +28,21 @@ public class ProductController {
 	
 	//optionsearchlist 
 			@RequestMapping(value="poslist")
-			public ModelAndView psplist(ModelAndView mv, Searchpage sp , PageMaker pageMaker) {
+			public ModelAndView poslist(ModelAndView mv, Searchpage sp , PageMaker pageMaker) {
 				
+				//시작번호 끝 번호
 				sp.setSnoEno();
-				
+				//옵션 선택 쿼리
 				mv.addObject("spList",service.optionsearchList(sp));
+				//페이지 값 내용 열 set
 				pageMaker.setPage(sp);
+				//페이지바 총개수 set
 				pageMaker.setTotalRowCount(service.searchRowsCount(sp));
 				
 				System.out.println("*** pageMaker =>"+ pageMaker);
+				
 				mv.addObject("pageMaker",pageMaker);
-				mv.setViewName("product_Board/poptSearchList");
+				mv.setViewName("product_Board/ppageSearchList");
 				
 				return mv;
 			}

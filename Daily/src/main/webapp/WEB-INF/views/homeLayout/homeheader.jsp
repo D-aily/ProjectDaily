@@ -12,11 +12,10 @@
 <link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
 <script>
 $(function(){
-	$("#searchBtn").on("click",function(){
+	$("#searchbutton").on("click",function(){
 		self.location="pkplist"  
 		+"${pageMaker.searchQuery(1)}"
-		+&'keyword='
-		+$('#keyword').val()
+		
 	})
 	
 })// ready 
@@ -40,6 +39,7 @@ $(function(){
 	<div class="container">
 		<div class="row ">
 			<div class="col-md-4">
+				<form action="pkplist" method="get" id="kserch">
 				<div class="d-flex flex-row bd-highlight mb-3 header_left_item">
 					<div class="p-2 bd-highlight">
 						<input type="text" name="keyword" id="keyword"
@@ -47,9 +47,10 @@ $(function(){
 							placeholder="상품을 검색해보세요">
 					</div>
 					<div class="p-2 bd-highlight button_left">
-						<button id="searchBtn" class="search_button"></button>
+						  <button type="submit" class="search_button" form="kserch"></button>
 					</div>
 				</div>
+				</form>
 
 			</div>
 			<div class="col-md-4 text-center">
