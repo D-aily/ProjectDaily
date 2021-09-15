@@ -6,23 +6,24 @@
 <head>
 <meta charset="UTF-8">
 <title>D:aily :: Product Registration</title>
-<script src="resources/Lib/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="resources/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="resources/myLib/mainhome.css">
+<link rel="stylesheet" type="text/css"
+	href="resources/myLib/mainhome.css">
+<link rel="stylesheet" type="text/css"
+	href="resources/myLib/productForm.css">
 </head>
 <body>
 	<!-- header (로그인 ,마이페이지,위시리스트) -->
 	<jsp:include page="/WEB-INF/views/homeLayout/homeheader.jsp"></jsp:include>
 	<!-- nav  (메뉴바)-->
 	<jsp:include page="/WEB-INF/views/homeLayout/homemenubar.jsp"></jsp:include>
- <!-- 메인 박스 -->
-<div class="mx-auto text-primary" style="width: 400px;">
-	<!-- 상품 등록 Form -->
+
+	<c:if test="${message!=null}">
+ => ${message}<br>
+	</c:if>
+	<!-- 상품 등록 Form enctype="multipart/form-data"-->
 	<form action="pdregist" method="post" enctype="multipart/form-data">
 		<table class="regist_table">
-			<tr>
-			<th colspan="1">상품 등록</th>
-			</tr>
+			<th>상품 등록</th>
 			<tr>
 				<td>상품명</td>
 				<td><input type="text" name="name" id="name"></td>
@@ -100,14 +101,8 @@
 
 		</table>
 	</form>
-</div>	
 	<!-- footer (고객센터) -->
 	<jsp:include page="/WEB-INF/views/homeLayout/homefooter.jsp"></jsp:include>
-	<!-- 부트스트랩 -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-		crossorigin="anonymous"></script>
 </body>
 </body>
 </html>

@@ -34,22 +34,17 @@ input {
 </style>
 </head>
 <body>
-	<div>
-		<span>아이디 찾기</span><br>
-		<td>${finder}님의아이디는"${findidresult.id}"입니다</td>
-	</div>
-	<br>
-	<div>
-		<span id="loginform">로그인</span> <span id="findpw">비밀번호 찾기</span>
-	</div>
-	<br><br>
-	<hr>
-	<div id="loginmenu">
-		<input type="button" value="로그인">
-		<input type="button" value="회원가입" id="signup">
-		<input type="button" value="비밀번호 찾기" id="findpw">
-	</div>
+		<form action="findid" method="post">
+			<h1>아이디 찾기</h1>
+			<input type="text" name="name" id="name" placeholder="이름을 입력해주세요."><br>
+			<input type="text" name="phone" id="phone" placeholder="핸드폰번호를 입력해주세요."><br>
+			<br>
+			<hr>
+			<div id="loginmenu">
+				<input type="submit" value="아이디 찾기">
+				<input type="button" value="회원가입" id="signup">
+				<input type="button" value="비밀번호 찾기" id="findpw">
+			</div>
+		</form>
 </body>
 </html>
-		
-	
