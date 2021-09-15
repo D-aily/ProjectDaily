@@ -18,7 +18,7 @@ public class MemberServiceImpl implements MemberService {
 		return dao.findid(vo);
 	}
 	@Override
-	public MemberVO findpw(MemberVO vo) {
+	public int findpw(MemberVO vo) {
 		return dao.findpw(vo);
 	}
 

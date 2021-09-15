@@ -22,8 +22,8 @@ public class MemberDAO {
 	}
 	
 	// findpw
-	public MemberVO findpw(MemberVO vo) {
-		return sqlSession.selectOne(NS+"findpw",vo);
+	public int findpw(MemberVO vo) {
+		return sqlSession.update(NS+"findpw",vo);
 	}
 	
 	// selectList 
