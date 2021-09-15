@@ -14,37 +14,37 @@ public class MemberServiceImpl implements MemberService {
 	MemberDAO dao;
 	
 	@Override
-	public MemberVO findid(MemberVO vo) {
-		return dao.findid(vo);
+	public MemberVO mfindid(MemberVO vo) {
+		return dao.mfindid(vo);
 	}
 	@Override
-	public MemberVO findpw(MemberVO vo) {
-		return dao.findpw(vo);
+	public MemberVO mfindpw(MemberVO vo) {
+		return dao.mfindpw(vo);
 	}
 
 	@Override
-	public List<MemberVO> selectList() {
+	public List<MemberVO> mselectList() {
 		// TODO 회원 리스트
-		return dao.selectList();
+		return dao.mselectList();
 	}
 	@Override
-	public MemberVO selectOne(MemberVO vo) {
+	public MemberVO mselectOne(MemberVO vo) {
 		// TODO 회원 한명 
-		return dao.selectOne(vo);
+		return dao.mselectOne(vo);
 	}
 	@Override
-	public int insert(MemberVO vo) {
+	public int minsert(MemberVO vo) {
 		// TODO 추가
-		return dao.insert(vo);
+		return dao.minsert(vo);
 	}
 	@Override
-	public int update(MemberVO vo) {
+	public int mupdate(MemberVO vo) {
 		// TODO 수정
-		return dao.update(vo);
+		return dao.mupdate(vo);
 	}
 	@Override
-	public int delete(MemberVO vo) {
+	public int mdelete(MemberVO vo) {
 		// TODO 삭제
-		return dao.delete(vo);
+		return dao.mdelete(vo);
 	}
 }

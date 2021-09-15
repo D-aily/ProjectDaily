@@ -73,7 +73,7 @@ $(function(){
 					</c:if>
 					<c:if test="${loginInfo==null}">
 						<div class="p-2 bd-highlight header_item">
-							<a href="loginform">로그인</a>
+							<a href="loginpage">로그인</a>
 						</div>
 					</c:if>
 				</div>

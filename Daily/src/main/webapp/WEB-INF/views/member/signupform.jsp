@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-	<form action="signup" method="post" id="signupform">
+	<form action="msignup" method="post" id="signupform">
 		<table>
 			<tr>
 				<td>아이디</td>

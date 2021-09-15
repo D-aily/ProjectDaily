@@ -40,7 +40,7 @@
 
 	<!-- 아이디 찾기 -->
 	<div id="resultArea" class="border">
-		<form action="findid" method="post" id="form">
+		<form action="mfindid" method="post" id="form">
 			<h1>아이디 찾기</h1>
 			<input type="text" name="name" id="name" placeholder="이름을 입력해주세요."><br>
 			<input type="text" name="phone" id="phone" placeholder="핸드폰번호를 입력해주세요."><br> <br>

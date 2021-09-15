@@ -37,7 +37,7 @@
 	</div>
 	<!-- 비밀번호 변경 -->
 	<div id="resultArea" class="border">
-		<form action="findpw" method="post">
+		<form action="mfindpw" method="post">
 			<table>
 				<span>비밀번호 변경</span>
 				<tr>
