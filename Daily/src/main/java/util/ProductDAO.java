@@ -22,9 +22,18 @@ public class ProductDAO {
 	public int searchRowsCount(Searchpage page ){
 		return sqlSession.selectOne(NS+"searchRowsCount",page);
 	}
-	public List<ProductVO> searchList(Searchpage page) {
-		return sqlSession.selectList(NS+"searchList",page);
+	
+	// 입력 통합검색
+	public List<ProductVO> keywordsearchList(Searchpage page) {
+		return sqlSession.selectList(NS+"keywordsearchList", page);
 	}
+	
+	// 상품옵션 통합검색 
+	public List<ProductVO> searchtypesearchList(Searchpage page) {
+		return sqlSession.selectList(NS+"searchtypesearchList", page);
+	}
+	
+	
 	
 	// CRUD + countUp
 	

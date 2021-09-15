@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>D:aily :: 아이디/비밀번호 찾기</title>
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
-<script src="resources/member/login.js"></script>
+<script src="resources/Lib/member/login.js"></script>
 <style>
 </style>
 </head>

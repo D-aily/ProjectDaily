@@ -3,73 +3,119 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="daily.mapper.ProductMapper">
 
-	<sql id="search">
+	<sql id="costsearch">
+			<if test="costsearch != null">
+				<!-- 판매가 cost -->
+				<if test="costsearch=='c1'.toString()">
+					and price2 between 10000 and 30000 
+				</if>
+				<if test="costsearch=='c2'.toString()">
+					and price2 between 30001 and 40000 
+				</if>
+				<if test="costsearch=='c3'.toString()">
+					and price2 between 40001 and 50000 
+				</if>
+				<if test="costsearch=='c4'.toString()">
+				<![CDATA[ and price2 > 50001   ]]>
+				</if>
+			</if>
+	</sql>
+	<sql id="kindsearch">
+		<!-- 종류 kind -->
+			<if test="kindsearch != null">
+				<if test="kindsearch=='k1'.toString()">
+					and kind=1 
+				</if>
+				<if test="kindsearch=='k2'.toString()">
+					and kind=2 
+				</if>
+				<if test="kindsearch=='k3'.toString()">
+					and kind=3 
+				</if>
+				<if test="kindsearch=='k4'.toString()">
+					and kind=4
+				</if>
+			</if>
+	</sql>
+	<sql id="scoresearch">
+		<!-- 상품평 score -->
+			<if test="scoresearch != null">
+				<if test="scoresearch=='s1'.toString()">
+					and score=1 
+				</if>
+				<if test="scoresearch=='s2'.toString()">
+					and score=2
+				</if>
+				<if test="scoresearch=='s3'.toString()">
+					and score=3
+				</if>
+				<if test="scoresearch=='s4'.toString()">
+					and score=4
+				</if>
+				<if test="scoresearch=='s5'.toString()">
+					and score=5
+				</if>
+			</if>
+	</sql>
+	<sql id="keyword">
 		<if test="keyword != null">
-			<bind name="keyVal" value="'%'+keyword+'%'" />
+			and name Like '%' || #{keyword} || '%'
+			or kind Like '%' || #{keyword} || '%'
 		</if>
-		<choose>
-			<!-- 이름 product -->
-			<when test="searchType=='p'.toString()">
-				and name Like #{keyVal} )
-			</when>
-			<!-- 판매가 cost -->
-			<when test="searchType=='c'.toString()">
-				and price2 Like #{keyVal} )
-			</when>
-			<!-- 종류 kind -->
-			<when test="searchType=='k'.toString()">
-				and kind Like #{keyVal} )
-			</when>
-			<!-- 상품평 score -->
-			<when test="searchType=='s'.toString()">
-				and score Like #{keyVal} )
-			</when>
-			<!-- 이름+종류 통합검색-->
-			<when test="(keyword != null) and (searchType == null)">
-				and name Like '%' || #{keyword} || '%'
-				or kind Like '%' || #{keyword} || '%')
-			</when>
-			<otherwise>)</otherwise> 
-		</choose>
-			
 	</sql>
 
 
-
-
+	<!-- 순서 bcplist?curPage=1&rowsPerPage=3&searchType=t&keyword=Java -->
 	<select id="searchRowsCount" resultType="int">
 	<![CDATA[
-		select count(*) from product where ( productnum > 0 ]]>
-		<include refid="search"></include>
+		select count(*) from product where productnum > 0 ]]>
+		<!-- 옵션 검색 -->
+		<include refid="costsearch"></include>
+		<include refid="kindsearch"></include>
+		<include refid="scoresearch"></include>
+		<!-- 입력 검색 -->
+		<include refid="keyword"></include>
 		<!-- 조건문의 id : search -->
 	</select>
 
-	<!-- -->
-	<select id="searchList" resultType="vo.ProductVO">
+	<!-- 입력 통합검색 -->
+	<select id="keywordsearchList" resultType="vo.ProductVO">
 	<![CDATA[
 		select productnum,name,content,date,state,price1,price2,price3,
 		quantity1,quantity2,kind,count,score from product 
-		where (productnum > 0 ]]>
-		<include refid="search"></include>
-		<!-- 조건문의 id : search -->
-		where product limit #{rowPerPage} OFFSET #{sno}
+		where productnum > 0 ]]>
+		<include refid="keyword"></include>
+		limit #{rowPerPage} OFFSET #{sno}
 		<!-- between #{sno} and #{eno} -->
 	</select>
 
-
-
-
+	<!-- 옵션 조합검색 -->
+	<select id="optionsearchList" resultType="vo.ProductVO">
+	<![CDATA[
+		select productnum,name,content,date,state,price1,price2,price3,
+		quantity1,quantity2,kind,count,score from product 
+		where productnum > 0 ]]>
+		<include refid="costsearch"></include>
+		<include refid="kindsearch"></include>
+		<include refid="scoresearch"></include>
+		<!-- 조건문의 id : search -->
+		limit #{rowPerPage} OFFSET #{sno}
+		<!-- between #{sno} and #{eno} -->
+	</select>
 
 	<!-- 기본 CRUD + countUp 추가 -->
 	<select id="selectList" resultType="vo.ProductVO">
-		select productnum,name,content,date,image,
+		select
+		productnum,name,content,date,image,
 		state,price1,price2,price3,quantity1,quantity2,kind,count,score from
 		product order by productnum desc
 	</select>
 
 	<select id="selectOne" resultType="vo.ProductVO">
-		select productnum,name,content,date,image,
-		state,price2,kind,count,score from product where productnum = #{productnum}
+		select
+		productnum,name,content,date,image,
+		state,price2,kind,count,score from
+		product where productnum = #{productnum}
 	</select>
 
 	<insert id="insert">
@@ -85,14 +131,18 @@
 	</insert>
 
 	<update id="update">
-		update product set name = #{name}, content = #{content}, image = #{image}
-		state = #{state}, price1 = #{price1}, price2 = #{price2}, quantity1 =
+		update product set name = #{name}, content =
+		#{content}, image = #{image}
+		state = #{state}, price1 = #{price1},
+		price2 = #{price2}, quantity1 =
 		#{quantity1},
-		quantity2 = #{quantity2}, kind = #{kind} where productnum = #{productnum}
+		quantity2 = #{quantity2},
+		kind = #{kind} where productnum = #{productnum}
 	</update>
 
 	<update id="countUp">
-		update product set count = count+1 where productnum = #{productnum}
+		update product set count = count+1 where productnum =
+		#{productnum}
 	</update>
 
 	<delete id="delete">

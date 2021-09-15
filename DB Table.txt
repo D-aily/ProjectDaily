@@ -44,11 +44,12 @@ create table product (
 	price3 int,
 	quantity1 int,
 	quantity2 int,
-	kind char(1),
+	kind int,
 	count int,
 	score int
 );
 
+Kind => char 로 데이터를 받아오지지
 
 
 
@@ -209,6 +210,22 @@ Insert into product
 Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
 4);
 
+Insert into product 
+(name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
+Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
+4);
+Insert into product 
+(name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
+Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
+4);
+Insert into product 
+(name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
+Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
+4);
+Insert into product 
+(name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
+Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
+4);
 =======================================================================
 qna(질문) 데이터 넣어주기 
 

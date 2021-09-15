@@ -12,12 +12,16 @@ import vo.MemberVO;
 public class MemberServiceImpl implements MemberService {
 	@Autowired
 	MemberDAO dao;
-
+	
+	@Override
+	public MemberVO findid(MemberVO vo) {
+		return dao.findid(vo);
+	}
 	@Override
 	public MemberVO findpw(MemberVO vo) {
 		return dao.findpw(vo);
 	}
-	
+
 	@Override
 	public List<MemberVO> selectList() {
 		// TODO 회원 리스트

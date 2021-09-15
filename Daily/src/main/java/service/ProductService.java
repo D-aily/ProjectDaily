@@ -10,7 +10,8 @@ public interface ProductService {
 
 	
 	public int searchRowsCount(Searchpage page);
-	public List<ProductVO> searchList(Searchpage page);
+	public List<ProductVO> keywordsearchList(Searchpage page);
+	public List<ProductVO> optionsearchList(Searchpage page);
 	
 	// 기본 CRUD
 	List<ProductVO> selectList();

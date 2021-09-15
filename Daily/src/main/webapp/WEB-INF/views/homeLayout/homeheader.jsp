@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +13,8 @@
 <script>
 $(function(){
 	$("#searchBtn").on("click",function(){
-		self.location="psplist"
-		+"${pageMaker.makeQuery(1)}"
-		+"&searchType="
-		+$('#searchType').val()
+		self.location="pkplist"  
+		+"${pageMaker.searchQuery(1)}"
 		+&'keyword='
 		+$('#keyword').val()
 	})
@@ -43,7 +42,8 @@ $(function(){
 			<div class="col-md-4">
 				<div class="d-flex flex-row bd-highlight mb-3 header_left_item">
 					<div class="p-2 bd-highlight">
-						<input type="text" name="keyword" id="keyword" value="${pageMaker.page.keyword}" class="search_box"
+						<input type="text" name="keyword" id="keyword"
+							value="${pageMaker.page.keyword}" class="search_box"
 							placeholder="상품을 검색해보세요">
 					</div>
 					<div class="p-2 bd-highlight button_left">
@@ -60,23 +60,30 @@ $(function(){
 			<div class="col-md-4">
 				<div class="d-flex flex-row-reverse bd-highlight header_right_item">
 					<div class="p-2 bd-highlight header_item">
-						<a href="">위시리스트</a>
+						<a href="wishlist">위시리스트</a>
 					</div>
 					<div class="p-2 bd-highlight header_item">
-						<a href="mdetail">마이페이지</a>
+						<a href="mypage">마이페이지</a>
 					</div>
-					<div class="p-2 bd-highlight header_item">
-						<a href=logout>로그아웃</a>
-					</div>
-					<div class="p-2 bd-highlight header_item">
-						<a href="loginf">로그인</a>
-					</div>
+					<c:if test="${loginInfo!=null}">
+						<div class="p-2 bd-highlight header_item">
+							<a href=logout>로그아웃</a>
+						</div>
+					</c:if>
+					<c:if test="${loginInfo==null}">
+						<div class="p-2 bd-highlight header_item">
+							<a href="loginform">로그인</a>
+						</div>
+					</c:if>
 				</div>
 			</div>
 		</div>
 	</div>
-	
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+		crossorigin="anonymous"></script>
 
 </body>
 </html>

@@ -23,6 +23,9 @@ import service.ProductService;
 @Controller
 public class HomeController {
 	
+	@Autowired
+	ProductService service; // 전역 변수 서비스
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
@@ -50,6 +53,30 @@ public class HomeController {
 	//고객센터 
 	
 	
+	//keywordsearchlist 
+		@RequestMapping(value="pkplist")
+		public ModelAndView psplist(ModelAndView mv, Searchpage sp , PageMaker pageMaker) {
+			
+			sp.setSnoEno();
+			
+			mv.addObject("spList",service.keywordsearchList(sp));
+			pageMaker.setPage(sp);
+			pageMaker.setTotalRowCount(service.searchRowsCount(sp));
+			
+			System.out.println("*** pageMaker =>"+ pageMaker);
+			mv.addObject("pageMaker",pageMaker);
+			mv.setViewName("product_Board/pkwSearchList");
+			
+			return mv;
+		}
+	
+	
+	
+	
+	
+	
+
+
 
 
 

@@ -1,5 +1,5 @@
 /* 제목 색갈 안변하게   */
-a:not(.home) {
+a:not(.home .btn) {
 	color: gray;
 	text-decoration: none;
 	font-weight: bold;
