@@ -29,7 +29,7 @@
 						name=#{name},
 						address=#{address},
 						phone=#{phone},
-						birthd=#{birthd},
+						birth=#{birth},
 						state=#{state},
 						lv=#{lv},
 						money=#{money},
