@@ -38,12 +38,25 @@
 	</div>
 	<!-- 아이디 찾기 결과 form -->
 	<div id="resultArea" class="border">
-	<br>${finder}님의아이디는"${findpwresult.pw}"입니다 <br>
+	
+	<div id="resultArea" class="border">
+		<form action="changepw" method="post" id="form">
+			<h1>비밀번호 변경</h1>
+	<br>${vo.id}님 <br>
+			<input type="hidden" name="id" id="id" value="${vo.id}">
+			<input type="hidden" name="name" id="name" value="${vo.name}">
+			<input type="hidden" name="phone" id="phone" value="${vo.phone}">
+			<input type="password" name="pw" id="pw" placeholder="바꿀 비밀번호를 입력해주세요."><br>
+			<br>
 		<hr>
 		<div id="loginmenu">
-			<input type="button" value="회원가입" class="btn" onclick="location.href='signuppage'">
-			<input type="button" value="비밀번호 찾기" class="btn" onclick="location.href='findpwpage'">
+			<input type="submit" value="비밀번호 변경" class="btn"><br>
+			<input type="button" value="회원가입" class="btn" onclick="location.href='msignuppage'">
+			<input type="button" value="비밀번호 찾기" class="btn" onclick="location.href='mfindpwpage'">
 		</div>
+		</form>
+	</div>
+	
 	</div>
 </body>
 </html>

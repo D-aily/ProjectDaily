@@ -12,10 +12,12 @@ public interface MemberService {
 	
 	List<MemberVO> mselectList();
 	MemberVO mselectOne(MemberVO vo);
+	MemberVO mselectOne2(MemberVO vo);
 	MemberVO mfindpw(MemberVO vo);
 	MemberVO mfindid(MemberVO vo);
 	int minsert(MemberVO vo);
 	int mupdate(MemberVO vo);
 	int mdelete(MemberVO vo);
+	int changepw(MemberVO vo);
 	
 }

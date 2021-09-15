@@ -16,6 +16,11 @@ public class MemberDAO {
 	
 	private static final String NS = "daily.mapper.MemberMapper.";
 	
+	// changepw
+	public int mchangepw(MemberVO vo) {
+		return sqlSession.update(NS+"mchangepw",vo);
+	}
+	
 	// findpw
 	public MemberVO mfindid(MemberVO vo) {
 		return sqlSession.selectOne(NS+"mfindid",vo);
@@ -33,6 +38,10 @@ public class MemberDAO {
 	// selectOne
 	public MemberVO mselectOne(MemberVO vo) {
 		return sqlSession.selectOne(NS+"mselectOne",vo);
+	}
+	// selectOne2 비밀번호 찾는사람 확인
+	public MemberVO mselectOne2(MemberVO vo) {
+		return sqlSession.selectOne(NS+"mselectOne2",vo);
 	}
 	
 	// insert 

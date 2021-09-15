@@ -48,8 +48,8 @@
 			<hr>
 			<div id="loginmenu">
 				<input type="submit" value="로그인" class="btn"><br>
-				<input type="button" value="회원가입" class="btn" onclick="location.href='signuppage'">
-				<input type="button" value="아이디/비밀번호 찾기" class="btn" onclick="location.href='findidpage'">
+				<input type="button" value="회원가입" class="btn" onclick="location.href='msignuppage'">
+				<input type="button" value="아이디/비밀번호 찾기" class="btn" onclick="location.href='mfindidpage'">
 
 			</div>
 		</form>

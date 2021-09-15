@@ -14,6 +14,10 @@ public class MemberServiceImpl implements MemberService {
 	MemberDAO dao;
 	
 	@Override
+	public int changepw(MemberVO vo) {
+		return dao.mchangepw(vo);
+	}
+	@Override
 	public MemberVO mfindid(MemberVO vo) {
 		return dao.mfindid(vo);
 	}
@@ -29,6 +33,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 	@Override
 	public MemberVO mselectOne(MemberVO vo) {
+		// TODO 회원 한명 
+		return dao.mselectOne(vo);
+	}
+	@Override
+	public MemberVO mselectOne2(MemberVO vo) {
 		// TODO 회원 한명 
 		return dao.mselectOne(vo);
 	}
