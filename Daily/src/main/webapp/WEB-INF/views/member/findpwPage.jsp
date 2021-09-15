@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>D:aily :: 아이디 찾기</title>
+<title>D:aily :: 비밀번호 변경</title>
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
 <style>
@@ -36,15 +35,33 @@
 	<div>
 		<jsp:include page="../homeLayout/homemenubar.jsp"></jsp:include>
 	</div>
-	<!-- 아이디 찾기 결과 form -->
+	<!-- 비밀번호 변경 -->
 	<div id="resultArea" class="border">
-	<br>${finder}님의아이디는"${findidresult.id}"입니다 <br>
+		<form action="findpw" method="post">
+			<table>
+				<span>비밀번호 변경</span>
+				<tr>
+					<td><input type="text" name="id" id="id"
+						placeholder="아이디"></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="name" id="name"
+						placeholder="가입자 성명"></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="phone" id="phone"
+						placeholder="000-0000-0000"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="비밀번호 변경"></td>
+			</table>
+		</form>
 		<hr>
 		<div id="loginmenu">
+			<input type="button" value="로그인" class="btn" onclick="location.href='loginpage'">
 			<input type="button" value="회원가입" class="btn" onclick="location.href='signuppage'">
-			<input type="button" value="비밀번호 찾기" class="btn" onclick="location.href='findpwpage'">
 		</div>
+		
 	</div>
 </body>
 </html>
-

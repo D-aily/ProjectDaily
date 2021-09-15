@@ -38,7 +38,7 @@
 	</div>
 	<!-- 아이디 찾기 결과 form -->
 	<div id="resultArea" class="border">
-	<br>${finder}님의아이디는"${findidresult.id}"입니다 <br>
+	<br>${finder}님의아이디는"${findpwresult.pw}"입니다 <br>
 		<hr>
 		<div id="loginmenu">
 			<input type="button" value="회원가입" class="btn" onclick="location.href='signuppage'">
