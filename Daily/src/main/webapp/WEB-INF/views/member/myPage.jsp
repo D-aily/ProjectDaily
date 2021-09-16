@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>D:aily :: 마이페이지</title>
+<script src="resources/Lib/jquery-3.6.0.min.js"></script>
+<script src="resources/Lib/member/member.js"></script>
 <style>
 .leftmenu {
 	border: 1px solid #000;
@@ -39,7 +41,7 @@ div {
 	width: 60%;
 	height: 1000px;
 	float: left;
-	background-color: green;
+	/* background-color: green; */
 	background-size: 100% 100%;
 	text-align: center;
 }
@@ -70,32 +72,32 @@ div {
 		</div>
 		<div class="myinfo">
 			<div>MY 정보</div>
-			<div>개인정보확인/수정</div>
+			<div id="infopage">
+				<a>개인정보확인/수정</a>
+			</div>
 			<div>배송지 관리</div>
 		</div>
 	</div>
 
+	<!-- 주요 내용 -->
 	<div id="contentArea"></div>
+
+
+	<!-- 오른쪽 컨트롤러 -->
 	<div id="rightmenu">
-		<table id="floating_menu" style="position: fixed; top: 45%; right: 3%;">
+		<table id="floating_menu"
+			style="position: fixed; top: 45%; right: 3%;">
 			<tr>
 				<td colspan="2" style="text-align: center">
-					<div style="border-radius: 15px; border: 1px solid #d7d7d7; padding: 10px;">
-						<div>
-							위로 △
-						</div>
-						<div>
-							홈으로
-						</div>
+					<div
+						style="border-radius: 15px; border: 1px solid #d7d7d7; padding: 10px;">
+						<div>위로 △</div>
+						<div>홈으로</div>
 						<div>
 							<div>장바구니</div>
-							<div id="cartArea">
-								여기에 장바구니 table
-							</div>
+							<div id="cartArea">여기에 장바구니 table</div>
 						</div>
-						<div>
-							아래로 ▽
-						</div>
+						<div>아래로 ▽</div>
 					</div>
 				</td>
 			</tr>
