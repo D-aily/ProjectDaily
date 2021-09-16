@@ -115,7 +115,7 @@ public class ProductController {
 			request.setAttribute("Product", vo);
 			if("U".equals(request.getParameter("jcode"))) {
 				//업데이트로 넘어가기
-				mv.setViewName("product_Board/productUpdate");
+				mv.setViewName("product_Board/productUpdateF");
 			}else {
 				mv.setViewName("product_Board/productDetail");
 			}
@@ -128,7 +128,30 @@ public class ProductController {
 	
 	//상품 수정
 	@RequestMapping(value = "/pdupdate")
-	public ModelAndView pdupdate(ModelAndView mv,ProductVO vo, RedirectAttributes rttr)throws IOException {
+	public ModelAndView pdupdate(ModelAndView mv,ProductVO vo, RedirectAttributes rttr, HttpServletRequest request)throws IOException {
+		
+		String realPath = request.getRealPath("/");
+		System.out.println("** real=>"+realPath);
+		
+		if(realPath.contains(".eclipse."))
+			realPath = "/Users/h-h/Documents/project/Daily/src/main/webapp/resources/uploadImage/";
+		else realPath += "resources/uploadImage/";
+		//폴더 확인 
+		File f1 = new File(realPath); //realPath에 있는 경로에 파일이 있는지 확인
+			if(!f1.exists()) f1.mkdir(); // 만약 없다면 폴더를 생성
+			String file1, file2 = "resources/uploadImage"+"/belt1.jpg"; 
+			 //DB+파일경로 업로드 위한 기본 이미지값 지정
+		MultipartFile imagef = vo.getImagef();
+		if(imagef != null && !imagef.isEmpty()) {
+			file1 = realPath + imagef.getOriginalFilename();
+			//uploadfilef에 있는 모든 값중에[ex)aaa.gif]파일명만 추출 메소드
+			imagef.transferTo(new File(file1));
+			//업로드한 파일을 지정한 파일에 저장하는 메소드
+			
+			file2 = "resources/uploadImage/"+imagef.getOriginalFilename();
+			//DB에 저장할 값
+		}
+		vo.setImage(file2);
 		
 		if(service.update(vo) > 0) {
 	     //업데이트 성공

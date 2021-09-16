@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>D:aily :: ProductDetail</title>
-<link rel="stylesheet" type="text/css" href="resources/myLib/mainhome.css">
-<link rel="stylesheet" type="text/css" href="resources/myLib/productForm.css">
+<link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
+<link rel="stylesheet" type="text/css" href="resources/Lib/productForm.css">
 </head>
 <body>
 	<!-- header (로그인 ,마이페이지,위시리스트) -->
@@ -20,12 +20,12 @@
 	<tr height="40"><td bgcolor="SkyBlue">상품명</td>
 		<td>${Product.name}</td></tr>
 	<tr height="40"><td bgcolor="SkyBlue">상품상세설명</td>
-		<td><textarea rows="10" cols="40" readonly>${Product.content}</textarea></td>
+		<td>${Product.content}</td>
 	</tr>
 	<tr height="40"><td bgcolor="SkyBlue">등록일</td>
 		<td>${Product.date}</td></tr>	
 	<tr height="40"><td bgcolor="SkyBlue">상품사진</td>
-		<td><img src="${Product.image}" width="150" height="150"></td></tr>	
+		<td><img src="${Product.image}"></td></tr>	
 	<tr height="40"><td bgcolor="SkyBlue">가격</td>
 		<td>${Product.price2}</td></tr>
 		
@@ -57,6 +57,7 @@
 		
 </table>
 <hr>
+<a href="pddetail?productnum=${Product.productnum}&jcode=U">수정하기</a>&nbsp;
 <input type="button" value="주문하기">
 <input type="button" value="장바구니">
 <input type="button" value="찜하기">

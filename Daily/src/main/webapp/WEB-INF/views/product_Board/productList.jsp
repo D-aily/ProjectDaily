@@ -8,9 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <title>D:aily :: Product List</title>
+<script src="resources/Lib/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="resources/css/bootstrap.css">
-<link rel="stylesheet" type="text/css"
-	href="resources/myLib/mainhome.css">
+<link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
+<link rel="stylesheet" type="text/css" href="resources/Lib/productForm.css.css">
 </head>
 <body>
 
@@ -48,21 +49,19 @@
 
 						<!-- 여기 div forEach -->
 						<c:forEach var="list" items="${Product}">
-							<div class="col-md-3">
+							<div class="col-md-3" >
 								<div class="row">
-									<a
-										href="pddetail?productnum=${list.productnum}&name=${list.name}">
-										<img src="${list.image}">
+									<a href="pddetail?productnum=${list.productnum}&name=${list.name}">
+										<img src="${list.image}" width="100%" height="100%">
 									</a>
 
 								</div>
 								<div class="product_name">
-									<a
-										href="pddetail?productnum=${list.productnum}&name=${list.name}">
+									<a href="pddetail?productnum=${list.productnum}&name=${list.name}">
 										${list.name} </a>
 								</div>
 								<div class="product_price">
-									<span>$</span>
+									<span>₩</span>
 									<fmt:formatNumber value="${list.price2}"
 										pattern="#,###,###,###" />
 								</div>
@@ -82,6 +81,11 @@
 
 
 	<jsp:include page="/WEB-INF/views/homeLayout/homefooter.jsp"></jsp:include>
+	
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+		crossorigin="anonymous"></script>
 
 </body>
 </html>

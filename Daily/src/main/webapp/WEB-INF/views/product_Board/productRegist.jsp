@@ -6,10 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>D:aily :: Product Registration</title>
-<link rel="stylesheet" type="text/css"
-	href="resources/myLib/mainhome.css">
-<link rel="stylesheet" type="text/css"
-	href="resources/myLib/productForm.css">
+<link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
+<link rel="stylesheet" type="text/css" href="resources/Lib/productForm.css">
 </head>
 <body>
 	<!-- header (로그인 ,마이페이지,위시리스트) -->
@@ -30,7 +28,7 @@
 			</tr>
 			<tr>
 				<td>상세 설명</td>
-				<td><textarea name="content" rows="10" cols="20"></textarea></td>
+				<td><textarea name="content" rows="10" cols="30"></textarea></td>
 			</tr>
 			<tr>
 				<td>사진</td>
