@@ -37,12 +37,11 @@
 	</div>
 	<!-- 비밀번호 변경 -->
 	<div id="resultArea" class="border">
-		<form action="findpw" method="post">
+		<form action="mfindpwcheck" method="post">
 			<table>
 				<span>비밀번호 변경</span>
 				<tr>
-					<td><input type="text" name="id" id="id"
-						placeholder="아이디"></td>
+					<td><input type="text" name="id" id="id" placeholder="아이디"></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="name" id="name"
@@ -51,17 +50,15 @@
 				<tr>
 					<td><input type="text" name="phone" id="phone"
 						placeholder="000-0000-0000"></td>
-				</tr>
-				<tr>
-					<td><input type="submit" value="비밀번호 변경"></td>
 			</table>
+			<hr>
+			<div id="loginmenu">
+				<input type="submit" value="비밀번호 변경" class="btn">
+				<input type="button" value="로그인" class="btn" onclick="location.href='mloginpage'">
+				<input type="button" value="회원가입" class="btn" onclick="location.href='msignuppage'">
+			</div>
+
 		</form>
-		<hr>
-		<div id="loginmenu">
-			<input type="button" value="로그인" class="btn" onclick="location.href='loginpage'">
-			<input type="button" value="회원가입" class="btn" onclick="location.href='signuppage'">
-		</div>
-		
 	</div>
 </body>
 </html>

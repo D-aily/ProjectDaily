@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-	<form action="findpw" method="post">
+	<form action="mfindpw" method="post">
 		<table>
 			<tr>
 				<span></span>

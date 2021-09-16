@@ -16,36 +16,45 @@ public class MemberDAO {
 	
 	private static final String NS = "daily.mapper.MemberMapper.";
 	
-	// findpw
-	public MemberVO findid(MemberVO vo) {
-		return sqlSession.selectOne(NS+"findid",vo);
+	// changepw
+	public int mchangepw(MemberVO vo) {
+		return sqlSession.update(NS+"mchangepw",vo);
 	}
 	
 	// findpw
-	public MemberVO findpw(MemberVO vo) {
-		return sqlSession.selectOne(NS+"findpw",vo);
+	public MemberVO mfindid(MemberVO vo) {
+		return sqlSession.selectOne(NS+"mfindid",vo);
+	}
+	
+	// findpw
+	public MemberVO mfindpw(MemberVO vo) {
+		return sqlSession.selectOne(NS+"mfindpw",vo);
 	}
 	
 	// selectList 
-	public List<MemberVO> selectList(){
-		return sqlSession.selectList(NS+"selectList");
+	public List<MemberVO> mselectList(){
+		return sqlSession.selectList(NS+"mselectList");
 	}
 	// selectOne
-	public MemberVO selectOne(MemberVO vo) {
-		return sqlSession.selectOne(NS+"selectOne",vo);
+	public MemberVO mselectOne(MemberVO vo) {
+		return sqlSession.selectOne(NS+"mselectOne",vo);
+	}
+	// selectOne2 비밀번호 찾는사람 확인
+	public MemberVO mselectOne2(MemberVO vo) {
+		return sqlSession.selectOne(NS+"mselectOne2",vo);
 	}
 	
 	// insert 
-	public int insert(MemberVO vo) {
-		return sqlSession.insert(NS+"insert",vo);
+	public int minsert(MemberVO vo) {
+		return sqlSession.insert(NS+"minsert",vo);
 	}
 	
 	// update
-	public int update(MemberVO vo) {
-		return sqlSession.update(NS+"update",vo);
+	public int mupdate(MemberVO vo) {
+		return sqlSession.update(NS+"mupdate",vo);
 	}
 	// delete 
-	public int delete(MemberVO vo) {
-		return sqlSession.delete(NS+"delete",vo);
+	public int mdelete(MemberVO vo) {
+		return sqlSession.delete(NS+"mdelete",vo);
 	}
 }//class 

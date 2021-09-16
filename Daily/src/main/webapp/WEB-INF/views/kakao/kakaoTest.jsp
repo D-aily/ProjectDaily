@@ -12,6 +12,16 @@
 </script>
 </head>
 <body>
+
+<!-- header (로그인 ,마이페이지,위시리스트) -->
+	<div>
+		<jsp:include page="../homeLayout/homeheader.jsp"></jsp:include>
+	</div>
+	<div>
+		<jsp:include page="../homeLayout/homemenubar.jsp"></jsp:include>
+	</div>
+
+
 <div id="map" style="width: 500px; height: 400px;"></div>
 <script>
 //37.34977961187868, 127.10683780465047

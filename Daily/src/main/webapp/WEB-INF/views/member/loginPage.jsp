@@ -40,7 +40,7 @@
 
 <!-- 로그인 부분 -->
 	<div id="resultArea" class="border">
-		<form action="login" method="post" id="form">
+		<form action="mlogin" method="post" id="form">
 			<h1>로그인</h1>
 			<input type="text" name="id" id="id" placeholder="아이디를 입력해주세요."><br>
 			<input type="password" name="pw" id="pw" placeholder="비밀번호를 입력해주세요."><br>
@@ -48,8 +48,8 @@
 			<hr>
 			<div id="loginmenu">
 				<input type="submit" value="로그인" class="btn"><br>
-				<input type="button" value="회원가입" class="btn" onclick="location.href='signuppage'">
-				<input type="button" value="아이디/비밀번호 찾기" class="btn" onclick="location.href='findidpage'">
+				<input type="button" value="회원가입" class="btn" onclick="location.href='msignuppage'">
+				<input type="button" value="아이디/비밀번호 찾기" class="btn" onclick="location.href='mfindidpage'">
 
 			</div>
 		</form>

@@ -40,7 +40,7 @@
 	<!-- 회원가입 폼 -->
 	<div id="resultArea" class="border">
 		<span>Daily : 회원가입</span>
-		<form action="signup" method="post" id="signuppage">
+		<form action="msignup" method="post" id="signuppage">
 			<table>
 				<tr>
 					<td>아이디</td>

@@ -127,13 +127,10 @@
 	</insert>
 
 	<update id="update">
-		update product set name = #{name}, content =
-		#{content}, image = #{image}
-		state = #{state}, price1 = #{price1},
-		price2 = #{price2}, quantity1 =
-		#{quantity1},
-		quantity2 = #{quantity2},
-		kind = #{kind} where productnum = #{productnum}
+		update product set name = #{name}, content = #{content},
+		image = #{image}, price2 = #{price2}, state = #{state}, 
+		kind = #{kind}
+		where productnum = #{productnum}
 	</update>
 
 	<update id="countUp">
