@@ -63,7 +63,7 @@
 	<div class="container">
 		<div class="row">
 			<!-- filter side  -->
-			<div class="col-sm-3 my-3 mx-3 ">
+			<div class="col my-3">
 				<div class="container border border-primary"
 					style="text-align: center;">
 					<form action="poslist" method="get">
@@ -132,7 +132,7 @@
 			</div>
 
 			<!-- list section  -->
-			<div class="col-sm-7 my-3 mx-3">
+			<div class="col-sm my-3">
 				<div class="container my-5 content2">
 					<div class=" product_titlebar">
 						<div class="product_title">Perfume</div>
@@ -140,7 +140,7 @@
 					</div>
 					<br>
 
-					<div class="row my-4 align-items-center">
+					<div class="row align-items-center">
 
 						<!-- 여기 div forEach -->
 						<c:forEach var="list" items="${spList}">
