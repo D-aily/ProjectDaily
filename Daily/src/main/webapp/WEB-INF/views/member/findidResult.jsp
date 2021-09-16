@@ -45,9 +45,9 @@ input {
 	<br><br>
 	<hr>
 	<div id="loginmenu">
-		<input type="button" value="로그인">
-		<input type="button" value="회원가입" id="signup">
-		<input type="button" value="비밀번호 찾기" id="findpw">
+		<input type="button" value="로그인" class="btn" onclick="location.href='mloginpage'">
+		<input type="button" value="회원가입" class="btn" onclick="location.href='msignuppage'">
+		<input type="button" value="비밀번호 찾기" class="btn" onclick="location.href='mfindpwpage'">
 	</div>
 </body>
 </html>

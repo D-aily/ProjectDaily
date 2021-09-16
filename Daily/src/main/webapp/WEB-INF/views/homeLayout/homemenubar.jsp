@@ -15,9 +15,14 @@
 			<div class="nav_item group">
 				<a class="dropdown nav_item" href="pdlist"> Cloth </a> <br> <br>
 				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="pdlist">Menu item</a></li>
-					<li><a class="dropdown-item" href="pdlist">Menu item</a></li>
-					<li><a class="dropdown-item" href="pdlist">Menu item</a></li>
+					<li><a class="dropdown-item"
+						href="poslist?costsearch=n&kindsearch=k1&scoresearch=n">상의</a></li>
+					<li><a class="dropdown-item"
+						href="poslist?costsearch=n&kindsearch=k2&scoresearch=n">하의</a></li>
+					<li><a class="dropdown-item"
+						href="poslist?costsearch=n&kindsearch=k3&scoresearch=n">아우터</a></li>
+					<li><a class="dropdown-item"
+						href="poslist?costsearch=n&kindsearch=k4&scoresearch=n">아우터</a></li>
 				</ul>
 			</div>
 
@@ -58,7 +63,10 @@
 			</div>
 		</div>
 	</div>
-	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-	
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+		crossorigin="anonymous"></script>
+
 </body>
 </html>

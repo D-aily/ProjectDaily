@@ -112,12 +112,12 @@ a:active:not(.home) {
 
 /*헤더 (검색버튼) */
 .search_button {
-	
-	height: 30px;
-	background-image: url("../img/searchbutton.png");
-	background-position: center;
-	padding-left: 23px;
-	border: none;
+	margin-left: 5px;
+      height: 30px;
+      padding-left: 23px;
+      border: none;
+      background-position: center;
+      background-image: url("../img/searchbutton.png");
 }
 
 /*헤더 (가운데공간분할 _로고) */

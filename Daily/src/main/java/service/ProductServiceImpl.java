@@ -27,7 +27,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 	@Override
 	public List<ProductVO> optionsearchList(Searchpage page) {
-		return dao.searchtypesearchList(page);
+		return dao.optionsearchList(page);
 	}
 	
 	// 기본 CRUD	+ countUp

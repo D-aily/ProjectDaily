@@ -15,7 +15,7 @@ public class PageMaker {
 	
 	private boolean prev;
 	private boolean next;
-	private int displayPageNo = 3; // 1page당 표시할 PageNo갯수 
+	private int displayPageNo = 3; // 1page당 표시할 페이지바 PageNo갯수 
 	private int lastPageNo;
 	
 	
@@ -47,14 +47,23 @@ public class PageMaker {
 	// 4) QueryString 
 	// ** 패키지 org.springframework.web.util
 	
+	public String makeQuery(int currPage) {
+		UriComponents uriComponents = 
+				UriComponentsBuilder.newInstance().
+				queryParam("currPage", currPage).  // ?currPage=4
+				queryParam("rowsPerPage",page.getRowPerPage())
+				.build();
+		return uriComponents.toString();
+	} //makeQuery
+	
 	public String searchQuery(int currPage) {
 		UriComponents uriComponents =
 				UriComponentsBuilder.newInstance().
 				queryParam("currPage", currPage).
 				queryParam("rowsPerPage", page.getRowPerPage()).
-				queryParam("searchType",page.getCostsearch()).
-				queryParam("searchType",page.getKindsearch()).
-				queryParam("searchType",page.getScoresearch()).
+				queryParam("costsearch",page.getCostsearch()).
+				queryParam("kindsearch",page.getKindsearch()).
+				queryParam("scoresearch",page.getScoresearch()).
 				queryParam("keyword",page.getKeyword())
 				.build();
 		return uriComponents.toString();

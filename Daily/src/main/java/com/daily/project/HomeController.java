@@ -55,17 +55,17 @@ public class HomeController {
 	
 	//keywordsearchlist 
 		@RequestMapping(value="pkplist")
-		public ModelAndView psplist(ModelAndView mv, Searchpage sp , PageMaker pageMaker) {
+		public ModelAndView pkplist(ModelAndView mv, Searchpage sp , PageMaker pageMaker) {
 			
 			sp.setSnoEno();
 			
 			mv.addObject("spList",service.keywordsearchList(sp));
 			pageMaker.setPage(sp);
 			pageMaker.setTotalRowCount(service.searchRowsCount(sp));
-			
+		
 			System.out.println("*** pageMaker =>"+ pageMaker);
 			mv.addObject("pageMaker",pageMaker);
-			mv.setViewName("product_Board/pkwSearchList");
+			mv.setViewName("product_Board/ppageSearchList");
 			
 			return mv;
 		}

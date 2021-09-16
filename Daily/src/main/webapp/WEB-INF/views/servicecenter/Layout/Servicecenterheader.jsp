@@ -22,7 +22,7 @@
 	<div class="qna_nav">
 		<div class="qna_nav_center">
 			<div class="qna_nav_item">
-				<a href="qnalist">Q&a</a>
+				<a href="qnalist">Qna</a>
 			</div>
 			<div class="qna_nav_item">
 				<a href="ntclist">공지사항</a>
