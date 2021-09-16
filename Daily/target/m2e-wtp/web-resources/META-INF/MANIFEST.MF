@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: h-h
-=======
-Built-By: obbad
->>>>>>> c129b26115de1ae25fd93ba69538b2f26c4747db
 Build-Jdk: 15.0.2
 Created-By: Maven Integration for Eclipse
 
