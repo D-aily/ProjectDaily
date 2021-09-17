@@ -34,9 +34,8 @@
 			+ "&costsearch=" + $('#costsearch').val()
 			+ "&kindsearch=" + $('#kindsearch').val()
 			+ "&scoresearch=" + $('#scoresearch').val()
-			+ "&keyword=" + ${'#keyword'}.val()
 		})
-
+		
 	})// ready
 </script>
 <body>
@@ -66,7 +65,7 @@
 			<div class="col my-3">
 				<div class="container border border-primary"
 					style="text-align: center;">
-					<form action="poslist" method="get">
+					
 					
 					<div class="row" id="searchBar">
 						<p></p>
@@ -123,11 +122,11 @@
 						</select>
 
 						<div class="col my-3">
-							<input type="submit" id="opsearchBtn" class="btn btn-primary">검색
+							<button type="submit" id="opsearchBtn" class="btn btn-primary">검색</button>
 						</div>
 
 					</div>
-					</form>
+				
 				</div>
 			</div>
 
@@ -176,8 +175,8 @@
 	<div align="center">
 		<!-- 1)  First << ,  Prev <  처리 -->
 		<c:if test="${pageMaker.prev && pageMaker.spageNo>1}">
-			<a href="poslist${pageMaker.searchQuery(1)}">FF</a>&nbsp;
-		<a href="poslist${pageMaker.searchQuery(pageMaker.spageNo-1)}">Prev</a>
+			<a href="poslist${pageMaker.searchQuery(1)}" class="FF">FF</a>&nbsp;
+		<a href="poslist${pageMaker.searchQuery(pageMaker.spageNo-1)}" class="Prev">Prev</a>
 		</c:if>
 
 		<!-- 2) sPageNo ~ ePageNo 까지, displayPageNo 만큼 표시 -->
@@ -187,14 +186,14 @@
 				<font size="5" color="Orange">${i}</font>&nbsp;
 		</c:if>
 			<c:if test="${i!=pageMaker.page.currPage}">
-				<a href="poslist${pageMaker.searchQuery(i)}">${i}</a>&nbsp;
+				<a href="poslist${pageMaker.searchQuery(i)}" class="i_page">${i}</a>&nbsp;
 		</c:if>
 		</c:forEach>
 		&nbsp;
 		<!-- 3) Next >  ,  Last >>  처리 -->
 		<c:if test="${pageMaker.next && pageMaker.epageNo>0}">
-			<a href="poslist${pageMaker.searchQuery(pageMaker.epageNo+1)}">Next</a>&nbsp;
-		<a href="poslist${pageMaker.searchQuery(pageMaker.lastPageNo)}">LL</a>&nbsp;&nbsp;
+			<a href="poslist${pageMaker.searchQuery(pageMaker.epageNo+1)}" id="Next" class="Next">Next</a>&nbsp;
+		<a href="poslist${pageMaker.searchQuery(pageMaker.lastPageNo)}" id="LL" class="LL">LL</a>&nbsp;&nbsp;
 	</c:if>
 	</div>
 

@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Header</title>
-<script src="resources/Lib/jq_headerfixed.js"></script>
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
+<script src="resources/Lib/jq_headerfixed.js"></script>
 <link rel="stylesheet" href="resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
 <script>

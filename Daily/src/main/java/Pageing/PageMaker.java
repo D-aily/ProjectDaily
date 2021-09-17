@@ -18,8 +18,11 @@ public class PageMaker {
 	private int displayPageNo = 3; // 1page당 표시할 페이지바 PageNo갯수 
 	private int lastPageNo;
 	
+	private int offset_sno ; // 디비에 시작 열 번호 
+	int cur_page; // searchQuery 에서 currpage 값 받기
 	
 	private Searchpage page;  
+	public PageRow pagerow;
 	
 	public void setPage(Searchpage page) { // 요청페이지 현재페이지,목록개수값 set
 		this.page=page;
@@ -57,6 +60,13 @@ public class PageMaker {
 	} //makeQuery
 	
 	public String searchQuery(int currPage) {
+		
+		
+		pagerow.setCurrpage(currPage);
+		cur_page = page.getCurrPage();
+		
+		
+		
 		UriComponents uriComponents =
 				UriComponentsBuilder.newInstance().
 				queryParam("currPage", currPage).
@@ -67,8 +77,17 @@ public class PageMaker {
 				queryParam("keyword",page.getKeyword())
 				.build();
 		return uriComponents.toString();
+		
 	}
+		
+	public void setOffset_sno() {
+		page.setCurrpage(cur_page);
+		
+		this.offset_sno= (this.cur_page-1)*this.page.getRowPerPage();
+		System.out.println("offset_sno=>"+offset_sno);
+	}
+
 	
-	
+
 	
 }//PageMaker

@@ -11,8 +11,9 @@ public class PageRow {
 	private int sno ; // 열(목록)시작번호 
 	private int eno ; // 열(목록)끝번호  
 	
+	
 	public PageRow() {
-		this.rowPerPage=4;
+		this.rowPerPage=3;
 		this.currPage=1;
 	}
 	
@@ -23,9 +24,9 @@ public class PageRow {
 		else this.currPage=1;
 	}
 	
-	public void setRowPerPage(int rowPerPage) {
-		if (rowPerPage<4 || rowPerPage>30) {
-			this.rowPerPage=5;
+	public void setRowsPerPage(int rowPerPage) {
+		if (rowPerPage<3 || rowPerPage>50) {
+			this.rowPerPage=3;
 		}
 		else this.rowPerPage=rowPerPage;
 	}
@@ -35,10 +36,11 @@ public class PageRow {
 			this.sno=1;
 		}
 		this.sno=(this.currPage-1)*this.rowPerPage+1;
+		System.out.println("sno=>"+sno);
 		this.eno=this.sno + this.rowPerPage -1; 
 	}
 	
-	
-	
-	
+
+
+
 }//PageRow
