@@ -6,7 +6,7 @@
  <!-- ~~~ -기본 CRUD SQL문 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
  <select id="cselectList" resultType="vo.CartVO">
  	select
- 	cartnum,
+ 	cartnum,id,productnum,quanttity from cart
  
  </select>
  
