@@ -22,7 +22,6 @@ public class PageMaker {
 	int cur_page; // searchQuery 에서 currpage 값 받기
 	
 	private Searchpage page;  
-	public PageRow pagerow;
 	
 	public void setPage(Searchpage page) { // 요청페이지 현재페이지,목록개수값 set
 		this.page=page;
@@ -61,12 +60,9 @@ public class PageMaker {
 	
 	public String searchQuery(int currPage) {
 		
-		
-		pagerow.setCurrpage(currPage);
-		cur_page = page.getCurrPage();
-		
-		
-		
+
+		cur_page = currPage;
+				
 		UriComponents uriComponents =
 				UriComponentsBuilder.newInstance().
 				queryParam("currPage", currPage).
@@ -83,7 +79,7 @@ public class PageMaker {
 	public void setOffset_sno() {
 		page.setCurrpage(cur_page);
 		
-		this.offset_sno= (this.cur_page-1)*this.page.getRowPerPage();
+		this.offset_sno= (this.cur_page-1)*page.getRowPerPage();
 		System.out.println("offset_sno=>"+offset_sno);
 	}
 

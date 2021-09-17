@@ -11,7 +11,6 @@ public class PageRow {
 	private int sno ; // 열(목록)시작번호 
 	private int eno ; // 열(목록)끝번호  
 	
-	
 	public PageRow() {
 		this.rowPerPage=3;
 		this.currPage=1;
@@ -38,6 +37,7 @@ public class PageRow {
 		this.sno=(this.currPage-1)*this.rowPerPage+1;
 		System.out.println("sno=>"+sno);
 		this.eno=this.sno + this.rowPerPage -1; 
+		
 	}
 	
 

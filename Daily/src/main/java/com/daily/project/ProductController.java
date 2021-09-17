@@ -35,9 +35,6 @@ public class ProductController {
 				sp.setSnoEno();
 				
 				
-				System.out.println("*** pageMaker.searchQuery(sp.getCurrPage())  전=>"+ pageMaker.searchQuery(sp.getCurrPage()));
-				pageMaker.setOffset_sno();
-				System.out.println("*** pageMaker.searchQuery(sp.getCurrPage()) 후 =>"+ pageMaker.searchQuery(sp.getCurrPage()));
 				//옵션 선택 쿼리
 				mv.addObject("spList",service.optionsearchList(sp));
 				//페이지 값 내용 열 set
