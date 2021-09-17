@@ -59,7 +59,7 @@
 <hr>
 <a href="pddetail?productnum=${Product.productnum}&jcode=U">수정하기</a>&nbsp;
 <input type="button" value="주문하기">
-<input type="button" value="장바구니">
+<input type="button" value="장바구니" >
 <input type="button" value="찜하기">
 
 

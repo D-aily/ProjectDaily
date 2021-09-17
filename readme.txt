@@ -1,8 +1,13 @@
 
+2021.09.16
+<변경사항>
+장바구니 테이블 추가.(Cart)
+VO 생성
 
-
-
-
+상품에 이미지 추가(1개의 이미지임) 테이블에 추가하면됨
+update product set image = 'resources/uploadImage/belt1.jpg';
+update product set image = 'resources/uploadImage/man2.jpg' where kind = '2';
+update product set image = 'resources/uploadImage/man4.jpg' where score = '4';
 
 ===============================================================================================
 
