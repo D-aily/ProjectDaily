@@ -1,6 +1,6 @@
  
 
-새로운 db 생성 daiy
+새로운 db 생성 daily
 ===========================================================
 
 create database daily ;
@@ -63,9 +63,15 @@ create table wish_list(
 	date DATETIME DEFAULT NOW()	
 );
 	
-
-
-
+create table cart(
+	cartnum int NOT NULL AUTO_INCREMENT primary key,
+	id varchar(100) not null,
+	productnum int not null,
+	 CONSTRAINT FK_cart_id FOREIGN KEY (id) REFERENCES member(id),
+	 CONSTRAINT FK_cart_productnum FOREIGN KEY (productnum) REFERENCES product(productnum),
+	quantity int default 1,
+	date DATETIME DEFAULT NOW()	
+);
 
 
 
@@ -277,7 +283,8 @@ insert into faq (id,title,content) values('admin','반품에 대한 문제','고
 
 insert into faq (id,title,content) values('admin','적립금/쿠폰/회원관련','적립금은 충전 즉시 적립됩니다.');
 
-
-
+=======================================================================
+Cart 샘플 데이터 
+insert into cart (cartseq,id,productnum,quantity,date) values (1,'aaa11',1,1,now());
 
 

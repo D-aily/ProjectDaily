@@ -147,7 +147,7 @@
 								<div class="row">
 									<a
 										href="pddetail?productnum=${list.productnum}&name=${list.name}">
-										<img src="${list.image}" id="product_img1">
+										<img src="${list.image}" id="product_img1" width="100%" height="100%">
 									</a>
 
 								</div>
