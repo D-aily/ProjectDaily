@@ -10,9 +10,13 @@ public class PageRow {
 	private int	currPage; // 현재페이지
 	private int sno ; // 열(목록)시작번호 
 	private int eno ; // 열(목록)끝번호  
+	private int offset_sno ; // 디비에 시작 열 번호 
+	
+	
+	
 	
 	public PageRow() {
-		this.rowPerPage=3;
+		this.rowPerPage=4;
 		this.currPage=1;
 	}
 	
@@ -24,21 +28,21 @@ public class PageRow {
 	}
 	
 	public void setRowsPerPage(int rowPerPage) {
-		if (rowPerPage<3 || rowPerPage>50) {
-			this.rowPerPage=3;
+		if (rowPerPage<4 || rowPerPage>50) {
+			this.rowPerPage=4;
 		}
 		else this.rowPerPage=rowPerPage;
 	}
 	
 	public void setSnoEno() {
-		if (this.sno<1) {
-			this.sno=1;
-		}
+		if (this.sno<1) this.sno=1;
+		
 		this.sno=(this.currPage-1)*this.rowPerPage+1;
 		System.out.println("sno=>"+sno);
 		this.eno=this.sno + this.rowPerPage -1; 
 		
+		this.offset_sno=(this.currPage-1)*this.rowPerPage;
+		System.out.println("offset_sno=>"+offset_sno);
 	}
-	
 
 }//PageRow

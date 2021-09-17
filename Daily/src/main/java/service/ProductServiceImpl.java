@@ -17,17 +17,22 @@ public class ProductServiceImpl implements ProductService {
 	
 	
 	@Override
-	public int searchRowsCount(Searchpage page) {
-		return dao.searchRowsCount(page);
+	public int searchRowsCount(Searchpage spage) {
+		return dao.searchRowsCount(spage);
 	}
 	
 	@Override
-	public List<ProductVO> keywordsearchList(Searchpage page) {
-		return dao.keywordsearchList(page);
+	public List<ProductVO> keywordsearchList(Searchpage spage) {
+		return dao.keywordsearchList(spage);
 	}
 	@Override
-	public List<ProductVO> optionsearchList(Searchpage page) {
-		return dao.optionsearchList(page);
+	public List<ProductVO> optionsearchList(Searchpage spage) {
+		return dao.optionsearchList(spage);
+	}
+	
+	@Override
+	public int totalRowsCount() {
+		return dao.totalRowsCount();
 	}
 	
 	// 기본 CRUD	+ countUp

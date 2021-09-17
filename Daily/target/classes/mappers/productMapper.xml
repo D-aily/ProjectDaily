@@ -17,7 +17,9 @@
 			<if test="costsearch=='c4'.toString()">
 				<![CDATA[ and price2 > 50001   ]]>
 			</if>
-			
+			<if test="costsearch=='n'.toString()">
+				
+			</if>
 		</if>
 	</sql>
 	<sql id="kindsearch">
@@ -34,7 +36,13 @@
 			<if test="kindsearch=='k4'.toString()">
 				and kind=4
 			</if>
-			
+			<!-- 향수 -->
+			<if test="kindsearch=='k5'.toString()">
+				and kind=5
+			</if>
+			<if test="kindsearch=='n'.toString()">
+				
+			</if>
 		</if>
 	</sql>
 	<sql id="scoresearch">
@@ -54,15 +62,16 @@
 			<if test="scoresearch=='s5'.toString()">
 				and score=5
 			</if>
-			
+			<if test="scoresearch=='n'.toString()">
+				
+			</if>
 		</if>
 	</sql>
 	<sql id="keyword">
 		<if test="keyword != null">
 			and name Like '%' || #{keyword} || '%'
-			or kind Like '%' ||
-			#{keyword} || '%'
 		</if>
+		
 	</sql>
 
 	<!-- <sql id="limit">
@@ -113,6 +122,10 @@
 		<!-- 조건문의 id : search -->
 		order by  productnum desc
 		LIMIT #{rowPerPage} OFFSET #{offset_sno}
+	</select>
+
+	<select id="totalRowCount" resultType="int">
+		select count(*) from board
 	</select>
 
 	<!-- 기본 CRUD + countUp 추가 -->

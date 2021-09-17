@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.taglibs.standard.tag.common.xml.IfTag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,16 +25,24 @@ public class MemberController {
 	MemberService service;
 
 	
+
 	@RequestMapping(value = "/mlogin")
 	public ModelAndView mlogin(HttpSession session,ModelAndView mv, MemberVO vo,HttpServletRequest request) {
 		
 		String pw = vo.getPw();
+		int Lv = vo.getLv();
 		
 		vo = service.mselectOne(vo);
 		if (vo != null) {
 			if (vo.getPw().equals(pw)) {
 				// 로그인 성공
 				session.setAttribute("loginInfo", vo);
+				if(vo.getLv()==Lv) {
+					// 등급 값 세션 저장 
+					String Lev = String.valueOf(vo.getLv());
+					log.info(Lev);
+					request.getSession().setAttribute("Lv", Lev);
+				}
 				mv.setViewName("redirect:home");
 			}else {
 				// password 틀림
