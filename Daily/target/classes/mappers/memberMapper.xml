@@ -24,14 +24,15 @@
 	</select>
 	
 	<!-- 비밀번호변경 확인절차 -->
-	<select id="mselectOne2" resultType="vo.MemberVO">
+	<select id="mfindpw" resultType="vo.MemberVO">
 		select * from member where id=#{id} and name=#{name} and phone=#{phone}; 
 	</select>
 
 	<!-- 아이디 찾기 확인절차 -->
 	<select id="mfindid" resultType="vo.MemberVO">
-		select id from member where name = #{name} and phone=#{phone};
+		select id,name from member where name = #{name} and phone=#{phone};
 	</select>
+	
 	
 	<!-- 회원가입 -->
 	<insert id="minsert">
