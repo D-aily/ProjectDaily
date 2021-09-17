@@ -1,4 +1,14 @@
 
+2021.09.17
+<변경사항>
+product list 화면 mapper keyword검색기능 option 검색기능 
+진짜 작업완
+memeber controller session Lv set 
+
+login.js 백업 폴더에있던건데 중요한 데이터인거같아서 member Lib에 넣어놯습니다.~!
+
+===============================================================================================
+
 2021.09.16
 <변경사항>
 장바구니 테이블 추가.(Cart)
@@ -9,12 +19,6 @@ update product set image = 'resources/uploadImage/belt1.jpg';
 update product set image = 'resources/uploadImage/man2.jpg' where kind = '2';
 update product set image = 'resources/uploadImage/man4.jpg' where score = '4';
 
-===============================================================================================
-
-2021.09.15
-<변경사항>
-product list 화면 mapper keyword검색기능 option 검색기능 쿼리 작성 테스트 o
-작업완
 ===============================================================================================
 
 추가데이터 

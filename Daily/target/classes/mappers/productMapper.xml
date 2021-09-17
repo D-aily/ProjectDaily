@@ -36,6 +36,10 @@
 			<if test="kindsearch=='k4'.toString()">
 				and kind=4
 			</if>
+			<!-- 향수 -->
+			<if test="kindsearch=='k5'.toString()">
+				and kind=5
+			</if>
 			<if test="kindsearch=='n'.toString()">
 				
 			</if>

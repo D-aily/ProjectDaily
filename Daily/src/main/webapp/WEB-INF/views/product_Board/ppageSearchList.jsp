@@ -17,25 +17,29 @@
 <script>
 	$(function() {
 		$('#costsearch').change(function() {
-			if ($(this).val()=='n') $('#keyword').val('');
+			if ($(this).val() == 'n')
+				$('#keyword').val('');
 		}); //change
-		
+
 		$('#kindsearch').change(function() {
-			if ($(this).val()=='n') $('#keyword').val('');
+			if ($(this).val() == 'n')
+				$('#keyword').val('');
 		}); //change
-		
+
 		$('#scoresearch').change(function() {
-			if ($(this).val()=='n') $('#keyword').val('');
+			if ($(this).val() == 'n')
+				$('#keyword').val('');
 		}); //change
-		
-		$("#opsearchBtn").on("click",function() {
-			self.location = "poslist" 
-			+ "${pageMaker.makeQuery(1)}"
-			+ "&costsearch=" + $('#costsearch').val()
-			+ "&kindsearch=" + $('#kindsearch').val()
-			+ "&scoresearch=" + $('#scoresearch').val()
-		})
-		
+
+		$("#opsearchBtn").on(
+				"click",
+				function() {
+					self.location = "poslist" + "${pageMaker.makeQuery(1)}"
+							+ "&costsearch=" + $('#costsearch').val()
+							+ "&kindsearch=" + $('#kindsearch').val()
+							+ "&scoresearch=" + $('#scoresearch').val()
+				})
+
 	})// ready
 </script>
 <body>
@@ -62,36 +66,43 @@
 	<div class="container">
 		<div class="row">
 			<!-- filter side  -->
-			<div class="col my-3">
+			<div class="col-lg-3 my-3">
 				<div class="container border border-primary"
 					style="text-align: center;">
-					
-					
+
+
 					<div class="row" id="searchBar">
 						<p></p>
-						<p>필터 부분</p>
+						<p>가격대</p>
 						<select class="form-select form-select"
 							aria-label=".form-select-lg example" name="costsearch"
 							id="costsearch">
 							<option value="n"
-								<c:out value="${pageMaker.spage.costsearch==null ? 'selected':''}"/>>가격대를 선택하세요<option>
+								<c:out value="${pageMaker.spage.costsearch==null ? 'selected':''}"/>>가격대를
+								선택하세요
+							<option>
 							<option value="c1"
-								<c:out value="${pageMaker.spage.costsearch=='c1' ? 'selected':''}"/>>10,000원	~ 30,000원</option>
+								<c:out value="${pageMaker.spage.costsearch=='c1' ? 'selected':''}"/>>10,000원
+								~ 30,000원</option>
 							<option value="c2"
-								<c:out value="${pageMaker.spage.costsearch=='c2' ? 'selected':''}"/>>30,000원	~ 40,000원</option>
+								<c:out value="${pageMaker.spage.costsearch=='c2' ? 'selected':''}"/>>30,000원
+								~ 40,000원</option>
 							<option value="c3"
-								<c:out value="${pageMaker.spage.costsearch=='c3' ? 'selected':''}"/>>40,000원	~ 50,000원</option>
+								<c:out value="${pageMaker.spage.costsearch=='c3' ? 'selected':''}"/>>40,000원
+								~ 50,000원</option>
 							<option value="c4"
-								<c:out value="${pageMaker.spage.costsearch=='c4' ? 'selected':''}"/>>50,000원	~ 이상</option>
+								<c:out value="${pageMaker.spage.costsearch=='c4' ? 'selected':''}"/>>50,000원
+								~ 이상</option>
 						</select> <br> <br>
 
 						<p></p>
-						<p>필터 부분</p>
+						<p>종류</p>
 						<select class="form-select form-select"
 							aria-label=".form-select-lg example" name="kindsearch"
 							id="kindsearch">
 							<option value="n"
-								<c:out value="${pageMaker.spage.kindsearch==null ? 'selected':''}"/>>종류를 선택하세요</option>
+								<c:out value="${pageMaker.spage.kindsearch==null ? 'selected':''}"/>>종류를
+								선택하세요</option>
 							<option value="k1"
 								<c:out value="${pageMaker.spage.kindsearch=='k1' ? 'selected':''}"/>>상의</option>
 							<option value="k2"
@@ -100,15 +111,18 @@
 								<c:out value="${pageMaker.spage.kindsearch=='k3' ? 'selected':''}"/>>아우터</option>
 							<option value="k4"
 								<c:out value="${pageMaker.spage.kindsearch=='k4' ? 'selected':''}"/>>가방</option>
+							<option value="k5"
+								<c:out value="${pageMaker.spage.kindsearch=='k5' ? 'selected':''}"/>>향수</option>
 						</select> <br> <br>
 
 						<p></p>
-						<p>필터 부분</p>
+						<p>평점</p>
 						<select class="form-select form-select"
 							aria-label=".form-select-lg example" name="scoresearch"
 							id="scoresearch">
 							<option value="n"
-								<c:out value="${pageMaker.spage.scoresearch==null ? 'selected':''}"/>>평점대를 선택하세요</option>
+								<c:out value="${pageMaker.spage.scoresearch==null ? 'selected':''}"/>>평점대를
+								선택하세요</option>
 							<option value="s1"
 								<c:out value="${pageMaker.spage.scoresearch=='s1' ? 'selected':''}"/>>1점</option>
 							<option value="s2"
@@ -126,28 +140,23 @@
 						</div>
 
 					</div>
-				
+
 				</div>
 			</div>
 
 			<!-- list section  -->
 			<div class="col-sm my-3">
 				<div class="container my-5 content2">
-					<div class=" product_titlebar">
-						<div class="product_title">Perfume</div>
-						<div class="product_title_item">더보기</div>
-					</div>
 					<br>
-
 					<div class="row align-items-center">
-
 						<!-- 여기 div forEach -->
 						<c:forEach var="list" items="${spList}">
 							<div class="col-sm">
 								<div class="row">
 									<a
 										href="pddetail?productnum=${list.productnum}&name=${list.name}">
-										<img src="${list.image}" id="product_img1" width="100%" height="100%">
+										<img src="${list.image}" id="product_img1" width="100%"
+										height="100%">
 									</a>
 
 								</div>
@@ -176,7 +185,8 @@
 		<!-- 1)  First << ,  Prev <  처리 -->
 		<c:if test="${pageMaker.prev && pageMaker.spageNo>1}">
 			<a href="poslist${pageMaker.searchQuery(1)}" class="FF">FF</a>&nbsp;
-		<a href="poslist${pageMaker.searchQuery(pageMaker.spageNo-1)}" class="Prev">Prev</a>
+		<a href="poslist${pageMaker.searchQuery(pageMaker.spageNo-1)}"
+				class="Prev">Prev</a>
 		</c:if>
 
 		<!-- 2) sPageNo ~ ePageNo 까지, displayPageNo 만큼 표시 -->
@@ -192,8 +202,10 @@
 		&nbsp;
 		<!-- 3) Next >  ,  Last >>  처리 -->
 		<c:if test="${pageMaker.next && pageMaker.epageNo>0}">
-			<a href="poslist${pageMaker.searchQuery(pageMaker.epageNo+1)}" id="Next" class="Next">Next</a>&nbsp;
-		<a href="poslist${pageMaker.searchQuery(pageMaker.lastPageNo)}" id="LL" class="LL">LL</a>&nbsp;&nbsp;
+			<a href="poslist${pageMaker.searchQuery(pageMaker.epageNo+1)}"
+				id="Next" class="Next">Next</a>&nbsp;
+		<a href="poslist${pageMaker.searchQuery(pageMaker.lastPageNo)}"
+				id="LL" class="LL">LL</a>&nbsp;&nbsp;
 	</c:if>
 	</div>
 
