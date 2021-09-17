@@ -137,4 +137,10 @@ public class MemberController {
 		return mv;
 	}
 	
+	// minfopage
+	@RequestMapping(value = "/minfopage")
+	public ModelAndView minfopage(ModelAndView mv) {
+		mv.setViewName("member/minfopage");
+		return mv;
+	}
 }// MemberController
