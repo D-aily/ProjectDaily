@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: obbad
 Build-Jdk: 15.0.2
 Created-By: Maven Integration for Eclipse
 
+=======
+Manifest-Version: 1.0
+Built-By: ctho
+Build-Jdk: 15.0.2
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> 0af04c15f000138cc7b7e733044f9daea23edefc

@@ -65,6 +65,19 @@
 		</if>
 	</sql>
 
+	<!-- <sql id="limit">
+		<choose>
+			<when test=" ( #{sno}-1 + #{rowPerPage}) == #{rowPerPage}">
+				LIMIT #{rowPerPage} OFFSET 0
+			</when>
+			<otherwise>
+				LIMIT #{rowPerPage} OFFSET #{sno}-1+#{rowPerPage} 
+			</otherwise>
+		</choose>
+	</sql>
+	 -->
+	
+	
 
 	<select id="searchRowsCount" resultType="int">
 	<![CDATA[
@@ -83,7 +96,9 @@
 		quantity1,quantity2,kind,count,score from product 
 		where productnum > 0 ]]>
 		<include refid="keyword"></include>
-		limit #{rowPerPage} OFFSET #{sno}
+		
+		order by  productnum desc
+		LIMIT #{rowPerPage} OFFSET #{offset_sno}
 	</select>
 
 	<!-- 옵션 조합검색 -->
@@ -96,7 +111,8 @@
 		<include refid="kindsearch"></include>
 		<include refid="scoresearch"></include>
 		<!-- 조건문의 id : search -->
-		limit #{rowPerPage} OFFSET #{sno}
+		order by  productnum desc
+		LIMIT #{rowPerPage} OFFSET #{offset_sno}
 	</select>
 
 	<!-- 기본 CRUD + countUp 추가 -->

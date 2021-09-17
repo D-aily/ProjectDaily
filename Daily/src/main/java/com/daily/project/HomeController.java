@@ -22,59 +22,59 @@ import service.ProductService;
  */
 @Controller
 public class HomeController {
-	
-	@Autowired
-	ProductService service; // 전역 변수 서비스
-	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "home";
-	}//home
-	
-	//매장위치
-	@RequestMapping(value = "/kakaotest")
-	public ModelAndView kakaotest(ModelAndView mv) {
-		mv.setViewName("kakao/kakaoTest");
-		return mv;
-	} //kakaotest
+   
+   @Autowired
+   ProductService service; // 전역 변수 서비스
+   
+   private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+   
+   /**
+    * Simply selects the home view to render by returning its name.
+    */
+   @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
+   public String home(Locale locale, Model model) {
+      Date date = new Date();
+      DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+      
+      String formattedDate = dateFormat.format(date);
+      
+      model.addAttribute("serverTime", formattedDate );
+      
+      return "home";
+   }//home
+   
+   //매장위치
+   @RequestMapping(value = "/kakaotest")
+   public ModelAndView kakaotest(ModelAndView mv) {
+      mv.setViewName("kakao/kakaoTest");
+      return mv;
+   } //kakaotest
 
-	//고객센터 
-	
-	
-	//keywordsearchlist 
-		@RequestMapping(value="pkplist")
-		public ModelAndView pkplist(ModelAndView mv, Searchpage sp , PageMaker pageMaker) {
-			
-			sp.setSnoEno();
-			
-			mv.addObject("spList",service.keywordsearchList(sp));
-			pageMaker.setPage(sp);
-			pageMaker.setTotalRowCount(service.searchRowsCount(sp));
-		
-			System.out.println("*** pageMaker =>"+ pageMaker);
-			mv.addObject("pageMaker",pageMaker);
-			mv.setViewName("product_Board/ppageSearchList");
-			
-			return mv;
-		}
-	
-	
-	
-	
-	
-	
+   //고객센터 
+   
+   
+   //keywordsearchlist 
+      @RequestMapping(value="pkplist")
+      public ModelAndView pkplist(ModelAndView mv, Searchpage sp , PageMaker pageMaker) {
+         
+         sp.setSnoEno();
+         
+         mv.addObject("spList",service.keywordsearchList(sp));
+         pageMaker.setPage(sp);
+         pageMaker.setTotalRowCount(service.searchRowsCount(sp));
+      
+         System.out.println("*** pageMaker =>"+ pageMaker);
+         mv.addObject("pageMaker",pageMaker);
+         mv.setViewName("product_Board/ppageSearchList");
+         
+         return mv;
+      }
+   
+   
+   
+   
+   
+   
 
 
 
