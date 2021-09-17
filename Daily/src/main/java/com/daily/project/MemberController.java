@@ -23,8 +23,6 @@ public class MemberController {
 	@Autowired
 	MemberService service;
 	
-	int test ;
-	
 	@RequestMapping(value = "/mlist")
 	public ModelAndView mlist(ModelAndView mv) {
 		

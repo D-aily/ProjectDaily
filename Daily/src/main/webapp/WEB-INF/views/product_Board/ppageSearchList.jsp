@@ -74,15 +74,15 @@
 							aria-label=".form-select-lg example" name="costsearch"
 							id="costsearch">
 							<option value="n"
-								<c:out value="${pageMaker.page.costsearch==null ? 'selected':''}"/>>가격대를 선택하세요<option>
+								<c:out value="${pageMaker.spage.costsearch==null ? 'selected':''}"/>>가격대를 선택하세요<option>
 							<option value="c1"
-								<c:out value="${pageMaker.page.costsearch=='c1' ? 'selected':''}"/>>10,000원	~ 30,000원</option>
+								<c:out value="${pageMaker.spage.costsearch=='c1' ? 'selected':''}"/>>10,000원	~ 30,000원</option>
 							<option value="c2"
-								<c:out value="${pageMaker.page.costsearch=='c2' ? 'selected':''}"/>>30,000원	~ 40,000원</option>
+								<c:out value="${pageMaker.spage.costsearch=='c2' ? 'selected':''}"/>>30,000원	~ 40,000원</option>
 							<option value="c3"
-								<c:out value="${pageMaker.page.costsearch=='c3' ? 'selected':''}"/>>40,000원	~ 50,000원</option>
+								<c:out value="${pageMaker.spage.costsearch=='c3' ? 'selected':''}"/>>40,000원	~ 50,000원</option>
 							<option value="c4"
-								<c:out value="${pageMaker.page.costsearch=='c4' ? 'selected':''}"/>>50,000원	~ 이상</option>
+								<c:out value="${pageMaker.spage.costsearch=='c4' ? 'selected':''}"/>>50,000원	~ 이상</option>
 						</select> <br> <br>
 
 						<p></p>
@@ -91,15 +91,15 @@
 							aria-label=".form-select-lg example" name="kindsearch"
 							id="kindsearch">
 							<option value="n"
-								<c:out value="${pageMaker.page.kindsearch==null ? 'selected':''}"/>>종류를 선택하세요</option>
+								<c:out value="${pageMaker.spage.kindsearch==null ? 'selected':''}"/>>종류를 선택하세요</option>
 							<option value="k1"
-								<c:out value="${pageMaker.page.kindsearch=='k1' ? 'selected':''}"/>>상의</option>
+								<c:out value="${pageMaker.spage.kindsearch=='k1' ? 'selected':''}"/>>상의</option>
 							<option value="k2"
-								<c:out value="${pageMaker.page.kindsearch=='k2' ? 'selected':''}"/>>하의</option>
+								<c:out value="${pageMaker.spage.kindsearch=='k2' ? 'selected':''}"/>>하의</option>
 							<option value="k3"
-								<c:out value="${pageMaker.page.kindsearch=='k3' ? 'selected':''}"/>>아우터</option>
+								<c:out value="${pageMaker.spage.kindsearch=='k3' ? 'selected':''}"/>>아우터</option>
 							<option value="k4"
-								<c:out value="${pageMaker.page.kindsearch=='k4' ? 'selected':''}"/>>가방</option>
+								<c:out value="${pageMaker.spage.kindsearch=='k4' ? 'selected':''}"/>>가방</option>
 						</select> <br> <br>
 
 						<p></p>
@@ -108,21 +108,21 @@
 							aria-label=".form-select-lg example" name="scoresearch"
 							id="scoresearch">
 							<option value="n"
-								<c:out value="${pageMaker.page.scoresearch==null ? 'selected':''}"/>>평점대를 선택하세요</option>
+								<c:out value="${pageMaker.spage.scoresearch==null ? 'selected':''}"/>>평점대를 선택하세요</option>
 							<option value="s1"
-								<c:out value="${pageMaker.page.scoresearch=='s1' ? 'selected':''}"/>>1점</option>
+								<c:out value="${pageMaker.spage.scoresearch=='s1' ? 'selected':''}"/>>1점</option>
 							<option value="s2"
-								<c:out value="${pageMaker.page.scoresearch=='s2' ? 'selected':''}"/>>2점</option>
+								<c:out value="${pageMaker.spage.scoresearch=='s2' ? 'selected':''}"/>>2점</option>
 							<option value="s3"
-								<c:out value="${pageMaker.page.scoresearch=='s3' ? 'selected':''}"/>>3점</option>
+								<c:out value="${pageMaker.spage.scoresearch=='s3' ? 'selected':''}"/>>3점</option>
 							<option value="s4"
-								<c:out value="${pageMaker.page.scoresearch=='s4' ? 'selected':''}"/>>4점</option>
+								<c:out value="${pageMaker.spage.scoresearch=='s4' ? 'selected':''}"/>>4점</option>
 							<option value="s5"
-								<c:out value="${pageMaker.page.scoresearch=='s5' ? 'selected':''}"/>>5점</option>
+								<c:out value="${pageMaker.spage.scoresearch=='s5' ? 'selected':''}"/>>5점</option>
 						</select>
 
 						<div class="col my-3">
-							<button type="submit" id="opsearchBtn" class="btn btn-primary">검색</button>
+							<button id="opsearchBtn" class="btn btn-primary">검색</button>
 						</div>
 
 					</div>
@@ -182,10 +182,10 @@
 		<!-- 2) sPageNo ~ ePageNo 까지, displayPageNo 만큼 표시 -->
 		<c:forEach var="i" begin="${pageMaker.spageNo}"
 			end="${pageMaker.epageNo}">
-			<c:if test="${i==pageMaker.page.currPage}">
+			<c:if test="${i==pageMaker.spage.currPage}">
 				<font size="5" color="Orange">${i}</font>&nbsp;
 		</c:if>
-			<c:if test="${i!=pageMaker.page.currPage}">
+			<c:if test="${i!=pageMaker.spage.currPage}">
 				<a href="poslist${pageMaker.searchQuery(i)}" class="i_page">${i}</a>&nbsp;
 		</c:if>
 		</c:forEach>

@@ -3,7 +3,7 @@ package Pageing;
 import lombok.Data;
 
 @Data
-public class Searchpage extends PageRow {
+public class Searchpage extends PageRow  {
 
 	private String costsearch;
 	private String kindsearch;
