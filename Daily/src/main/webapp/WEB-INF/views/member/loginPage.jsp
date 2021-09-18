@@ -30,6 +30,10 @@
 </style>
 </head>
 <body>
+<c:if test="${message != null}">
+		<script> alert(${message}); </script>
+</c:if>
+
 <!-- header (로그인 ,마이페이지,위시리스트) -->
 	<div>
 		<jsp:include page="../homeLayout/homeheader.jsp"></jsp:include>

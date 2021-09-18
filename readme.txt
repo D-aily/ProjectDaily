@@ -1,3 +1,22 @@
+2021.09.18
+<변경사항>
+login.js 다시 빼놓았습니다..! memeber controller session Lv 이것도 지우고 loginInfo 사용하였어요! 
+
+고객 센터 게시판들 조건 수정 -> loginInfo.id  , loginInfo.lv 
+
+고객 센터 게시판들 사용자 입력값(제목,내용) 무결성 처리 
+
+product 향수 테이블을 따로만들기보다 kind=5 로 해서 좋을거같아서 kind=5 옵션 만들어두었습니다
+==============================================================================================
+2021.09.17
+<변경사항>
+product list 화면 mapper keyword검색기능 option 검색기능 
+진짜 작업완
+memeber controller session Lv set 
+
+login.js 백업 폴더에있던건데 중요한 데이터인거같아서 member Lib에 넣어놯습니다.~!
+
+===============================================================================================
 
 2021.09.16
 <변경사항>
@@ -9,12 +28,6 @@ update product set image = 'resources/uploadImage/belt1.jpg';
 update product set image = 'resources/uploadImage/man2.jpg' where kind = '2';
 update product set image = 'resources/uploadImage/man4.jpg' where score = '4';
 
-===============================================================================================
-
-2021.09.15
-<변경사항>
-product list 화면 mapper keyword검색기능 option 검색기능 쿼리 작성 테스트 o
-작업완
 ===============================================================================================
 
 추가데이터 

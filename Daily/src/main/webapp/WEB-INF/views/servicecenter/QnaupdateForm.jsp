@@ -12,7 +12,7 @@
 	href="resources/Lib/servicecenter.css">
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
 <script src="resources/Lib/jq_headerfixed.js"></script>
-
+<script src="resources/Lib/servicecenter/serviceincheck.js"></script>
 <body>
 	<!-- header (로그인 ,마이페이지,위시리스트) -->
 	<div>
@@ -27,7 +27,7 @@
 		<jsp:include page="../servicecenter/Layout/Servicecenterheader.jsp"></jsp:include>
 
 		<!-- list -->
-		<form action="qnaupdate" method="get">
+		<form action="qnaupdate" method="get" id="TCinCheck">
 		<table>
 
 			<tr height="40">
@@ -40,11 +40,11 @@
 			</tr>
 			<tr height="40">
 				<td bgcolor="SkyBlue">제목</td>
-				<td><input type="text" name="title" value="${Qnadetail.title}"></td>
+				<td><input type="text" name="title" id="title" value="${Qnadetail.title}"></td>
 			</tr>
 			<tr height="40">		
 				<td bgcolor="SkyBlue">내용</td>
-				<td><textarea rows="10" cols="40" name="content" >${Qnadetail.content}</textarea></td>
+				<td><textarea rows="10" cols="40" name="content" id="content" >${Qnadetail.content}</textarea></td>
 			</tr>
 			<tr height="40">
 				<td bgcolor="SkyBlue">등록일</td>
@@ -52,7 +52,7 @@
 			</tr>
 			<tr height="40">
 				<td bgcolor="SkyBlue">공개여부</td>
-				<td><input type="radio" name="secret" value='1'>공개</td>
+				<td><input type="radio" name="secret" value='1' checked="checked">공개</td>
 				<td><input type="radio" name="secret" value="2">비공개</td>
 			</tr>
 			<tr height="40">
@@ -67,9 +67,9 @@
 		<br>
 		<hr>
 
-		<c:if test="${loginID!=null}">
+		<c:if test="${loginInfo.id!=null}">
 			<div class="list_item">
-			<c:if test="${loginID==Qnadetail.id || Role_lv eq 5}">
+			<c:if test="${loginInfo.id==Qnadetail.id || loginInfo.lv == 5}">
 				<a href="qnadelete?qnanum=${Qnadetail.qnanum}">글삭제</a>
 			</c:if>
 				<a href="qnalist">돌아가기</a>&nbsp;

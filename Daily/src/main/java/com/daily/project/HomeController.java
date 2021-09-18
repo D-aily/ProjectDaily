@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import Pageing.PageMaker;
+import Pageing.PageRow;
 import Pageing.Searchpage;
 import service.ProductService;
 
@@ -55,13 +56,13 @@ public class HomeController {
    
    //keywordsearchlist 
       @RequestMapping(value="pkplist")
-      public ModelAndView pkplist(ModelAndView mv, Searchpage sp , PageMaker pageMaker) {
+      public ModelAndView pkplist(ModelAndView mv, Searchpage spage , PageMaker pageMaker) {
          
-         sp.setSnoEno();
+    	  spage.setSnoEno();
          
-         mv.addObject("spList",service.keywordsearchList(sp));
-         pageMaker.setPage(sp);
-         pageMaker.setTotalRowCount(service.searchRowsCount(sp));
+         mv.addObject("spList",service.keywordsearchList(spage));
+         pageMaker.setPage(spage);
+         pageMaker.setTotalRowCount(service.searchRowsCount(spage));
       
          System.out.println("*** pageMaker =>"+ pageMaker);
          mv.addObject("pageMaker",pageMaker);

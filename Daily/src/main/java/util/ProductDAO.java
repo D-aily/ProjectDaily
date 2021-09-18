@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import Pageing.PageRow;
 import Pageing.Searchpage;
 import vo.ProductVO;
 
@@ -19,20 +20,28 @@ public class ProductDAO {
 
 	
 	//pageList
-	public int searchRowsCount(Searchpage page ){
-		return sqlSession.selectOne(NS+"searchRowsCount",page);
+	public int searchRowsCount(PageRow pr ){
+		return sqlSession.selectOne(NS+"searchRowsCount",pr);
 	}
 	
 	// 입력 통합검색
-	public List<ProductVO> keywordsearchList(Searchpage page) {
-		return sqlSession.selectList(NS+"keywordsearchList", page);
+	public List<ProductVO> keywordsearchList(PageRow pr) {
+		return sqlSession.selectList(NS+"keywordsearchList", pr);
 	}
 	
 	// 상품옵션 통합검색 
-	public List<ProductVO> optionsearchList(Searchpage page) {
-		return sqlSession.selectList(NS+"optionsearchList", page);
+	public List<ProductVO> optionsearchList(PageRow pr) {
+		return sqlSession.selectList(NS+"optionsearchList", pr);
 	}
 	
+<<<<<<< HEAD
+=======
+	public int totalRowsCount() {
+		return sqlSession.selectOne(NS+"totalRowCount");
+	} //totalRowsCount
+	
+	
+>>>>>>> 997acadb9426b64a3230489a3d6ce9cd2adbf757
 	// CRUD + countUp
 	
 	//selectList

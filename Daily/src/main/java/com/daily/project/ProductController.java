@@ -14,11 +14,13 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import Pageing.PageMaker;
+import Pageing.PageRow;
 import Pageing.Searchpage;
+import lombok.extern.log4j.Log4j;
 import service.ProductService;
 import vo.ProductVO;
 
-
+@Log4j
 @Controller
 public class ProductController {
 
@@ -28,21 +30,30 @@ public class ProductController {
 	
 	//optionsearchlist 
 			@RequestMapping(value="poslist")
-			public ModelAndView poslist(ModelAndView mv, Searchpage sp , PageMaker pageMaker) {
+			public ModelAndView poslist(ModelAndView mv,Searchpage spage, PageMaker pageMaker,HttpServletRequest request) {
 				
+				try {
+					log.info("currpage 값 확인 =>"+request.getParameter("currPage")); 
+					//페이징 uri의 현재페이지 값을 set
+					spage.setCurrpage(Integer.parseInt(request.getParameter("currPage")));
+				} catch (NumberFormatException e) {
+					System.out.println("잘못된 currpage 입니다");
+				}
 				
-				//시작번호 끝 번호
-				sp.setSnoEno();
+								
 				
+				//페이지 값 내용 열 set
+				spage.setSnoEno();
 				
 				//옵션 선택 쿼리
-				mv.addObject("spList",service.optionsearchList(sp));
-				//페이지 값 내용 열 set
-				pageMaker.setPage(sp);
+				mv.addObject("spList",service.optionsearchList(spage));
+				
+				//시작번호 끝 번호
+				pageMaker.setPage(spage);
+				
 				//페이지바 총개수 set
-				pageMaker.setTotalRowCount(service.searchRowsCount(sp));
-				System.out.println("*** pageMaker =>"+ pageMaker);
-				System.out.println("*** curpage =>"+ sp.getCurrPage());
+				pageMaker.setTotalRowCount(service.searchRowsCount(spage));
+				
 				mv.addObject("pageMaker",pageMaker);
 				mv.setViewName("product_Board/ppageSearchList");
 				

@@ -51,7 +51,7 @@ public class NtcController {
 			}
 		}else {
 			mv.addObject("message", "~~ 로그인 정보가 없습니다 !! 로그인 후 다시 하세요  ~~");
-			mv.setViewName("member/loginForm"); 
+			mv.setViewName("member/loginPage"); 
 		}
 
 		return mv;

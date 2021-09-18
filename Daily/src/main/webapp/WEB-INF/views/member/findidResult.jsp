@@ -36,7 +36,7 @@ input {
 <body>
 	<div>
 		<span>아이디 찾기</span><br>
-		<td>${finder}님의아이디는"${findidresult.id}"입니다</td>
+		<td>${findid.name}님의아이디는"${findid.id}"입니다</td>
 	</div>
 	<br>
 	<div>

@@ -43,7 +43,7 @@ $(function(){
 				<div class="d-flex flex-row bd-highlight mb-3 header_left_item">
 					<div class="p-2 bd-highlight">
 						<input type="text" name="keyword" id="keyword"
-							value="${pageMaker.page.keyword}" class="search_box"
+							value="${pageMaker.spage.keyword}" class="search_box"
 							placeholder="상품을 검색해보세요">
 					</div>
 					<div class="p-2 bd-highlight button_left">

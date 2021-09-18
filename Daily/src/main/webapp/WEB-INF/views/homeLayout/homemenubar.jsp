@@ -13,16 +13,26 @@
 	<div class="nav">
 		<div class="nav_center_item">
 			<div class="nav_item group">
+				<a class="dropdown nav_item"> Best </a> <br> <br>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item"
+						href="poslist?costsearch=n&kindsearch=k1&scoresearch=5">Best Shirt</a></li>
+					<li><a class="dropdown-item"
+						href="poslist?costsearch=n&kindsearch=k2&scoresearch=5">Best Pants</a></li>
+					<li><a class="dropdown-item"
+						href="poslist?costsearch=n&kindsearch=k3&scoresearch=5">Best Outer</a></li>
+				</ul>
+			</div>
+			
+			<div class="nav_item group">
 				<a class="dropdown nav_item" href="pdlist"> Cloth </a> <br> <br>
 				<ul class="dropdown-menu">
 					<li><a class="dropdown-item"
-						href="poslist?costsearch=n&kindsearch=k1&scoresearch=n">상의</a></li>
+						href="poslist?costsearch=n&kindsearch=k1&scoresearch=n">Shirt</a></li>
 					<li><a class="dropdown-item"
-						href="poslist?costsearch=n&kindsearch=k2&scoresearch=n">하의</a></li>
+						href="poslist?costsearch=n&kindsearch=k2&scoresearch=n">Pants</a></li>
 					<li><a class="dropdown-item"
-						href="poslist?costsearch=n&kindsearch=k3&scoresearch=n">아우터</a></li>
-					<li><a class="dropdown-item"
-						href="poslist?costsearch=n&kindsearch=k4&scoresearch=n">아우터</a></li>
+						href="poslist?costsearch=n&kindsearch=k3&scoresearch=n">Outer</a></li>
 				</ul>
 			</div>
 
@@ -30,17 +40,10 @@
 				<a class="dropdown nav_item"> Perfume </a> <br> <br>
 				<ul class="dropdown-menu">
 					<li><a class="dropdown-item" href="pdregistf">Menu item</a></li>
-					<li><a class="dropdown-item" href="#">Menu item</a></li>
-					<li><a class="dropdown-item" href="#">Menu item</a></li>
-				</ul>
-			</div>
-
-			<div class="nav_item group">
-				<a class="dropdown nav_item"> Best </a> <br> <br>
-				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Menu item</a></li>
-					<li><a class="dropdown-item" href="#">Menu item</a></li>
-					<li><a class="dropdown-item" href="#">Menu item</a></li>
+					<li><a class="dropdown-item"
+						href="poslist?costsearch=n&kindsearch=k5&scoresearch=n">Women Perfume</a></li>
+					<li><a class="dropdown-item"
+						href="poslist?costsearch=n&kindsearch=k5&scoresearch=n">Men Perfume</a></li>
 				</ul>
 			</div>
 
@@ -54,7 +57,7 @@
 			</div>
 
 			<div class="nav_item group">
-				<a class="dropdown nav_item"> Sales </a> <br> <br>
+				<a class="dropdown nav_item text-danger">Sales</a><br><br>
 				<ul class="dropdown-menu">
 					<li><a class="dropdown-item" href="#">Menu item</a></li>
 					<li><a class="dropdown-item" href="#">Menu item</a></li>

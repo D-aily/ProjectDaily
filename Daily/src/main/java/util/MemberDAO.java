@@ -39,10 +39,6 @@ public class MemberDAO {
 	public MemberVO mselectOne(MemberVO vo) {
 		return sqlSession.selectOne(NS+"mselectOne",vo);
 	}
-	// selectOne2 비밀번호 찾는사람 확인
-	public MemberVO mselectOne2(MemberVO vo) {
-		return sqlSession.selectOne(NS+"mselectOne2",vo);
-	}
 	
 	// insert 
 	public int minsert(MemberVO vo) {
