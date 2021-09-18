@@ -163,8 +163,7 @@
 	</update>
 
 	<update id="countUp">
-		update product set count = count+1 where productnum =
-		#{productnum}
+		update product set count=IFNULL(count, 0)+1 where productnum=#{productnum}
 	</update>
 
 	<delete id="delete">
