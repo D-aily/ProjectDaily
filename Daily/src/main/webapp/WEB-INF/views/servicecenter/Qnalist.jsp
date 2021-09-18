@@ -49,7 +49,7 @@
 
 
 					<!-- 로그인시에만 글을 볼수 있도록 -->
-					<c:if test="${loginID!=null}">
+					<c:if test="${loginInfo.id!=null}">
 					<td>
 					<!-- 답글 계층도 x -->
 						<c:if test="${list.step>0}">
@@ -64,7 +64,7 @@
 								<a href="qnadetail?qnanum=${list.qnanum}&id=${list.id}">${list.title}</a>
 							</c:when>
 							<c:when
-								test="${ list.secret eq 2 && list.id == loginID || Lv == '5'}">
+								test="${ list.secret eq 2 && list.id == loginInfo.id || loginInfo.lv == 5}">
 								<a href="qnadetail?qnanum=${list.qnanum}&id=${list.id}">비밀글
 										입니다.</a>
 							</c:when>
@@ -75,7 +75,7 @@
 						</td>
 					</c:if>
 					<!-- 비 로그인시 -->
-					<c:if test="${loginID==null}">
+					<c:if test="${loginInfo.id==null}">
 						<c:if test="${list.secret eq 1}">
 							<td><a href="qnadetail?qnanum=${list.qnanum}&id=${list.id}">${list.title}</a></td>
 						</c:if>
@@ -93,7 +93,7 @@
 		<br>
 		<hr>
 
-		<c:if test="${loginID!=null}">
+		<c:if test="${loginInfo.id!=null}">
 			<div class="list_item">
 				<a href="qnainsertf">문의글 쓰기</a>
 			</div>

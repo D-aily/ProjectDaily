@@ -247,6 +247,7 @@
 									<div class="product_name">상품명 1</div>
 									<div class="product_price">가격</div>
 									<div class="product_review">리뷰 수</div>
+									
 								</div>
 								<div class="col">
 									<img

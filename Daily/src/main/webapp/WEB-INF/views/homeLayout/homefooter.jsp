@@ -11,7 +11,7 @@
 	<hr>
 	<div class="footer">
 		<div class="footer_box">
-		<div class="footer_content"><a href="servicecenter">고객센터</a></div>
+		<div class="footer_content"><a href="qnalist">고객센터</a></div>
 		<div class="footer_content">배송 및 반품</div>
 		<div class="footer_content">FAQ</div>
 		<div class="footer_content">법적고지</div>

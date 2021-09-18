@@ -12,7 +12,7 @@
 	href="resources/Lib/servicecenter.css">
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
 <script src="resources/Lib/jq_headerfixed.js"></script>
-
+<script src="resources/Lib/servicecenter/serviceincheck.js"></script>
 <body>
 	<!-- header (로그인 ,마이페이지,위시리스트) -->
 	<div>
@@ -27,7 +27,7 @@
 		<jsp:include page="../servicecenter/Layout/Servicecenterheader.jsp"></jsp:include>
 
 		<!-- list -->
-		<form action="faqupdate" method="get">
+		<form action="faqupdate" method="get" id="TCinCheck">
 		<table>
 
 			<tr height="40">
@@ -40,11 +40,11 @@
 			</tr>
 			<tr height="40">
 				<td bgcolor="SkyBlue">제목</td>
-				<td><input type="text" name="title" value="${Faqdetail.title}"></td>
+				<td><input type="text" name="title" id="title" value="${Faqdetail.title}"></td>
 			</tr>
 			<tr height="40">
 				<td bgcolor="SkyBlue">내용</td>
-				<td><textarea rows="10" cols="40" name="content" >${Faqdetail.content}</textarea></td>
+				<td><textarea rows="10" cols="40" name="content" id="content" >${Faqdetail.content}</textarea></td>
 			</tr>
 			<tr height="40">
 				<td bgcolor="SkyBlue">등록일</td>
@@ -63,7 +63,7 @@
 		<br>
 		<hr>
 
-		<c:if test="${loginID!=null && Lv == '5'}">
+		<c:if test="${loginInfo.id !=null && loginInfo.lv == 5}">
 			<div class="list_item">
 				<a href="faqdelete?faqnum=${Faqdetail.faqnum}">글삭제</a>
 				<a href="faqlist">돌아가기</a>&nbsp;
