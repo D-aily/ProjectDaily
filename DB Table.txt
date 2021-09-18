@@ -285,6 +285,6 @@ insert into faq (id,title,content) values('admin','적립금/쿠폰/회원관련
 
 =======================================================================
 Cart 샘플 데이터 
-insert into cart (cartseq,id,productnum,quantity,date) values (1,'aaa11',1,1,now());
+insert into cart (cartseq,id,productnum,quantity) values (1,'aaa11',1,3);
 
 

@@ -1,10 +1,12 @@
-2021.09.17
+2021.09.18
 <변경사항>
 login.js 다시 빼놓았습니다..! memeber controller session Lv 이것도 지우고 loginInfo 사용하였어요! 
 
 고객 센터 게시판들 조건 수정 -> loginInfo.id  , loginInfo.lv 
 
 고객 센터 게시판들 사용자 입력값(제목,내용) 무결성 처리 
+
+product 향수 테이블을 따로만들기보다 kind=5 로 해서 좋을거같아서 kind=5 옵션 만들어두었습니다
 
 상품 디테일 그려놨습니다. 
 

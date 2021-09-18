@@ -4,12 +4,15 @@
  <mapper namespace="daily.mapper.CartMapper">
  
  <!-- ~~~ -기본 CRUD SQL문 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+ <insert id="insert">
+ 	insert into (cartnum,id,productnum,quantity) 
+ 		   values (LAST_INSERT_ID(),#{id},#{productnum},#{quantity}) 
+ </insert>
  <select id="cselectList" resultType="vo.CartVO">
  	select
- 	cartnum,id,productnum,quanttity from cart
- 
+ 	cartnum,id,productnum,quanttity,date from cart
  </select>
- 
+ 	
  
  
  
