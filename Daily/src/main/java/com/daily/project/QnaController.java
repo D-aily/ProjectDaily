@@ -63,7 +63,7 @@ public class QnaController {
 
 		HttpSession session = request.getSession(false);
 
-		if (session != null && session.getAttribute("loginID") != null) {
+		if (session != null && session.getAttribute("loginInfo") != null) {
 				
 			  qvo = service.selectOne(qvo);
 			if (qvo != null) {

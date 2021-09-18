@@ -34,7 +34,7 @@
 			<table>
 				<tr height="40">
 					<td bgcolor="Silver">ID</td>
-					<td><input type="text" name="id" value="${loginID}" readonly></td>
+					<td><input type="text" name="id" value="${loginInfo.id}" readonly></td>
 				</tr>
 				<tr height="40">
 					<td bgcolor="Silver">제목</td>
