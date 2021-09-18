@@ -19,16 +19,6 @@ public class MemberController {
 	
 	@Autowired
 	MemberService service;
-<<<<<<< HEAD
-	
-	int test ;
-	
-	@RequestMapping(value = "/mlist")
-	public ModelAndView mlist(ModelAndView mv) {
-		
-		List<MemberVO> list = service.mselectList();
-=======
->>>>>>> 997acadb9426b64a3230489a3d6ce9cd2adbf757
 
 	
 
@@ -37,28 +27,11 @@ public class MemberController {
 		
 		String pw = vo.getPw();
 		
-<<<<<<< HEAD
-		String password= vo.getPw();
-		int Lv = vo.getLv();
-		// => 입력값의 오류에 대한 확인은 UI 에서 JavaScript로 처리 
-		vo = service.mselectOne(vo);
-		if(vo != null) {
-			if(vo.getPw().equals(password)) {
-				//로그인 성공 : 로그인정보 seesion에 보관 , home으로 
-				request.getSession().setAttribute("loginID", vo.getId());
-				request.getSession().setAttribute("loginName", vo.getName());
-				
-				String Lev = String.valueOf(vo.getLv());
-				log.info(Lev);
-				request.getSession().setAttribute("Lv", Lev);
-				
-=======
 		vo = service.mselectOne(vo);
 		if (vo != null) {
 			if (vo.getPw().equals(pw)) {
 				// 로그인 성공
 				request.getSession().setAttribute("loginInfo", vo);
->>>>>>> 997acadb9426b64a3230489a3d6ce9cd2adbf757
 				mv.setViewName("redirect:home");
 			}else {
 				// password 틀림
@@ -123,50 +96,12 @@ public class MemberController {
 	
 	
 	
-	
-	
-<<<<<<< HEAD
-	// mdetail
-	@RequestMapping(value = "mdetail")
-	public ModelAndView mdetail(HttpServletRequest request, ModelAndView mv, MemberVO vo) {
-		
-		HttpSession session = request.getSession(false);
-		if (session !=null && session.getAttribute("loginID")!=null) {
-			vo.setId((String)session.getAttribute("loginID"));
-			
-			if(request.getParameter("id")!=null) {
-				vo.setId(request.getParameter("id"));
-			}
-			
-			vo=service.mselectOne(vo);
-			if (vo!=null) {
-				mv.addObject("Apple",vo);
-				mv.setViewName("member/memberDetail");
-				
-				if ("U".equals(request.getParameter("jcode"))) {
-					mv.setViewName("member/updateForm");
-				}else {
-					mv.setViewName("member/memberDetail");
-				}
-				
-			}else {
-				mv.addObject("message","상세정보가 없습니다, 로그인 후 이용하세요 !! ");
-				mv.setViewName("member/loginForm");
-			}
-		}else {
-			// 로그인 정보가 없음.
-			mv.addObject("message","상세정보가 없습니다, 로그인 후 이용하세요 !! ");
-			mv.setViewName("member/loginForm");
-		}
-		
-=======
 	// page 이동 -------------------------------------------------	
 	
 	// mloginpage
 	@RequestMapping(value = "/mloginpage")
 	public ModelAndView login(ModelAndView mv) {
 		mv.setViewName("member/loginPage");
->>>>>>> 997acadb9426b64a3230489a3d6ce9cd2adbf757
 		return mv;
 	}
 
@@ -184,76 +119,12 @@ public class MemberController {
 		return mv;
 	}
 	
-<<<<<<< HEAD
-	// join
-	@RequestMapping(value = "join")
-	public ModelAndView join(ModelAndView mv,  MemberVO vo) {
-		
-		if (service.minsert(vo)> 0) {
-			//join 성공 -> 로그인 유도
-			mv.addObject("message","~~ 회원가입 완료, 로그인하세요~~" );
-			mv.setViewName("member/loginForm");
-		}else {
-			// join 실페 -> 재가입 유도 
-			mv.addObject("message","~~ 회원가입 오류, 다시 하세요 !! ");
-			mv.setViewName("member/joinForm");
-		}
-		return mv;
-	}// join
-	
-	// update
-		@RequestMapping(value = "update")
-		public ModelAndView update(ModelAndView mv,  MemberVO vo, RedirectAttributes rttr) {
-			
-			if (service.mupdate(vo)> 0) {
-				//update 성공 -> mlist
-				rttr.addFlashAttribute("message","정보 수정 성공~~!!");
-				mv.setViewName("redirect:mlist");
-			}else {
-				// update 실페 -> 
-				rttr.addFlashAttribute("message"," 회원 정보 수정 실패 , 다시 하세요 !! ");
-				mv.setViewName("redirect: mdetail?id="+vo.getId()+"&jcode=U");
-			} 
-			return mv;
-		}// update 
-
-		// mdelete
-		@RequestMapping(value = "mdelete")
-		public ModelAndView mdelete(ModelAndView mv,  MemberVO vo,HttpServletRequest request,RedirectAttributes rttr) {
-			
-	/*		String loginId = (String)session.getAttribute(null)
-			if (session!=null && loginID!=null) {
-			
-			
-			}else{
-			
-			}
-	*/
-			
-			if (service.mdelete(vo)> 0) {
-					//mdelete 성공 -> home
-					HttpSession session = request.getSession(false);
-					session.invalidate();
-					rttr.addFlashAttribute("message","회원탈퇴 성공 !! 1개월후 재가입 가능 합니다~~");
-					mv.setViewName("redirect:home");
-				}else {
-					// mdelete 실페 -> 
-					rttr.addFlashAttribute("message"," 회원 탈퇴 실패 , 없는 정보입니다. !! ");
-					mv.setViewName("redirect: home");
-				} 
-				
-			 
-			return mv;
-		}// mdelete
-		 
-=======
 	// msignuppage
 	@RequestMapping(value = "/mypage")
 	public ModelAndView mypage(ModelAndView mv) {
 		mv.setViewName("member/myPage");
 		return mv;
 	}
->>>>>>> 997acadb9426b64a3230489a3d6ce9cd2adbf757
 	
 	// msignuppage
 	@RequestMapping(value = "/mfindpwpage")
