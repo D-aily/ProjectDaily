@@ -33,8 +33,6 @@ public class ProductDAO {
 		return sqlSession.selectList(NS+"optionsearchList", page);
 	}
 	
-	
-	
 	// CRUD + countUp
 	
 	//selectList

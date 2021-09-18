@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import jdk.internal.org.jline.utils.Log;
 import lombok.extern.log4j.Log4j;
 import service.MemberService;
 import vo.MemberVO;
@@ -28,7 +27,7 @@ public class MemberController {
 	@RequestMapping(value = "/mlist")
 	public ModelAndView mlist(ModelAndView mv) {
 		
-		List<MemberVO> list = service.selectList();
+		List<MemberVO> list = service.mselectList();
 
 		if (list != null) {
 			mv.addObject("Banana", list);
@@ -54,7 +53,7 @@ public class MemberController {
 		String password= vo.getPw();
 		int Lv = vo.getLv();
 		// => 입력값의 오류에 대한 확인은 UI 에서 JavaScript로 처리 
-		vo = service.selectOne(vo);
+		vo = service.mselectOne(vo);
 		if(vo != null) {
 			if(vo.getPw().equals(password)) {
 				//로그인 성공 : 로그인정보 seesion에 보관 , home으로 
@@ -127,7 +126,7 @@ public class MemberController {
 				vo.setId(request.getParameter("id"));
 			}
 			
-			vo=service.selectOne(vo);
+			vo=service.mselectOne(vo);
 			if (vo!=null) {
 				mv.addObject("Apple",vo);
 				mv.setViewName("member/memberDetail");
@@ -163,7 +162,7 @@ public class MemberController {
 	@RequestMapping(value = "join")
 	public ModelAndView join(ModelAndView mv,  MemberVO vo) {
 		
-		if (service.insert(vo)> 0) {
+		if (service.minsert(vo)> 0) {
 			//join 성공 -> 로그인 유도
 			mv.addObject("message","~~ 회원가입 완료, 로그인하세요~~" );
 			mv.setViewName("member/loginForm");
@@ -179,7 +178,7 @@ public class MemberController {
 		@RequestMapping(value = "update")
 		public ModelAndView update(ModelAndView mv,  MemberVO vo, RedirectAttributes rttr) {
 			
-			if (service.update(vo)> 0) {
+			if (service.mupdate(vo)> 0) {
 				//update 성공 -> mlist
 				rttr.addFlashAttribute("message","정보 수정 성공~~!!");
 				mv.setViewName("redirect:mlist");
@@ -204,7 +203,7 @@ public class MemberController {
 			}
 	*/
 			
-			if (service.delete(vo)> 0) {
+			if (service.mdelete(vo)> 0) {
 					//mdelete 성공 -> home
 					HttpSession session = request.getSession(false);
 					session.invalidate();
