@@ -22,6 +22,7 @@ public class MemberController {
 	@Autowired
 	MemberService service;
 
+<<<<<<< HEAD
 	
 	int test ;
 	
@@ -31,12 +32,15 @@ public class MemberController {
 		List<MemberVO> list = service.mselectList();
 		return mv;
 	}
+=======
+>>>>>>> fa2beb7a9034057b79c639253ccc4a4325e4f919
 	
 
 	@RequestMapping(value = "/mlogin")
 	public ModelAndView mlogin(HttpSession session,ModelAndView mv, MemberVO vo,HttpServletRequest request) {
 		
 		String pw = vo.getPw();
+<<<<<<< HEAD
 		String password= vo.getPw();
 		int Lv = vo.getLv();
 		// => 입력값의 오류에 대한 확인은 UI 에서 JavaScript로 처리 
@@ -68,6 +72,19 @@ public class MemberController {
 					mv.addObject("message","아이디가 다릅니다. 다시시도해 주세요");
 					mv.setViewName("redirect:mloginpage");
 				}
+=======
+		
+		vo = service.mselectOne(vo);
+		if (vo != null) {
+			if (vo.getPw().equals(pw)) {
+				// 로그인 성공
+				request.getSession().setAttribute("loginInfo", vo);
+				mv.setViewName("redirect:home");
+			}else {
+				// password 틀림
+				mv.addObject("message","비밀번호가 일치하지 않습니다. 다시시도해 주세요");
+				mv.setViewName("redirect:mloginpage");
+>>>>>>> fa2beb7a9034057b79c639253ccc4a4325e4f919
 			}
 		}
 		return mv;
@@ -118,6 +135,7 @@ public class MemberController {
 		}
 		return mv;
 	}
+<<<<<<< HEAD
 
 	// mdetail
 	@RequestMapping(value = "mdetail")
@@ -153,6 +171,13 @@ public class MemberController {
 		}
 		return mv;
 	}
+=======
+	
+	
+	
+	
+	
+>>>>>>> fa2beb7a9034057b79c639253ccc4a4325e4f919
 	// page 이동 -------------------------------------------------	
 	
 	// mloginpage
@@ -175,6 +200,7 @@ public class MemberController {
 		mv.setViewName("member/findidPage");
 		return mv;
 	}
+<<<<<<< HEAD
 
 	// join
 	@RequestMapping(value = "join")
@@ -238,13 +264,20 @@ public class MemberController {
 		}// mdelete
 		 
 
+=======
+	
+>>>>>>> fa2beb7a9034057b79c639253ccc4a4325e4f919
 	// msignuppage
 	@RequestMapping(value = "/mypage")
 	public ModelAndView mypage(ModelAndView mv) {
 		mv.setViewName("member/myPage");
 		return mv;
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> fa2beb7a9034057b79c639253ccc4a4325e4f919
 	// msignuppage
 	@RequestMapping(value = "/mfindpwpage")
 	public ModelAndView mfindpwpage(ModelAndView mv) {

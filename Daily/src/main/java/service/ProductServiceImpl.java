@@ -30,10 +30,6 @@ public class ProductServiceImpl implements ProductService {
 		return dao.optionsearchList(spage);
 	}
 	
-	@Override
-	public int totalRowsCount() {
-		return dao.totalRowsCount();
-	}
 	
 	// 기본 CRUD	+ countUp
 	@Override
