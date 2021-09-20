@@ -81,8 +81,6 @@ div {
 
 	<!-- 주요 내용 -->
 	<div id="contentArea"></div>
-
-
 	<!-- 오른쪽 컨트롤러 -->
 	<div id="rightmenu">
 		<table id="floating_menu"

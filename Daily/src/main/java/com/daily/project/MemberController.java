@@ -21,7 +21,25 @@ public class MemberController {
 	MemberService service;
 
 	
-
+	// 기능-------------------------------------------------------------
+	
+	//배송지 변경
+	@RequestMapping(value = "/address_change")
+	public ModelAndView address_change(HttpSession session, ModelAndView mv,MemberVO vo) {
+		
+		if(service.changeaddress(vo) > 0) {
+			//주소변경 성공
+			mv.addObject("result","complete");
+			session.setAttribute("loginInfo.address", vo.getAddress());
+		}else {
+			mv.addObject("result","error");
+		}
+		mv.setViewName("member/minfopage");
+		System.out.println(mv);
+		return mv;
+	}
+	
+	//로그인
 	@RequestMapping(value = "/mlogin")
 	public ModelAndView mlogin(HttpSession session,ModelAndView mv, MemberVO vo,HttpServletRequest request) {
 		
@@ -46,6 +64,7 @@ public class MemberController {
 		return mv;
 	}//mlogin
 	
+	//로그아웃
 	@RequestMapping(value = "/mlogout")
 	public ModelAndView logout(HttpServletRequest request, ModelAndView mv, RedirectAttributes rttr) {
 		HttpSession session = request.getSession(false);
@@ -56,6 +75,7 @@ public class MemberController {
 		return mv;
 	}//mlogout
 	
+	//아이디 찾기
 	@RequestMapping(value="/mfindid")
 	public ModelAndView mfindid(HttpServletRequest request, ModelAndView mv,MemberVO vo) {
 		vo=service.mfindid(vo);
@@ -65,6 +85,7 @@ public class MemberController {
 		return mv;
 	}
 	
+	//비밀번호 찾기
 	@RequestMapping(value="/mfindpwcheck")
 	public ModelAndView mfindpwcheck(HttpServletRequest request, ModelAndView mv,MemberVO vo) {
 		vo=service.mfindpw(vo);
@@ -77,6 +98,7 @@ public class MemberController {
 		return mv;
 	}
 	
+	//비밀번호 변경
 	@RequestMapping(value="/changepw")
 	public ModelAndView changepw(ModelAndView mv,MemberVO vo) {
 		int result = service.changepw(vo);
@@ -97,6 +119,14 @@ public class MemberController {
 	
 	
 	// page 이동 -------------------------------------------------	
+	
+	// 배송지 변경 페이지
+	@RequestMapping(value = "/address_change_page")
+	public ModelAndView address_change_page(ModelAndView mv) {
+		mv.setViewName("member/address_change_page");
+		return mv;
+	}
+
 	
 	// mloginpage
 	@RequestMapping(value = "/mloginpage")
@@ -119,10 +149,15 @@ public class MemberController {
 		return mv;
 	}
 	
-	// msignuppage
+	// mypage
 	@RequestMapping(value = "/mypage")
-	public ModelAndView mypage(ModelAndView mv) {
-		mv.setViewName("member/myPage");
+	public ModelAndView mypage(ModelAndView mv,HttpSession session) {
+		if(session.getAttribute("loginInfo")!=null) {
+			mv.setViewName("member/myPage");
+		}else {
+			mv.setViewName("redirect:mloginpage");
+			mv.addObject("message", "로그인이 필요한 서비스입니다.");
+		}
 		return mv;
 	}
 	
@@ -132,6 +167,7 @@ public class MemberController {
 		mv.setViewName("member/findpwPage");
 		return mv;
 	}
+
 	
 	// minfopage
 	@RequestMapping(value = "/minfopage")

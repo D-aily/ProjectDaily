@@ -16,6 +16,13 @@ public class MemberDAO {
 	
 	private static final String NS = "daily.mapper.MemberMapper.";
 	
+	
+	
+	// mchangeaddress
+	public int mchangeaddress(MemberVO vo) {
+		return sqlSession.update(NS+"mchangeaddress",vo);
+	}
+	
 	// changepw
 	public int mchangepw(MemberVO vo) {
 		return sqlSession.update(NS+"mchangepw",vo);
