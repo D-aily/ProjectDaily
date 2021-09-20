@@ -14,9 +14,11 @@
 	<jsp:include page="/WEB-INF/views/homeLayout/homeheader.jsp"></jsp:include>
 	<!-- nav  (메뉴바)-->
 	<jsp:include page="/WEB-INF/views/homeLayout/homemenubar.jsp"></jsp:include>
+<form action="addCart" method="post" name="cart">
 <table>
 	<tr height="40"><td bgcolor="SkyBlue">PN.</td>
-		<td>${Product.productnum}</td></tr>
+		<td><input type="hidden" name="productnum" value="${Product.productnum }">
+		${Product.productnum}</td></tr>
 	<tr height="40"><td bgcolor="SkyBlue">상품명</td>
 		<td>${Product.name}</td></tr>
 	<tr height="40"><td bgcolor="SkyBlue">상품상세설명</td>
@@ -48,18 +50,25 @@
 	</tr>
 	<tr height="40"><td bgcolor="SkyBlue">조회수</td>
 		<td>${Product.count}</td></tr>
+	<tr><td bgcolor="SkyBlue">수량</td>
+		<td><select name="quantity">
+			<c:forEach begin="1" end="10" var="i">
+				<option value="${i}">${i}</option>
+			</c:forEach>
+		</select>&nbsp;개</td>
+	</tr>
 	<tr height="40"><td bgcolor="SkyBlue">평점</td>
 		<td>${Product.score}</td></tr>
 	<tr height="40"><td bgcolor="SkyBlue">리뷰</td>
 		<td></td></tr>
 	<tr height="40"><td bgcolor="SkyBlue">상품qna</td>
 		<td></td></tr>	
-		
-</table>
+	<tr><td><input type="button" value="주문하기"></td>
+		<td><input type="submit" value="장바구니담기"></td>
+	</tr>
+</table></form>
 <hr>
 <a href="pddetail?productnum=${Product.productnum}&jcode=U">수정하기</a>&nbsp;
-<input type="button" value="주문하기">
-<input type="button" value="장바구니" >
 <input type="button" value="찜하기">
 
 
