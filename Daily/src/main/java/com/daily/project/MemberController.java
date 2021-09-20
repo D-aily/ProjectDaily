@@ -23,15 +23,15 @@ public class MemberController {
 	//배송지 변경
 	@RequestMapping(value = "/address_change")
 	public ModelAndView address_change(HttpSession session, ModelAndView mv,MemberVO vo) {
-		
+		String address = vo.getAddress();
 		if(service.changeaddress(vo) > 0) {
 			//주소변경 성공
 			mv.addObject("result","complete");
-			session.setAttribute("loginInfo.address", vo.getAddress());
+			//session.setAttribute("loginInfo.address", address);
 		}else {
 			mv.addObject("result","error");
 		}
-		mv.setViewName("member/minfopage");
+		mv.setViewName("redirect:minfopage");
 		System.out.println(mv);
 		return mv;
 	}
@@ -46,7 +46,8 @@ public class MemberController {
 		if (vo != null) {
 			if (vo.getPw().equals(pw)) {
 				// 로그인 성공
-				request.getSession().setAttribute("loginInfo", vo);
+				session.setAttribute("loginInfo", vo);
+				//request.getSession().setAttribute("loginInfo", vo);
 				mv.setViewName("redirect:home");
 			}else {
 				// password 틀림
@@ -112,14 +113,28 @@ public class MemberController {
 	
 	// page 이동 -------------------------------------------------	
 	
+	// 배송지 페이지
+	@RequestMapping(value = "/addresspage")
+	public ModelAndView addresspage(ModelAndView mv) {
+		mv.setViewName("member/addresspage");
+		return mv;
+	}
+	
+	// 개인정보 변경 페이지
+	@RequestMapping(value = "/info_change_page")
+	public ModelAndView info_change_page(ModelAndView mv) {
+		mv.setViewName("member/info_change_page");
+		return mv;
+	}
+	
 	// 배송지 변경 페이지
 	@RequestMapping(value = "/address_change_page")
 	public ModelAndView address_change_page(ModelAndView mv) {
+		
 		mv.setViewName("member/address_change_page");
 		return mv;
 	}
 
-	
 	// 로그인 페이지
 	@RequestMapping(value = "/mloginpage")
 	public ModelAndView login(ModelAndView mv) {
@@ -161,7 +176,7 @@ public class MemberController {
 	}
 
 	
-	// 내 정보 페이지
+	// 개인정보 페이지
 	@RequestMapping(value = "/minfopage")
 	public ModelAndView minfopage(ModelAndView mv) {
 		mv.setViewName("member/minfopage");

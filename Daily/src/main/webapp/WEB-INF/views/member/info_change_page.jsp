@@ -11,24 +11,12 @@
 <body>
     <table>
         <tr height="40">
-            <td>아이디</td>
-            <td>${loginInfo.id}</td>
-        </tr>
-        <tr height="40">
-            <td>이름</td>
-            <td>${loginInfo.name}</td>
-        </tr>
-        <tr height="40">
             <td>연락 가능 번호</td>
-            <td>${loginInfo.phone}</td>
+            <td><input type="text" id="phone" name="phone" value="${loginInfo.phone}"></td>
         </tr>
         <tr height="40">
-            <td>보유 머니</td>
-            <td>${loginInfo.money}</td>
-        </tr>
-        <tr height="40">
-            <td>보유 포인트</td>
-            <td>${loginInfo.point}</td>
+            <td>비밀번호 변경</td>
+            <td><input type="password" id="pw" name="pw" value="${loginInfo.pw }"></td>
         </tr>
     </table>
     <div id="menu">

@@ -75,7 +75,10 @@ div {
 			<div id="infopage">
 				<a>개인정보확인/수정</a>
 			</div>
-			<div>배송지 관리</div>
+			<div id="addresspage">
+				<a>배송지 관리</a>
+			</div>
+			
 		</div>
 	</div>
 
