@@ -44,12 +44,12 @@ create table product (
 	price3 int,
 	quantity1 int,
 	quantity2 int,
-	kind int,
+	kind char,
 	count int,
 	score int
 );
 
-Kind => char 로 데이터를 받아오지지
+
 
 
 
@@ -287,4 +287,6 @@ insert into faq (id,title,content) values('admin','적립금/쿠폰/회원관련
 Cart 샘플 데이터 
 insert into cart (cartseq,id,productnum,quantity) values (1,'aaa11',1,3);
 
+Join 구문
+select m.name,p.name, quantity,price2*quantity money from member m, product p ,cart c where m.id=c.id and p.productnum = c.productnum;
 

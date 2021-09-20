@@ -1,5 +1,7 @@
 package com.daily.project;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -20,6 +22,18 @@ public class MemberController {
 	@Autowired
 	MemberService service;
 
+<<<<<<< HEAD
+	
+	int test ;
+	
+	@RequestMapping(value = "/mlist")
+	public ModelAndView mlist(ModelAndView mv) {
+		
+		List<MemberVO> list = service.mselectList();
+		return mv;
+	}
+=======
+>>>>>>> fa2beb7a9034057b79c639253ccc4a4325e4f919
 	
 	// 기능-------------------------------------------------------------
 	
@@ -44,6 +58,39 @@ public class MemberController {
 	public ModelAndView mlogin(HttpSession session,ModelAndView mv, MemberVO vo,HttpServletRequest request) {
 		
 		String pw = vo.getPw();
+<<<<<<< HEAD
+		String password= vo.getPw();
+		int Lv = vo.getLv();
+		// => 입력값의 오류에 대한 확인은 UI 에서 JavaScript로 처리 
+		vo = service.mselectOne(vo);
+		if(vo != null) {
+			if(vo.getPw().equals(password)) {
+				//로그인 성공 : 로그인정보 seesion에 보관 , home으로 
+				request.getSession().setAttribute("loginID", vo.getId());
+				request.getSession().setAttribute("loginName", vo.getName());
+			
+				String Lev = String.valueOf(vo.getLv());
+				log.info(Lev);
+				request.getSession().setAttribute("Lv", Lev);
+			
+				vo = service.mselectOne(vo);
+			
+				if (vo != null) {
+					if(vo.getPw().equals(pw)) {
+						// 로그인 성공
+						request.getSession().setAttribute("loginInfo", vo);
+						mv.setViewName("redirect:home");
+					}else {
+						// password 틀림
+						mv.addObject("message","비밀번호가 일치하지 않습니다. 다시시도해 주세요");
+						mv.setViewName("redirect:mloginpage");
+					}
+				}else {
+					// ID 틀림
+					mv.addObject("message","아이디가 다릅니다. 다시시도해 주세요");
+					mv.setViewName("redirect:mloginpage");
+				}
+=======
 		
 		vo = service.mselectOne(vo);
 		if (vo != null) {
@@ -55,11 +102,8 @@ public class MemberController {
 				// password 틀림
 				mv.addObject("message","비밀번호가 일치하지 않습니다. 다시시도해 주세요");
 				mv.setViewName("redirect:mloginpage");
+>>>>>>> fa2beb7a9034057b79c639253ccc4a4325e4f919
 			}
-		}else {
-			// ID 틀림
-			mv.addObject("message","아이디가 다릅니다. 다시시도해 주세요");
-			mv.setViewName("redirect:mloginpage");
 		}
 		return mv;
 	}//mlogin
@@ -113,11 +157,49 @@ public class MemberController {
 		}
 		return mv;
 	}
+<<<<<<< HEAD
+
+	// mdetail
+	@RequestMapping(value = "mdetail")
+	public ModelAndView mdetail(HttpServletRequest request, ModelAndView mv, MemberVO vo) {
+		
+		HttpSession session = request.getSession(false);
+		if (session !=null && session.getAttribute("loginID")!=null) {
+			vo.setId((String)session.getAttribute("loginID"));
+			
+			if(request.getParameter("id")!=null) {
+				vo.setId(request.getParameter("id"));
+			}
+			
+			vo=service.mselectOne(vo);
+			if (vo!=null) {
+				mv.addObject("Apple",vo);
+				mv.setViewName("member/memberDetail");
+				
+				if ("U".equals(request.getParameter("jcode"))) {
+					mv.setViewName("member/updateForm");
+				}else {
+					mv.setViewName("member/memberDetail");
+				}
+				
+			}else {
+				mv.addObject("message","상세정보가 없습니다, 로그인 후 이용하세요 !! ");
+				mv.setViewName("member/loginForm");
+			}
+		}else {
+			// 로그인 정보가 없음.
+			mv.addObject("message","상세정보가 없습니다, 로그인 후 이용하세요 !! ");
+			mv.setViewName("member/loginForm");
+		}
+		return mv;
+	}
+=======
 	
 	
 	
 	
 	
+>>>>>>> fa2beb7a9034057b79c639253ccc4a4325e4f919
 	// page 이동 -------------------------------------------------	
 	
 	// 배송지 변경 페이지
@@ -148,8 +230,78 @@ public class MemberController {
 		mv.setViewName("member/findidPage");
 		return mv;
 	}
+<<<<<<< HEAD
+
+	// join
+	@RequestMapping(value = "join")
+	public ModelAndView join(ModelAndView mv,  MemberVO vo) {
+		
+		if (service.minsert(vo)> 0) {
+			//join 성공 -> 로그인 유도
+			mv.addObject("message","~~ 회원가입 완료, 로그인하세요~~" );
+			mv.setViewName("member/loginForm");
+		}else {
+			// join 실페 -> 재가입 유도 
+			mv.addObject("message","~~ 회원가입 오류, 다시 하세요 !! ");
+			mv.setViewName("member/joinForm");
+		}
+		return mv;
+	}// join
 	
+<<<<<<< HEAD
 	// mypage
+=======
+	// update
+		@RequestMapping(value = "update")
+		public ModelAndView update(ModelAndView mv,  MemberVO vo, RedirectAttributes rttr) {
+			
+			if (service.mupdate(vo)> 0) {
+				//update 성공 -> mlist
+				rttr.addFlashAttribute("message","정보 수정 성공~~!!");
+				mv.setViewName("redirect:mlist");
+			}else {
+				// update 실페 -> 
+				rttr.addFlashAttribute("message"," 회원 정보 수정 실패 , 다시 하세요 !! ");
+				mv.setViewName("redirect: mdetail?id="+vo.getId()+"&jcode=U");
+			} 
+			return mv;
+		}// update 
+
+		// mdelete
+		@RequestMapping(value = "mdelete")
+		public ModelAndView mdelete(ModelAndView mv,  MemberVO vo,HttpServletRequest request,RedirectAttributes rttr) {
+			
+	/*		String loginId = (String)session.getAttribute(null)
+			if (session!=null && loginID!=null) {
+			
+			
+			}else{
+			
+			}
+	*/
+			
+			if (service.mdelete(vo)> 0) {
+					//mdelete 성공 -> home
+					HttpSession session = request.getSession(false);
+					session.invalidate();
+					rttr.addFlashAttribute("message","회원탈퇴 성공 !! 1개월후 재가입 가능 합니다~~");
+					mv.setViewName("redirect:home");
+				}else {
+					// mdelete 실페 -> 
+					rttr.addFlashAttribute("message"," 회원 탈퇴 실패 , 없는 정보입니다. !! ");
+					mv.setViewName("redirect: home");
+				} 
+				
+			 
+			return mv;
+		}// mdelete
+		 
+
+=======
+	
+>>>>>>> fa2beb7a9034057b79c639253ccc4a4325e4f919
+	// msignuppage
+>>>>>>> a6e8549f7e03e67e33b974d3765aa55d30b3282e
 	@RequestMapping(value = "/mypage")
 	public ModelAndView mypage(ModelAndView mv,HttpSession session) {
 		if(session.getAttribute("loginInfo")!=null) {
@@ -160,7 +312,11 @@ public class MemberController {
 		}
 		return mv;
 	}
+<<<<<<< HEAD
+
+=======
 	
+>>>>>>> fa2beb7a9034057b79c639253ccc4a4325e4f919
 	// msignuppage
 	@RequestMapping(value = "/mfindpwpage")
 	public ModelAndView mfindpwpage(ModelAndView mv) {
