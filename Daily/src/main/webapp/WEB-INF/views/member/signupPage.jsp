@@ -8,6 +8,55 @@
 <title>D:aily :: 회원가입</title>
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
+<script>
+// 스위치 변수들 모두 true가되야 가능
+var iCheck = false;
+var pCheck = false;
+var nCheck = false;
+var bCheck = false;
+var oCheck = false;
+var wCheck = false;
+
+// 유효성 검사
+$(function() {
+	$('#id').focus();
+	$('#id').focusout(function() {
+		iCheck = idCheck();
+	}); // id_focusout  
+
+	$('#pw').focusout(function() {
+		pCheck = pwCheck();
+	}); //password_focusout
+
+	$('#name').focusout(function() {
+		nCheck = nmCheck();
+	}); //name
+
+	$('#birthd').focusout(function() {
+		bCheck = bdCheck();
+	}); //birthd
+
+	$('#point').focusout(function() {
+		//poCheck=poCheck();
+		//=> 로직오류 : 변수명과 함수명이 같은경우 변수우선
+		oCheck = poCheck();
+	}); //point
+
+	$('#weight').focusout(function() {
+		wCheck = weCheck();
+	}); //weight
+}); //ready
+
+// ID 중복 확인하기
+function idDupCheck() {
+	if (iCheck == false) {
+		iCheck = idCheck();
+	} else {
+		var url = "idCheck?id=" + $('#id').val();
+		window.open(url, "_blank", "toolbar=no,menubar=yes,scrollbars=yes,resizable=yes,width=500,height=400");
+	}
+} //idDupCheck
+</script>
 <style>
 #form {
 	text-align: center;
@@ -44,7 +93,14 @@
 			<table>
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="id" id="id" size="10"></td>
+				<td><input type="text" name="id" id="id" size="10">&nbsp;&nbsp;
+					<input type="button" value="ID중복확인" id="idDup"
+					onclick="idDupCheck()"><br> <span id=iMessage
+					class="eMessage"></span></td>
+				<!-- 	<td>
+						<input type="text" name="id" id="id" size="10">
+						<input type="button" value="ID중복확인" id="idDup" onclick="idDupCheck()">
+					</td> -->
 				</tr>
 				<tr>
 					<td>비밀번호</td>

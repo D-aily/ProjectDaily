@@ -21,7 +21,7 @@
 			<tr height="40">
 				<td>이름</td>
 				<td>
-					<spam>${Info.name }</spam>
+					<span>${Info.name }</span>
 					<input type="hidden" id="name" value="${Info.name}" >
 				</td>
 			</tr>

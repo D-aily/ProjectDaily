@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -22,7 +21,33 @@ public class MemberController {
 
 	// 기능-------------------------------------------------------------
 
-
+	// ID 중복확인
+		@RequestMapping(value = "/idCheck")
+		public ModelAndView idCheck(ModelAndView mv, MemberVO vo) {
+			// => 전달된 ID 의 존재여부 확인
+			// => notNull : 존재 -> 사용불가 
+			// => Null : 없음 -> 사용가능
+			// => 그러므로 전달된 ID 보관해야함
+			mv.addObject("newID", vo.getId());
+			if (service.mselectOne(vo) != null) {
+				  mv.addObject("idUse", "F"); // 사용불가
+			}else mv.addObject("idUse", "T"); // 사용가능
+			mv.setViewName("member/idDupCheck");
+			return mv;
+		} //idCheck
+		
+	//회원가입
+	@RequestMapping(value = "/msignup")
+	public ModelAndView msignup(ModelAndView mv, MemberVO vo) {
+		if(service.minsert(vo)>0) {
+			// 회원가입 성공
+			mv.setViewName("redirect:mloginpage");
+		}else {
+			//회원가입 실패
+			mv.setViewName("redirect:msignuppage");
+		}
+		return mv;
+	}
 	// 개인정보 변경
 	@RequestMapping(value = "/info_change")
 	public ModelAndView info_change(ModelAndView mv, MemberVO vo) {
@@ -54,6 +79,8 @@ public class MemberController {
 				mv.addObject("message","비밀번호가 일치하지 않습니다. 다시시도해 주세요");
 				mv.setViewName("redirect:mloginpage");
 			}
+		}else {
+			mv.setViewName("redirect:mloginpage");
 		}
 		return mv;
 	}
@@ -175,7 +202,7 @@ public class MemberController {
 	// 로그인 페이지
 	@RequestMapping(value = "/mloginpage")
 	public ModelAndView login(ModelAndView mv) {
-		mv.setViewName("member/loginPage");
+		mv.setViewName("member/mloginPage");
 		return mv;
 	}
 
