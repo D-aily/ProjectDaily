@@ -1,6 +1,6 @@
 $(function() {
 	
-	//개인정보 변경 페이지 이동
+	//배송지 변경 page
 	$('#info_change_page').click(function(){
 		$.ajax({
 			type:'Post',
@@ -12,7 +12,21 @@ $(function() {
 				alert('error');
 			}
 		});//ajax
-	});
+	});//address_change
+	
+/*	//개인정보 변경 페이지 이동
+	$('#info_change_page').click(function(){
+		$.ajax({
+			type:'Post',
+			url:'info_change_page',
+			success:function(resultPage){
+				$('#contentArea').html(resultPage);
+			},
+			error:function(){
+				alert('error');
+			}
+		});//ajax
+	});*/
 	
 	//개인정보확인/수정
 	$('#infopage').click(function(){
@@ -30,7 +44,7 @@ $(function() {
 
 
 
-	//배송지 확인 페이지
+	//배송지 확인 page
 	$('#addresspage').click(function(){
 		$.ajax({
 			type:'Post',
@@ -42,7 +56,7 @@ $(function() {
 				alert('error');
 			}
 		});//ajax
-	});
+	});//addresspage
 	
 	//배송지 변경 page
 	$('#address_change_page').click(function(){

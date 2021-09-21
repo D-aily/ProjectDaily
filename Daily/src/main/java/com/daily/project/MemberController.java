@@ -27,12 +27,11 @@ public class MemberController {
 		if(service.changeaddress(vo) > 0) {
 			//주소변경 성공
 			mv.addObject("result","complete");
-			//session.setAttribute("loginInfo.address", address);
+		    session.setAttribute("loginInfo.address", address);
 		}else {
 			mv.addObject("result","error");
 		}
 		mv.setViewName("redirect:minfopage");
-		System.out.println(mv);
 		return mv;
 	}
 	
@@ -116,6 +115,7 @@ public class MemberController {
 	// 배송지 페이지
 	@RequestMapping(value = "/addresspage")
 	public ModelAndView addresspage(ModelAndView mv) {
+		System.out.println("addresspage");
 		mv.setViewName("member/addresspage");
 		return mv;
 	}
@@ -123,6 +123,7 @@ public class MemberController {
 	// 개인정보 변경 페이지
 	@RequestMapping(value = "/info_change_page")
 	public ModelAndView info_change_page(ModelAndView mv) {
+		System.out.println("info_change_page");
 		mv.setViewName("member/info_change_page");
 		return mv;
 	}
@@ -130,7 +131,6 @@ public class MemberController {
 	// 배송지 변경 페이지
 	@RequestMapping(value = "/address_change_page")
 	public ModelAndView address_change_page(ModelAndView mv) {
-		
 		mv.setViewName("member/address_change_page");
 		return mv;
 	}

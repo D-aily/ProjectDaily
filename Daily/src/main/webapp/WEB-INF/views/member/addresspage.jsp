@@ -17,8 +17,7 @@
 			</tr>
 		</table>
 		<div id="menu">
-			<input type="button" value="배송지 변경" class="btn"
-				id='address_change_page'>
+			<input type="button" value="배송지 변경" class="btn" id='address_change_page'>
 		</div>
 	</div>
 </body>
