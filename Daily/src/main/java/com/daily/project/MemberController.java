@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -14,39 +15,38 @@ import vo.MemberVO;
 
 @Controller
 public class MemberController {
-	
+
 	@Autowired
 	MemberService service;
 
 	// 기능-------------------------------------------------------------
-	
-	//배송지 변경
-	@RequestMapping(value = "/address_change")
-	public ModelAndView address_change(HttpSession session, ModelAndView mv,MemberVO vo) {
-		String address = vo.getAddress();
-		if(service.changeaddress(vo) > 0) {
-			//주소변경 성공
-			mv.addObject("result","complete");
-		    session.setAttribute("loginInfo.address", address);
+
+
+	// 개인정보 변경
+	@RequestMapping(value = "/info_change")
+	public ModelAndView info_change(ModelAndView mv, MemberVO vo) {
+		if(service.changeinfo(vo)>0) {
+			// 개인정보 수정 성공
+
 		}else {
-			mv.addObject("result","error");
+			// 개인정보 수정 실패
+
 		}
 		mv.setViewName("redirect:minfopage");
 		return mv;
 	}
-	
+
 	//로그인
 	@RequestMapping(value = "/mlogin")
-	public ModelAndView mlogin(HttpSession session,ModelAndView mv, MemberVO vo,HttpServletRequest request) {
-		
+	public ModelAndView mlogin(ModelAndView mv, MemberVO vo,HttpServletRequest request) {
+		HttpSession session = request.getSession(true);
 		String pw = vo.getPw();
-		
+
 		vo = service.mselectOne(vo);
 		if (vo != null) {
 			if (vo.getPw().equals(pw)) {
 				// 로그인 성공
-				session.setAttribute("loginInfo", vo);
-				//request.getSession().setAttribute("loginInfo", vo);
+				session.setAttribute("loginInfo", vo.getId());
 				mv.setViewName("redirect:home");
 			}else {
 				// password 틀림
@@ -56,7 +56,7 @@ public class MemberController {
 		}
 		return mv;
 	}
-	
+
 	//로그아웃
 	@RequestMapping(value = "/mlogout")
 	public ModelAndView logout(HttpServletRequest request, ModelAndView mv, RedirectAttributes rttr) {
@@ -67,18 +67,17 @@ public class MemberController {
 		mv.setViewName("redirect:home");
 		return mv;
 	}
-	
+
 	//아이디 찾기
 	@RequestMapping(value="/mfindid")
 	public ModelAndView mfindid(HttpServletRequest request, ModelAndView mv,MemberVO vo) {
 		vo=service.mfindid(vo);
-		System.out.println(vo);
 		mv.addObject("findid", vo);
 		mv.setViewName("member/findidResult");
 		return mv;
 	}
-	
-	//비밀번호 찾기
+
+	//비밀번호 찾기 (회원가입한 확인)
 	@RequestMapping(value="/mfindpwcheck")
 	public ModelAndView mfindpwcheck(HttpServletRequest request, ModelAndView mv,MemberVO vo) {
 		vo=service.mfindpw(vo);
@@ -86,52 +85,88 @@ public class MemberController {
 			mv.addObject("vo", vo);
 			mv.setViewName("member/findpwResult");
 		}else {
-			mv.setViewName("redirect:mfindpw");
-		}
-		return mv;
-	}
-	
-	//비밀번호 변경
-	@RequestMapping(value="/changepw")
-	public ModelAndView changepw(ModelAndView mv,MemberVO vo) {
-		int result = service.changepw(vo);
-		if(result > 0) {
-			// 성공
-			mv.addObject("vo", vo);
-			mv.addObject("message", "비밀번호가 변경되었습니다.");
-			mv.setViewName("redirect:mloginpage");
-		}else {
-			mv.addObject("message", "비밀번호가 변경에 실패하였습니다. 다시시도해 주세요");
-			mv.setViewName("redirect:mfindpw");
+			mv.setViewName("redirect:mfindpwpage");
 		}
 		return mv;
 	}
 
-	
-	
-	
-	// page 이동 -------------------------------------------------	
-	
-	// 배송지 페이지
-	@RequestMapping(value = "/addresspage")
-	public ModelAndView addresspage(ModelAndView mv) {
-		System.out.println("addresspage");
-		mv.setViewName("member/addresspage");
+	//비밀번호 변경
+	@RequestMapping(value="/changepw")
+	public ModelAndView changepw(ModelAndView mv,MemberVO vo,HttpSession session) {
+
+		if(service.changepw(vo) > 0) {
+			// 성공
+			mv.addObject("message", "비밀번호가 변경되었습니다.");
+			if(session.getAttribute("loginInfo")!=null) {
+				//로그인
+				mv.setViewName("redirect:mypage");
+			}else {
+				//비로그인
+				mv.setViewName("redirect:mloginpage");
+			}
+		}else {
+			mv.addObject("message", "비밀번호가 변경에 실패하였습니다. 다시시도해 주세요");
+			if(session.getAttribute("loginInfo")!=null) {
+				//로그인
+			}else {
+				//비로그인
+				mv.setViewName("redirect:mloginpage");
+			}
+		}
+		System.out.println(session.getAttribute("loginInfo"));
+		System.out.println(mv);
 		return mv;
 	}
-	
+
+
+
+
+	// page 이동 -------------------------------------------------	
+
+	// 로그인 페이지
+	@RequestMapping(value = "/info_pwchange_page")
+	public ModelAndView info_pwchange_page(ModelAndView mv,MemberVO vo,HttpSession session) {
+		if(session.getAttribute("loginInfo")!=null) {
+			vo.setId((String)session.getAttribute("loginInfo"));
+			vo = service.mselectOne(vo);
+			mv.addObject("Info", vo);
+			mv.setViewName("member/info_pwchange_page");
+		}else {//비로그인
+			mv.setViewName("redirect:mloginpage");
+			mv.addObject("message", "로그인이 필요한 서비스입니다.");
+		}
+		return mv;
+	}
+
+	// 개인정보 변경 페이지
+	@RequestMapping(value = "/password_change_page")
+	public ModelAndView password_change_page(ModelAndView mv,MemberVO vo,HttpSession session) {
+		//로그인 확인
+		if(session.getAttribute("loginInfo")!=null) {
+			vo.setId((String)session.getAttribute("loginInfo"));
+			vo = service.mselectOne(vo);
+			mv.addObject("Info", vo);
+			mv.setViewName("member/info_change_page");
+		}else {//비로그인
+			mv.setViewName("redirect:mloginpage");
+			mv.addObject("message", "로그인이 필요한 서비스입니다.");
+		}
+		return mv;
+	}
+
 	// 개인정보 변경 페이지
 	@RequestMapping(value = "/info_change_page")
-	public ModelAndView info_change_page(ModelAndView mv) {
-		System.out.println("info_change_page");
-		mv.setViewName("member/info_change_page");
-		return mv;
-	}
-	
-	// 배송지 변경 페이지
-	@RequestMapping(value = "/address_change_page")
-	public ModelAndView address_change_page(ModelAndView mv) {
-		mv.setViewName("member/address_change_page");
+	public ModelAndView info_change_page(ModelAndView mv,MemberVO vo,HttpSession session) {
+		//로그인 확인
+		if(session.getAttribute("loginInfo")!=null) {
+			vo.setId((String)session.getAttribute("loginInfo"));
+			vo = service.mselectOne(vo);
+			mv.addObject("Info", vo);
+			mv.setViewName("member/info_change_page");
+		}else {//비로그인
+			mv.setViewName("redirect:mloginpage");
+			mv.addObject("message", "로그인이 필요한 서비스입니다.");
+		}
 		return mv;
 	}
 
@@ -148,11 +183,19 @@ public class MemberController {
 		mv.setViewName("member/signupPage");
 		return mv;
 	}
-	
+
 	// 아이디 찾기 페이지
 	@RequestMapping(value = "/mfindidpage")
 	public ModelAndView mfindidpage(ModelAndView mv) {
 		mv.setViewName("member/findidPage");
+		return mv;
+	}
+
+
+	// 비밀번호 찾기 패이지
+	@RequestMapping(value = "/mfindpwpage")
+	public ModelAndView mfindpwpage(ModelAndView mv) {
+		mv.setViewName("member/findpwPage");
 		return mv;
 	}
 
@@ -168,20 +211,27 @@ public class MemberController {
 		return mv;
 	}
 
-	// 비밀번호 찾기 패이지
-	@RequestMapping(value = "/mfindpwpage")
-	public ModelAndView mfindpwpage(ModelAndView mv) {
-		mv.setViewName("member/findpwPage");
+	// 개인정보 페이지
+	@RequestMapping(value = "/minfopage")
+	public ModelAndView minfopage(ModelAndView mv,HttpServletRequest request, MemberVO vo) {
+		HttpSession session = request.getSession(false);
+		//로그인 했을경우
+		if(session.getAttribute("loginInfo")!=null) {
+			vo.setId((String)session.getAttribute("loginInfo"));
+			vo = service.mselectOne(vo);
+			if(vo!=null) {
+				mv.addObject("loginInfo", vo);
+				mv.setViewName("member/minfopage");
+			}else {
+				mv.setViewName("member/mloginpage");
+			}
+
+		}else {
+			// 비로그인 상태
+			mv.setViewName("member/mloginpage");
+		}
 		return mv;
 	}
 
-	
-	// 개인정보 페이지
-	@RequestMapping(value = "/minfopage")
-	public ModelAndView minfopage(ModelAndView mv) {
-		mv.setViewName("member/minfopage");
-		return mv;
-	}
-	
-	
+
 }// MemberController

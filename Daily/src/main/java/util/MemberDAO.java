@@ -19,8 +19,8 @@ public class MemberDAO {
 	
 	
 	// mchangeaddress
-	public int mchangeaddress(MemberVO vo) {
-		return sqlSession.update(NS+"mchangeaddress",vo);
+	public int mchangeinfo(MemberVO vo) {
+		return sqlSession.update(NS+"mchangeinfo",vo);
 	}
 	
 	// changepw

@@ -19,6 +19,6 @@ public interface MemberService {
 	int mupdate(MemberVO vo);
 	int mdelete(MemberVO vo);
 	int changepw(MemberVO vo);
-	int changeaddress(MemberVO vo);
+	int changeinfo(MemberVO vo);
 	
 }
