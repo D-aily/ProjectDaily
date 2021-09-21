@@ -22,20 +22,20 @@ public class MemberController {
 	// 기능-------------------------------------------------------------
 
 	// ID 중복확인
-		@RequestMapping(value = "/idCheck")
-		public ModelAndView idCheck(ModelAndView mv, MemberVO vo) {
-			// => 전달된 ID 의 존재여부 확인
-			// => notNull : 존재 -> 사용불가 
-			// => Null : 없음 -> 사용가능
-			// => 그러므로 전달된 ID 보관해야함
-			mv.addObject("newID", vo.getId());
-			if (service.mselectOne(vo) != null) {
-				  mv.addObject("idUse", "F"); // 사용불가
-			}else mv.addObject("idUse", "T"); // 사용가능
-			mv.setViewName("member/idDupCheck");
-			return mv;
-		} //idCheck
-		
+	@RequestMapping(value = "/idCheck")
+	public ModelAndView idCheck(ModelAndView mv, MemberVO vo) {
+		// => 전달된 ID 의 존재여부 확인
+		// => notNull : 존재 -> 사용불가 
+		// => Null : 없음 -> 사용가능
+		// => 그러므로 전달된 ID 보관해야함
+		mv.addObject("newID", vo.getId());
+		if (service.mselectOne(vo) != null) {
+			mv.addObject("idUse", "F"); // 사용불가
+		}else mv.addObject("idUse", "T"); // 사용가능
+		mv.setViewName("member/idDupCheck");
+		return mv;
+	} //idCheck
+
 	//회원가입
 	@RequestMapping(value = "/msignup")
 	public ModelAndView msignup(ModelAndView mv, MemberVO vo) {
