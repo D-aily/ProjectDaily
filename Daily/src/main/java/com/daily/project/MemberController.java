@@ -1,6 +1,7 @@
 package com.daily.project;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,16 +93,18 @@ public class MemberController {
 
 	//비밀번호 변경
 	@RequestMapping(value="/changepw")
-	public ModelAndView changepw(ModelAndView mv,MemberVO vo,HttpSession session) {
-
+	public ModelAndView changepw(ModelAndView mv,MemberVO vo,HttpSession session, HttpServletResponse response) {
+		// jsonView 사용시 response 의 한글 처리
+		response.setContentType("text/html; charset=UTF-8");
 		if(service.changepw(vo) > 0) {
 			// 성공
-			mv.addObject("message", "비밀번호가 변경되었습니다.");
 			if(session.getAttribute("loginInfo")!=null) {
 				//로그인
-				mv.setViewName("redirect:mypage");
+				mv.addObject("message", "비밀번호가 변경되었습니다.");
+				mv.setViewName("jsonView");
 			}else {
 				//비로그인
+				mv.addObject("message", "로그인이 필요한 서비스입니다.");
 				mv.setViewName("redirect:mloginpage");
 			}
 		}else {
@@ -110,11 +113,10 @@ public class MemberController {
 				//로그인
 			}else {
 				//비로그인
+				mv.addObject("message", "로그인이 필요한 서비스입니다.");
 				mv.setViewName("redirect:mloginpage");
 			}
 		}
-		System.out.println(session.getAttribute("loginInfo"));
-		System.out.println(mv);
 		return mv;
 	}
 

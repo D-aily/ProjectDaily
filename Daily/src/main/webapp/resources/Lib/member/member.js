@@ -15,8 +15,8 @@ $(function() {
 				name:$('#name').val(),
 				pw:$('#pw').val()
 				},
-			success:function(){
-				alert('비밀번호 변경 완료.');
+			success:function(resultData){
+				alert(resultData.message);
 				location.reload(); 
 			},
 			error:function(){

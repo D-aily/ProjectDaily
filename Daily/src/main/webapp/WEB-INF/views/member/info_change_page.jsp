@@ -13,27 +13,25 @@
 		<table>
 			<tr height="40">
 				<td>아이디</td>
-				<td><input type="text" id="id" value="${Info.id}" readonly></td>
+				<td>
+					<span>${Info.id }</span>
+					<input type="hidden" id="id" value="${Info.id}">
+				</td>
 			</tr>
 			<tr height="40">
 				<td>이름</td>
-				<td><input type="text" id="name" value="${Info.name}" readonly></td>
+				<td>
+					<spam>${Info.name }</spam>
+					<input type="hidden" id="name" value="${Info.name}" >
+				</td>
 			</tr>
 			<tr height="40">
 				<td>연락 가능 번호</td>
-				<td><input type="text" id="phone" value="${Info.phone}"></td>
+				<td>><input type="text" id="phone" value="${Info.phone}"></td>
 			</tr>
 			<tr height="40">
 				<td>배송지</td>
-				<td><input type="text" id="address" value="${Info.address}"></td>
-			</tr>
-			<tr height="40">
-				<td>보유 머니</td>
-				<td><input type="text" id="money" value="${Info.money}" readonly></td>
-			</tr>
-			<tr height="40">
-				<td>보유 포인트</td>
-				<td><input type="text" id="point" value="${Info.point}" readonly></td>
+				<td>><input type="text" id="address" value="${Info.address}"></td>
 			</tr>
 		</table>
 	</div>
