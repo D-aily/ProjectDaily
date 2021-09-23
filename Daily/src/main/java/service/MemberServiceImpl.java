@@ -14,6 +14,11 @@ public class MemberServiceImpl implements MemberService {
 	MemberDAO dao;
 	
 	@Override
+	public int changeinfo(MemberVO vo) {
+		return dao.mchangeinfo(vo);
+	}
+	
+	@Override
 	public int changepw(MemberVO vo) {
 		return dao.mchangepw(vo);
 	}

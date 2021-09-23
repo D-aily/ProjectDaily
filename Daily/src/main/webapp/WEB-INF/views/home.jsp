@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
 </head>
 <body>
- 	
+
  	<!-- header (로그인 ,마이페이지,위시리스트) -->
  	<jsp:include page="homeLayout/homeheader.jsp"></jsp:include>
  	

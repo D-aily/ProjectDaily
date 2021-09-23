@@ -75,14 +75,15 @@ div {
 			<div id="infopage">
 				<a>개인정보확인/수정</a>
 			</div>
-			<div>배송지 관리</div>
+			<div id="info_pwchange_page">
+				<a>비밀번호 변경</a>
+			</div>
+			
 		</div>
 	</div>
 
 	<!-- 주요 내용 -->
 	<div id="contentArea"></div>
-
-
 	<!-- 오른쪽 컨트롤러 -->
 	<div id="rightmenu">
 		<table id="floating_menu"
