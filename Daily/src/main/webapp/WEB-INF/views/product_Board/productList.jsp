@@ -51,14 +51,14 @@
 						<c:forEach var="list" items="${Product}">
 							<div class="col-md-3" >
 								<div class="row">
-									<a href="pddetail?productnum=${list.productnum}&name=${list.name}">
+									<a href="pddetail?productnum=${list.productnum}&name=${list.pname}">
 										<img src="${list.image}" width="100%" height="100%">
 									</a>
 
 								</div>
 								<div class="product_name">
-									<a href="pddetail?productnum=${list.productnum}&name=${list.name}">
-										${list.name} </a>
+									<a href="pddetail?productnum=${list.productnum}&name=${list.pname}">
+										${list.pname} </a>
 								</div>
 								<div class="product_price">
 									<span>₩</span>
