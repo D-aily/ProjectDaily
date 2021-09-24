@@ -20,7 +20,7 @@
 		<td><input type="text" name="productnum" value="${Product.productnum}" readonly></td></tr>
 	
 	<tr height="40"><td bgcolor="SkyBlue">상품명</td>
-		<td><input name="name" value="${Product.pname}"></td></tr>
+		<td><input name="name" value="${Product.name}"></td></tr>
 	
 	<tr height="40"><td bgcolor="SkyBlue">상품상세설명</td>
 		<td><textarea name="content" rows="10" cols="30">${Product.content}</textarea></td>

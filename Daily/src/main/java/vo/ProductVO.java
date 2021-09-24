@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class ProductVO {
 	private int productnum;
-	private String pname;
+	private String name;
 	private String content;
 	private String date;
 	private String image; //출력할 DB에 저장된 이미지 경로 및 파일명

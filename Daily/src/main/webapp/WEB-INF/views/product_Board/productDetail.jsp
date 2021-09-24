@@ -24,8 +24,7 @@
 	<jsp:include page="/WEB-INF/views/homeLayout/homeheader.jsp"></jsp:include>
 	<!-- nav  (메뉴바)-->
 	<jsp:include page="/WEB-INF/views/homeLayout/homemenubar.jsp"></jsp:include>
-
-<%-- 
+<<<<<<< HEAD
 <form action="addCart" method="post" name="cart">
 <table>
 	<tr height="40"><td bgcolor="SkyBlue">PN.</td>
@@ -79,7 +78,13 @@
 		<td><input type="submit" value="장바구니담기"></td>
 	</tr>
 </table></form>
- --%>
+<hr>
+<a href="pddetail?productnum=${Product.productnum}&jcode=U">수정하기</a>&nbsp;
+<input type="button" value="찜하기">
+
+
+<!-- footer (고객센터) -->
+=======
 	<br>
 	<br>
 	<br>
@@ -113,7 +118,7 @@
 							${Product.productnum}</div>
 					</div>
 				</c:if>
-				<div class="row ps-5 pb-2 fs-4">${Product.pname}</div>
+				<div class="row ps-5 pb-2 fs-4">${Product.name}</div>
 				<div class="row-sm ps-5 pe-3  ">
 					<div class="row">
 						<div class="col-3" style="font-size: 12px;">상품 등록일</div>
@@ -129,24 +134,13 @@
 					</div>
 				</div>
 
-				<div class="row mx-5 pb-5 text-start" style="font-size: 18px;">
+				<div class="row mx-5 pb-5 text-start" style="font-size: 12px;">
 					<p>${Product.content}</p>
 				</div>
 				<div class="row-sm ps-5 mb-4 pe-3  ">
 					<div class="row">
 						<div class="col-4">판매가격</div>
 						<div class="col-8">${Product.price2}</div>
-					</div>
-				</div>
-				<div class="row-sm ps-5 mb-4 pe-3  ">
-					<div class="row">
-						<div class="col-4">수량</div>
-						<div class="col-8">
-							<select name="quantity">
-								<c:forEach begin="1" end="10" var="i">
-									<option value="${i}">${i}</option>
-								</c:forEach>
-							</select>&nbsp;개</div>
 					</div>
 				</div>
 				<div class="row-sm ps-5 mb-4 pe-3  ">
@@ -178,8 +172,8 @@
 						</div>
 
 						<div class="col-sm">
-							<a type="button" class="btn btn-outline-secondary" id="addcart">장바구니</a> 
-							<a type="button" class="btn btn-outline-secondary">관심상품</a>
+							<a type="button" class="btn btn-outline-secondary">장바구니</a> <a
+								type="button" class="btn btn-outline-secondary">관심상품</a>
 						</div>
 
 					</div>
@@ -234,6 +228,7 @@
 
 
 	<!-- footer (고객센터) -->
+>>>>>>> fa2beb7a9034057b79c639253ccc4a4325e4f919
 	<jsp:include page="/WEB-INF/views/homeLayout/homefooter.jsp"></jsp:include>
 
 

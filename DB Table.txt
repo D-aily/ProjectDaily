@@ -27,7 +27,7 @@ create table member (
 
 create table product (
 	productnum int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	pname varchar(50) not null,
+	name varchar(50) not null,
 	content varchar(1000),
 	date DATETIME DEFAULT NOW(),
 	image varchar(100),

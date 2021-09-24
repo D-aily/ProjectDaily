@@ -9,12 +9,9 @@
  		   values (LAST_INSERT_ID(),#{id},#{productnum},#{quantity}) 
  </insert>
  
- <resultMap type="cart" id="">
- 
- </resultMap>
- <select id="cartList" resultType="vo.CartVO">
+ <select id="cselectList" resultType="vo.CartVO">
  	select
- 	
+ 	cartnum,id,productnum,quanttity,date from cart
  </select>
  	
  

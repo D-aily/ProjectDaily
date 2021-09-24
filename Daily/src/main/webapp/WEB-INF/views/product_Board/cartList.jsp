@@ -24,12 +24,7 @@
 	<!-- product main content(필터,메인상품,등등) -->
 
 	<!--  장바구니 리스트 -->
-	<form action=""><table>
-		<tr><th>상품명</th><th>수량</th><th>배송비</th><th>가격</th><th></th></tr>
-		<c:forEach var="list" items="${map.list}">
-		<tr><td>${list.pname}</td><td>${list.quantity}</td><td>무료</td><td>${list.price2}</td><td></td>
-		</c:forEach>
-	</table></form>
+	
 
 
 	<jsp:include page="/WEB-INF/views/homeLayout/homefooter.jsp"></jsp:include>
