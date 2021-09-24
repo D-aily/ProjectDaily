@@ -23,38 +23,10 @@ public class CartServiceImpl implements CartService {
 		return null;
 	}
 	@Override
-	public List<CartVO> cartList(String id) {
-		return dao.cartList(id);
+	public List<CartVO> cselectList(CartVO cvo) {
+		return dao.cselectList(cvo);
 	}
-	@Override
-	public int deleteAll(String id) {
-		return dao.deleteAll(id);
-	}
-	@Override
-	public int delete(int cartnum) {
-		return dao.delete(cartnum);
-	}
-	@Override
-	public void update(int cartnum) {
-		
-	}
-	@Override
-	public int sumMoney(String id) {
-		return dao.sumMoney(id);
-	}
-	@Override
-	public int countCart(String id, int productnum) {
-		return 0;
-	}
-	@Override
-	public void updateCart(CartVO cvo) {
-		
-	}
-	@Override
-	public int modifyCart(CartVO cvo) {
-		return dao.modifyCart(cvo);
-	}
-}//class
+}
 
 
 

@@ -1,16 +1,3 @@
-2021.09.23
-<변경사항> 
-Product 테이블 name => pname으로 변경해주세요!
-VO,Mapper,jsp파일 수정ok
-alter table product change name pname varchar(50) not null;
-
-Cart dao service,vo controller 수정 및 추가
-Cart list 구현중에 막힘... 
-
-
-
-==============================================================================================
-
 2021.09.18
 <변경사항>
 login.js 다시 빼놓았습니다..! memeber controller session Lv 이것도 지우고 loginInfo 사용하였어요! 

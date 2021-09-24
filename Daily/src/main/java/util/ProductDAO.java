@@ -34,7 +34,6 @@ public class ProductDAO {
 		return sqlSession.selectList(NS+"optionsearchList", pr);
 	}
 
-
 	public int totalRowsCount() {
 		return sqlSession.selectOne(NS+"totalRowCount");
 	} //totalRowsCount
