@@ -68,7 +68,9 @@ div {
 		<div class="myactivity">
 			<div>MY 활동</div>
 			<div>리뷰관리</div>
-			<div>찜리스트</div>
+			<div id="wishlistpage">
+				<a href="wishlistpage">위시리스트</a>
+			</div>
 		</div>
 		<div class="myinfo">
 			<div>MY 정보</div>
