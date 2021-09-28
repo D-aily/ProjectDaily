@@ -14,11 +14,11 @@ public class WishListDAO {
 	@Autowired
 	private SqlSession sqlSession ;
 	
-	private static final String NS = "daily.mapper.WishListMapper.";
+	private static final String NS = "daily.mapper.wishListMapper.";
 	
 	// WishList
 	public List<WishListVO> WishList(WishListVO vo) {
-		return sqlSession.selectList(NS+"wishlist",vo);
+		return sqlSession.selectList(NS+"wishList",vo);
 	}
 
 
@@ -26,7 +26,7 @@ public class WishListDAO {
 
 
 
-
+ 
 
 
 

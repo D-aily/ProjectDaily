@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import util.WishListDAO;
-import vo.MemberVO;
 import vo.WishListVO;
 
 @Service

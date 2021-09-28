@@ -70,7 +70,7 @@ $(function() {
 		}); //ajax
 	}); //infopage	
 
-	// 위시리스트 page
+	// 위시리스트 page 이동
 	$('#wishlistpage').click(function(){
 		$.ajax({
 			type:'Post',

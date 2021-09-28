@@ -69,7 +69,7 @@ div {
 			<div>MY 활동</div>
 			<div>리뷰관리</div>
 			<div id="wishlistpage">
-				<a href="wishlistpage">위시리스트</a>
+				<a>위시리스트</a>
 			</div>
 		</div>
 		<div class="myinfo">
