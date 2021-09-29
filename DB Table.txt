@@ -46,7 +46,7 @@ create table product (
 
 
 
-create table wish_list(
+create table WishList(
 	wlnum int NOT NULL AUTO_INCREMENT primary key,
 	id varchar(100) not null,
 	productnum int not null,
@@ -260,6 +260,11 @@ insert into ntc (id,title,content) values('admin','이번 한달간 적립금 �
 
 
 
+
+=======================================================================
+wish list 위시리스트/찜목록
+
+insert into wishlist(id, productnum, quantity) values('test','1','2');
 
 =======================================================================
 faq 자주묻는 질문 데이터 
