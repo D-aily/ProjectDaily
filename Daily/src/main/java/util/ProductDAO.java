@@ -33,7 +33,11 @@ public class ProductDAO {
 	public List<ProductVO> optionsearchList(PageRow pr) {
 		return sqlSession.selectList(NS+"optionsearchList", pr);
 	}
-	
+
+	public int totalRowsCount() {
+		return sqlSession.selectOne(NS+"totalRowCount");
+	} //totalRowsCount
+
 	// CRUD + countUp
 	
 	//selectList

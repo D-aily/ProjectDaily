@@ -10,6 +10,11 @@
     -기본 CRUD SQL문
  -->
  
+ 	<!-- 배송지 변경 -->
+ 	<update id="mchangeinfo">
+		update member set address=#{address}, phone=#{phone} where id=#{id}
+	</update>
+	
  	<!-- 비밀번호 변경 -->
  	<update id="mchangepw">
 		update member set pw=#{pw} where id=#{id} and name=#{name} and phone=#{phone}
@@ -37,7 +42,7 @@
 	<!-- 회원가입 -->
 	<insert id="minsert">
 		insert into member(id, pw, name, address, phone, birth)
-		values(#{id},#{pw},#{name},#{address},#{phone},#{birth})
+		values(#{id},#{pw},#{name},#{phone},#{address},#{birth})
 	</insert>
 	
 	<!-- 회원정보 수정 -->

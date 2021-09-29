@@ -39,7 +39,7 @@
 	<div id="resultArea" class="border">
 		<form action="mfindpwcheck" method="post">
 			<table>
-				<span>비밀번호 변경</span>
+				<span>비밀번호 찾기/변경</span>
 				<tr>
 					<td><input type="text" name="id" id="id" placeholder="아이디"></td>
 				</tr>
