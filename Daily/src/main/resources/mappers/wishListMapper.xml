@@ -5,7 +5,10 @@
 
 
 	<select id="wishList" resultType="vo.WishListVO">
-		select * from WishList where id=#{id}
+		select wishlist.wlnum, wishlist.id, product.name, wishlist.quantity 
+		from wishlist, product 
+		where wishlist.id=#{id} and product.productnum = wishlist.productnum
+		order by wishlist.wlnum desc
 	</select>
 
 </mapper>  

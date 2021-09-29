@@ -48,19 +48,27 @@ public class WishListController {
 	public ModelAndView wishlistpage(ModelAndView mv, WishListVO vo, HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
 		// 로그인 한 아이디 기준으로 검색 
-		vo.setId((String)session.getAttribute("loginInfo"));
-		System.out.println(vo.getId());
-		List<WishListVO> list = service.WishList(vo);
-		System.out.println(list);
-//		if(list != null) {
-//			//찜목록 있음
-//			mv.addObject("wishlist",list);
-//			mv.addObject("complete","T");
-//		}else {
-//			//찜목록 없음
-//			mv.addObject("complete","F");
-//		}
-		mv.setViewName("mypage/wishlistpage");
+		if(session.getAttribute("loginInfo")!=null) {
+		
+			//로그인상태
+			vo.setId((String)session.getAttribute("loginInfo"));
+			List<WishListVO> list = service.WishList(vo);
+			if(list != null) {
+				//찜목록 있음
+				
+				mv.addObject("wishlist",list);
+				mv.addObject("complete","T");
+			}else {
+				//찜목록 없음
+				mv.addObject("complete","F");
+			}
+			mv.setViewName("mypage/wishlistpage");
+
+		
+		}else {
+			// 로그인 안한 상태 - 로그인창으로 
+			mv.setViewName("member/mloginPage");
+		}
 		return mv;
 	}
 

@@ -10,13 +10,29 @@
 <script src="resources/Lib/member/member.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
 <script>
+	
 </script>
 
 </head>
 <body>
-	<div>
-		<span>위시리스트</span>
-	</div>
+	<!-- list -->
+	<table>
+		<tr>
+			<th>찜 번호</th>
+			<th>아이디</th>
+			<th>상품명</th>
+			<th>갯 수</th>
+		</tr>
+<c:forEach var="list" items="${wishlist}" varStatus="status">
+		<tr>
+			<td>${list.wlnum }</td>
+			<td>${list.id }</td>
+			<td>${list.productnum}</td>
+			<td>${list.quantity}</td>
+		</tr>
+</c:forEach>
+	</table>
+
 </body>
 </html>
 
