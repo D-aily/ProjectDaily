@@ -50,7 +50,6 @@ public class Product_qnaController {
 	// Qna list
 	@RequestMapping(value = "/pqnaList")
 	public ModelAndView pqnaList(ModelAndView mv, HttpServletRequest request ) {
-		(String)request.getSession(false).getAttribute("loginIngo");
 		
 		List<Product_qnaVO> list = service.selectList();
 		System.out.println(list);
