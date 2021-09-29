@@ -15,22 +15,19 @@
 <script src="resources/Lib/servicecenter/serviceincheck.js"></script>
 <body>
 
-	<!-- header (로그인 ,마이페이지,위시리스트) -->
-	<div>
-		<jsp:include page="../homeLayout/homeheader.jsp"></jsp:include>
-	</div>
-	<div>
-		<jsp:include page="../homeLayout/homemenubar.jsp"></jsp:include>
-	</div>
 
 	<div>
 
-		<!-- 고객센터 메뉴바 ,안내 -->
-		<jsp:include page="../servicecenter/Layout/Servicecenterheader.jsp"></jsp:include>
-
-
-		<form action="qnainsert" method="get" id="TCinCheck">
+		<form action="pqnaInsert" method="get" id="TCinCheck">
 			<table>
+				<tr height="40">
+					<td bgcolor="Silver">번호</td>
+					<td><input type="text" name="prodqnanum" id="prodqnanum" value="${product.prodqnanum}" readonly></td>
+				</tr>
+				<tr height="40">
+					<td bgcolor="Silver">상품명</td>
+					<td><input type="text" name="name" id="name" value="${product.name}" readonly></td>
+				</tr>
 				<tr height="40">
 					<td bgcolor="Silver">ID</td>
 					<td><input type="text" name="id" id="id" value="${loginInfo}" readonly></td>
@@ -43,6 +40,11 @@
 				<tr height="40">
 					<td bgcolor="Silver">내용</td>
 					<td><textarea name="content" id="content" rows="10" cols="40"></textarea>
+					</td>
+				</tr>
+				<tr height="40">
+					<td bgcolor="Silver">등록일</td>
+					<td><input type="text" name="title" id="title" value="${pqnaInsertForm.date}" readonly>
 					</td>
 				</tr>
 
@@ -67,9 +69,6 @@
 			</c:if>
 		</div>
 	</div>
-	<a href="qnalist">돌아가기</a>&nbsp;
-	<div>
-		<jsp:include page="../homeLayout/homefooter.jsp"></jsp:include>
-	</div>
+	<a href="pqnaList">돌아가기</a>&nbsp;
 </body>
 </html>

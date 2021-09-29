@@ -55,7 +55,7 @@
 	<!--  상품등록 -->
 	<div class="container">
 		<div class="row">
-			<c:if test="${loginID!=null && Lv == '5'}">
+			<c:if test="${loginInfo !=null && Lv == '5'}">
 				<div class="list_item">
 					<a href="/productRegist">상품 등록</a>
 				</div>

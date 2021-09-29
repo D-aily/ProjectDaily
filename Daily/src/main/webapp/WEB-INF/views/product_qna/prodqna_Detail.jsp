@@ -12,68 +12,59 @@
 	href="resources/Lib/servicecenter.css">
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
 <script src="resources/Lib/jq_headerfixed.js"></script>
+<script src="resources/Lib/prodqna/prodqna_ajax.js"></script>
 
 <body>
-	<!-- header (로그인 ,마이페이지,위시리스트) -->
-	<div>
-		<jsp:include page="../homeLayout/homeheader.jsp"></jsp:include>
-	</div>
-	<div>
-		<jsp:include page="../homeLayout/homemenubar.jsp"></jsp:include>
-	</div>
-	<jsp:include page="../servicecenter/Layout/Servicecenterheader.jsp"></jsp:include>
-
-	<div class="tablebox">
-
-		<!-- 고객센터 메뉴바 ,안내 -->
 
 		<!-- list -->
 		<table>
 
 			<tr height="40">
 				<td bgcolor="SkyBlue">번호</td>
-				<td>${Qnadetail.qnanum}</td>
+				<td>${pqnaDetail.prodqnanum}</td>
+			</tr>
+			<tr height="40">
+				<td bgcolor="SkyBlue">상품명</td>
+				<td>${pqnaDetail.product}</td>
 			</tr>
 			<tr height="40">
 				<td bgcolor="SkyBlue">아이디</td>
-				<td>${Qnadetail.id}</td>
+				<td>${pqnaDetail.id}</td>
 			</tr>
 			<tr height="40">
 				<td bgcolor="SkyBlue">제목</td>
-				<td>${Qnadetail.title}</td>
+				<td>${pqnaDetail.title}</td>
 			</tr>
 			<tr height="40">
 				<td bgcolor="SkyBlue">내용</td>
-				<td><textarea rows="10" cols="40" readonly>${Qnadetail.content}</textarea></td>
+				<td><textarea rows="10" cols="40" readonly>${pqnaDetail.content}</textarea></td>
 			</tr>
 			
 			<tr height="40">
 				<td bgcolor="SkyBlue">등록일</td>
-				<td>${Qnadetail.date}</td>
+				<td>${pqnaDetail.date}</td>
 			</tr>
 			<tr height="40">
 				<td bgcolor="SkyBlue">공개여부</td>
-				<c:if test="${Qnadetail.secret eq 1}">
+				<c:if test="${pqnaDetail.secret eq 1}">
 					<td>공개 글</td>
 				</c:if>
-				<c:if test="${Qnadetail.secret eq 2}">
+				<c:if test="${pqnaDetail.secret eq 2}">
 					<td>비공개 글</td>
 				</c:if>
 			</tr>
 		</table>
-	</div>
 	<div>
 		<br>
 		<hr>
 
 		<c:if test="${loginInfo !=null}">
 			<div class="list_item">
-				<c:if test="${loginInfo==Qnadetail.id || Lv == '5' }">
-					<a href="qnadetail?qnanum=${Qnadetail.qnanum}&jcode=Update">문의글
-						수정</a>
-					<a href="qnadelete?qnanum=${Qnadetail.qnanum}">글삭제</a>
+				<c:if test="${loginInfo==pqna_detail.id || Lv == '5' }">
+						<a href="#resultArea" onclick=" pqnaupdatef('${pqnaUpdate.prodqnanum}')"></a>
 
-					<a href="replyf?root=${Qnadetail.root}&step=${Qnadetail.step}">답글등록</a>&nbsp;
+					<a href="replyf?root=${pqnaDetail.root}&step=${pqnaDetail.step}">답글등록</a>&nbsp;
+						<div id=""></div>
 				</c:if>
 				<a href="qnalist">돌아가기</a>&nbsp;
 			</div>
@@ -86,10 +77,6 @@
 
 	</div>
 
-	<!-- footer (고객센터,배송 및 반품,FAQ,법적고지,개인정보처리방침,일반 판매 조건 ) -->
-	<div>
-		<jsp:include page="../homeLayout/homefooter.jsp"></jsp:include>
-	</div>
 </body>
 
 </html>
