@@ -19,6 +19,9 @@ public class WishListServiceImpl implements WishListService {
 		return dao.WishList(vo);
 	}
 	
-	
+	@Override
+	public int deleteOne(WishListVO vo) {
+		return dao.deleteOne(vo);
+	}
 	
 }

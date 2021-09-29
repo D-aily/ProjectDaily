@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import vo.QnaVO;
 import vo.WishListVO;
 
 @Repository
@@ -21,7 +22,9 @@ public class WishListDAO {
 		return sqlSession.selectList(NS+"wishList",vo);
 	}
 
-
+	public int deleteOne(WishListVO vo) {
+		return sqlSession.delete(NS + "deleteOne", vo);
+	}
 
 
 

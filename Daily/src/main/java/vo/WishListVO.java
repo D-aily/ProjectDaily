@@ -9,4 +9,5 @@ public class WishListVO {
 	private int productnum;
 	private int quantity;
 	private String date;
+	private String name;
 }

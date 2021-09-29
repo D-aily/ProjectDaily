@@ -1,6 +1,22 @@
 $(function() {
 	//location.reload(); 
 	
+	$('.deleteBtn').click(function(){
+		$.ajax({
+			type:'Post',
+			url:'wishlistdeleteone',
+			data: {
+				id:$('#id').val(),
+				wlnum:$('#wlnum').val()
+				},
+			success:function(){
+				location.reload(); 
+			},
+			error:function(){
+				alert('error');
+			}
+		});	
+	});
 
 	//비밀번호 변경변경
 	$('#info_pwchange').click(function(){

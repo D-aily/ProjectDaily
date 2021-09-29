@@ -24,12 +24,12 @@
 			<th>갯 수</th>
 		</tr>
 <c:forEach var="list" items="${wishlist}" varStatus="status">
-		<tr>
-			<td>${list.wlnum }</td>
-			<td>${list.id }</td>
-			<td>${list.productnum}</td>
-			<td>${list.quantity}</td>
-		</tr>
+			<div id="wlnum" hidden="hidden">${list.wlnum}</div>
+			<div id="id" hidden="hidden">${list.id}</div>
+			<div>${list.name}</div>
+			<div>${list.quantity}</div>
+			<div><input type="button" id="${list.wlnum}" class="deleteBtn" value="삭제"></div>
+			<hr>
 </c:forEach>
 	</table>
 
