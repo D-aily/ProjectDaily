@@ -11,7 +11,7 @@
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
-<link rel="stylesheet" type="text/css" href="resources/Lib/productForm.css.css">
+<link rel="stylesheet" type="text/css" href="resources/Lib/productForm.css">
 </head>
 <body>
 
@@ -26,7 +26,7 @@
 	<!--  상품등록 -->
 	<div class="container">
 		<div class="row">
-			<c:if test="${loginInfo.id !=null && loginInfo.lv == 5}">
+			<c:if test="${loginInfo!=null && Lv == 5}">
 				<div class="col-md-4 offset-sm-9">
 					<button type="button" class="btn btn-primary"><a href="/productRegist">상품 등록</a></button>
 				</div>
@@ -51,14 +51,14 @@
 						<c:forEach var="list" items="${Product}">
 							<div class="col-md-3" >
 								<div class="row">
-									<a href="pddetail?productnum=${list.productnum}&name=${list.name}">
+									<a href="pddetail?productnum=${list.productnum}&pname=${list.pname}">
 										<img src="${list.image}" width="100%" height="100%">
 									</a>
 
 								</div>
 								<div class="product_name">
-									<a href="pddetail?productnum=${list.productnum}&name=${list.name}">
-										${list.name} </a>
+									<a href="pddetail?productnum=${list.productnum}&pname=${list.pname}">
+										${list.pname} </a>
 								</div>
 								<div class="product_price">
 									<span>₩</span>
@@ -74,11 +74,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
-
 
 	<jsp:include page="/WEB-INF/views/homeLayout/homefooter.jsp"></jsp:include>
 	

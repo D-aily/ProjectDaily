@@ -101,7 +101,7 @@
 	<!-- 입력 통합검색 -->
 	<select id="keywordsearchList" resultType="vo.ProductVO">
 	<![CDATA[
-		select productnum,name,content,date,imgae,state,price1,price2,price3,
+		select productnum,pname,content,date,imgae,state,price1,price2,price3,
 		quantity1,quantity2,kind,count,score from product 
 		where productnum > 0 ]]>
 		<include refid="keyword"></include>
@@ -113,7 +113,7 @@
 	<!-- 옵션 조합검색 -->
 	<select id="optionsearchList" resultType="vo.ProductVO">
 	<![CDATA[
-		select productnum,name,content,date,state,price1,price2,price3,
+		select productnum,pname,content,date,state,price1,price2,price3,
 		quantity1,quantity2,kind,count,score from product 
 		where productnum > 0 ]]>
 		<include refid="costsearch"></include>
@@ -131,14 +131,14 @@
 	<!-- 기본 CRUD + countUp 추가 -->
 	<select id="selectList" resultType="vo.ProductVO">
 		select
-		productnum,name,content,date,image,
+		productnum,pname,content,date,image,
 		state,price1,price2,price3,quantity1,quantity2,kind,count,score from
 		product order by productnum desc
 	</select>
 
 	<select id="selectOne" resultType="vo.ProductVO">
 		select
-		productnum,name,content,date,image,
+		productnum,pname,content,date,image,
 		state,price2,kind,count,score from
 		product where productnum = #{productnum}
 	</select>
@@ -148,15 +148,15 @@
 			order="BEFORE">
 			select IFNULL(max(productnum),0)+1 from product
 		</selectKey>
-		insert into product (name,content,date,image,
+		insert into product (pname,content,date,image,
 		state,price1,price2,price3,quantity1,quantity2,kind,count,score)
 		values
-		(#{name},#{content},now(),#{image},#{state},#{price1},#{price2},
+		(#{pname},#{content},now(),#{image},#{state},#{price1},#{price2},
 		#{price3},#{quantity1},#{quantity2},#{kind},0,0)
 	</insert>
 
 	<update id="update">
-		update product set name = #{name}, content = #{content},
+		update product set pname = #{pname}, content = #{content},
 		image = #{image}, price2 = #{price2}, state = #{state}, 
 		kind = #{kind}
 		where productnum = #{productnum}

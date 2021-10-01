@@ -126,17 +126,21 @@ public class ProductController {
 	//상품 디테일
 	@RequestMapping(value = "/pddetail")
 	public ModelAndView pddetail(ModelAndView mv, ProductVO vo, HttpServletRequest request, RedirectAttributes rttr) {
-		service.countUp(vo);
+		//service.countUp(vo);
 		vo = service.selectOne(vo);
+		System.out.println("디테일VO"+vo);
 		if(vo != null) {
 			request.setAttribute("Product", vo);
 			if("U".equals(request.getParameter("jcode"))) {
 				//업데이트로 넘어가기
+				System.out.println("1");
 				mv.setViewName("product_Board/productUpdateF");
 			}else {
+				System.out.println("2");
 				mv.setViewName("product_Board/productDetail");
 			}
 		}else {
+			System.out.println("3");
 			mv.addObject("message","해당 상품을 찾을 수 없습니다.");
 			mv.setViewName("redirect:pdlist");
 		}

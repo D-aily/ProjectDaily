@@ -15,8 +15,8 @@ public class CartServiceImpl implements CartService {
 	public CartDAO dao;
 
 	@Override
-	public int insert(CartVO cvo) {
-		return dao.insert(cvo);
+	public int addCart(CartVO cvo) {
+		return dao.addCart(cvo);
 	}
 	@Override
 	public List<CartVO> cartMoney() {
@@ -27,16 +27,12 @@ public class CartServiceImpl implements CartService {
 		return dao.cartList(id);
 	}
 	@Override
-	public int deleteAll(String id) {
-		return dao.deleteAll(id);
+	public int deleteAll(CartVO cvo) {
+		return dao.deleteAll(cvo);
 	}
 	@Override
-	public int delete(int cartnum) {
-		return dao.delete(cartnum);
-	}
-	@Override
-	public void update(int cartnum) {
-		
+	public int deleteCart(CartVO cvo) {
+		return dao.deleteCart(cvo);
 	}
 	@Override
 	public int sumMoney(String id) {
@@ -47,12 +43,8 @@ public class CartServiceImpl implements CartService {
 		return 0;
 	}
 	@Override
-	public void updateCart(CartVO cvo) {
-		
-	}
-	@Override
-	public int modifyCart(CartVO cvo) {
-		return dao.modifyCart(cvo);
+	public int updateCart(CartVO cvo) {
+		return dao.updateCart(cvo);
 	}
 }//class
 

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.jws.WebParam.Mode;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -30,20 +31,24 @@ public class CartController {
 	@RequestMapping(value = "/addCart")
 	public ModelAndView addCart(ModelAndView mv,CartVO cvo, HttpSession session,RedirectAttributes rttr) {
 		//로그인 여부 확인
-		if(session.getAttribute("loginInfo") != null) {
+		String loginID = (String) session.getAttribute("loginInfo");
+		System.out.println("*******login= "+loginID);
+		if(loginID != null) {
 			//로그인 상태
-			if(service.insert(cvo)>0) {
-				rttr.addFlashAttribute("message","장바구니에 추가 되었습니다.");
-				mv.setViewName("redirect:cartlist");
+			cvo.setId(loginID);
+			System.out.println("1");
+			if(service.addCart(cvo)>0) {
+				System.out.println("2");
+				mv.addObject("success","T");
 			}else {
-				rttr.addFlashAttribute("message","장바구니 추가에 실패하였습니다.");
-				mv.setViewName("redirect:productDetail?productnum="+cvo.getProductnum()+"");
+				System.out.println("3");
+				mv.addObject("success","F");
 			}
 		}else{//로그인 안한 상태
-		rttr.addFlashAttribute("message", "로그인이 필요한 서비스 입니다.");
-		mv.setViewName("redirect:loginPage");
-		
+			System.out.println("4");
+		mv.addObject("success","S");
 		}
+		mv.setViewName("jsonView");
 		return mv;
 	}
 		
@@ -75,6 +80,67 @@ public class CartController {
 		}
 		return mv;
 	}
+	// 장바구니 수정
+	@RequestMapping(value = "/updateCart")
+	public ModelAndView updateCart(ModelAndView mv,CartVO cvo, HttpSession session) {
+		//로그인 확인
+		System.out.println("** CVO =>"+ cvo);
+		String loginInfo = (String)session.getAttribute("loginInfo");
+		if(loginInfo != null) {
+			cvo.setId(loginInfo);
+			if(service.updateCart(cvo)>0) {
+				mv.addObject("success", "T");
+			}else {
+				mv.addObject("success", "F"); // 로그인 정보는 있지만 업데이트 안됨
+			}
+		}else {
+			mv.addObject("success", "F");
+			System.out.println("**loginID is null**");
+		}	
+		mv.setViewName("jsonView");
+		return mv;
+		}
+	
+	// 장바구니 개별삭제
+	@RequestMapping(value = "/deleteCart")
+	public ModelAndView deleteCart(ModelAndView mv, CartVO cvo) {
+		if(service.deleteCart(cvo)>0) {
+			mv.addObject("message", "상품이 삭제 되었습니다.");
+			mv.setViewName("redirect:cartlist");
+		}else {
+			mv.addObject("message", "상품 삭제 실패, 다시 시도해주세요.");
+			mv.setViewName("redirect:productList");
+		}
+		return mv;
+	}
+	
+	// 장바구니 전체삭제
+	@RequestMapping(value = "/deleteAll")
+	public ModelAndView deleteAll(ModelAndView mv, CartVO cvo, HttpSession session) {
+		String loginInfo = null;
+		if(session != null) {
+			loginInfo = (String) session.getAttribute("loginInfo");
+			if(loginInfo != null) {
+				cvo.setId(loginInfo);
+				if(service.deleteAll(cvo)>0) {
+					mv.addObject("success", "T");
+				}else {
+					mv.addObject("success", "F"); //로그인정보는 있지만 삭제데이터 0
+				}
+			}else {
+			mv.addObject("success", "F");
+			System.out.println("**loginID is null**");
+			}
+		}else {
+			mv.addObject("success", "F");
+			System.out.println("**Session is null**");
+		}
+		mv.setViewName("jsonView");
+		return mv;
+	}//deleteAll
+	
+	
+	
 	
 	
 	

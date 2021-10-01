@@ -9,9 +9,10 @@
 <meta charset="UTF-8">
 <title>D:aily :: Cart List</title>
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
+<script src="resources/Lib/jq_cart.js"></script>
 <link rel="stylesheet" href="resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
-<link rel="stylesheet" type="text/css" href="resources/Lib/productForm.css.css">
+<link rel="stylesheet" type="text/css" href="resources/Lib/productForm.css">
 </head>
 <body>
 
@@ -24,8 +25,58 @@
 	<!-- product main content(필터,메인상품,등등) -->
 
 	<!--  장바구니 리스트 -->
-	
-
+	<hr>
+	<c:choose>
+	  <c:when test="${map.count == 0}">
+	  		<h2> 장바구니가 비어있습니다.</h2>
+	  </c:when>
+	  <c:otherwise>
+			<form>
+				<table>
+					<tr align="center">
+						<th>CN</th>
+						<th> </th>
+						<th>상품명</th>
+						<th>상품금액</th>
+						<th>수량</th>
+						<th>총금액</th>
+						<th>취소</th>
+					</tr>
+					<c:forEach var="row" items="${map.list}" varStatus="vs">
+					 <tr align="center">
+					 	<td id="cartnum${vs.index}">${row.cartnum}</td>
+					 	<td><img src="${row.image}" width="100px" height="100px"></td>
+					 	<td>${row.pname}</td>
+					 	<td><span>₩</span>
+							<fmt:formatNumber value="${row.price2}" pattern="#,###,###,###" />
+					 	</td>
+					 	<td><input type="number" name="quantity" id="quantity${vs.index}" value="${row.quantity}" min="1">
+					 		<button onclick="btnUpdate(${vs.index})">수정</button>
+							<input type="hidden" name="productnum" id="productnum" value="${row.productnum}">
+					 	</td>
+					 	<td><span>₩</span>
+							<fmt:formatNumber value="${row.money}" pattern="#,###,###,###" />
+					 	</td>
+					 	<td>
+					 	    <a href="deleteCart?cartnum=${row.cartnum}">삭제</a>
+					 	</td>
+					 </tr>
+					</c:forEach>
+					<tr>
+						<td colspan="6" align="right">장바구니 금액 합계:
+						<fmt:formatNumber value="${map.sumMoney}"
+                            pattern="#,###,###" />
+						</td>					
+					</tr>
+				</table>
+				<hr>
+				<div align="right"><input type="hidden" name="count" value="${map.count}">
+           	    <button type="button" id="btnDelete">장바구니 비우기</button>
+           	    <button type="submit" id="btnOrder" >모든 상품 주문하기</button>
+           	   <a href="pdlist"><button type="button">상품 보기</button></a></div>
+			</form>
+	  </c:otherwise>
+	</c:choose>
 
 	<jsp:include page="/WEB-INF/views/homeLayout/homefooter.jsp"></jsp:include>
 	

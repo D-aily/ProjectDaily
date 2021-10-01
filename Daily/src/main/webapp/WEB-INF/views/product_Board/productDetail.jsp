@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!doctype html>
 <html lang="kr">
 
@@ -17,21 +18,51 @@
 	crossorigin="anonymous">
 
 <title>Product details</title>
+<script>
+$(function() {
+	$("#btnCart").click(function() {
+		if(confirm("장바구니에 담으시겠습니까?")){
+			$.ajax({
+				type:"Get",
+				url:"addCart",
+				success:function(resultData){
+					if(resultData.success == 'T'){
+						if(confirm("장바구니로 이동하시겠습니까?")){
+							location.href("cartlist");
+						}
+					}else if(resultData.success == 'F'){
+						alert("장바구니 담기가 실패 하였습니다.");
+						
+					}else{
+						alert("로그인 후 이용하세요!");
+						location.href("mlogin");
+					}
+				},
+				error:function(){
+					alert("서버 오류 잠시후 이용해 주시기 바랍니다.");
+				}
+			});//ajax
+		}//if_confirm
+	});//btnCart
+})//ready
+
+</script>
 </head>
 
 <body>
+
 	<!-- header (로그인 ,마이페이지,위시리스트) -->
 	<jsp:include page="/WEB-INF/views/homeLayout/homeheader.jsp"></jsp:include>
 	<!-- nav  (메뉴바)-->
 	<jsp:include page="/WEB-INF/views/homeLayout/homemenubar.jsp"></jsp:include>
-<<<<<<< HEAD
+<%-- 
 <form action="addCart" method="post" name="cart">
 <table>
 	<tr height="40"><td bgcolor="SkyBlue">PN.</td>
 		<td><input type="hidden" name="productnum" value="${Product.productnum }">
 		${Product.productnum}</td></tr>
 	<tr height="40"><td bgcolor="SkyBlue">상품명</td>
-		<td>${Product.name}</td></tr>
+		<td>${Product.pname}</td></tr>
 	<tr height="40"><td bgcolor="SkyBlue">상품상세설명</td>
 		<td>${Product.content}</td>
 	</tr>
@@ -40,7 +71,11 @@
 	<tr height="40"><td bgcolor="SkyBlue">상품사진</td>
 		<td><img src="${Product.image}"></td></tr>	
 	<tr height="40"><td bgcolor="SkyBlue">가격</td>
-		<td>${Product.price2}</td></tr>
+	
+		<td><span>₩</span>
+		<fmt:formatNumber value="${Product.price2}"
+				pattern="#,###,###,###" /></td>
+	</tr>
 		
 	<tr height="40"><td bgcolor="SkyBlue">종류</td>
 		<c:set var="kind" value="${Product.kind}" />
@@ -84,14 +119,14 @@
 
 
 <!-- footer (고객센터) -->
-
+ --%>
 	<br>
 	<br>
 	<br>
+	<form>
 	<div class="container">
 
 		<div class="row">
-
 			<!-- 상품 메인 사진   -->
 			<div class="col-md-5">
 				<img src="${Product.image}" width="100%" height="100%">
@@ -99,13 +134,13 @@
 			<!-- 제목  설명 가격 색상 사이즈 구매 장바구니 관심상품 -->
 			<div class="col align-self-center">
 
-				<c:if test="${ loginInfo.lv == 5 && loginInfo.id ne null}">
+				<c:if test="${ Lv == 5 && loginInfo.Id ne null}">
 					<div class="row ps-5">
 						<div class="col">
 							<a href="pddetail?productnum=${Product.productnum}&jcode=U">수정하기</a>
 						</div>
 						<div class="col">
-							<a href="">삭제하기</a>
+							<a href="pddelete?productnum=${Product.productnum}">삭제하기</a>
 						</div>
 					</div>
 
@@ -114,11 +149,10 @@
 
 					<div class="row ps-5">
 						<div class="col-3" style="font-size: 12px;">PN.</div>
-						<div class="col-4" style="font-size: 12px;">
-							${Product.productnum}</div>
+						<div class="col-4" style="font-size: 12px;">${Product.productnum}</div>
 					</div>
 				</c:if>
-				<div class="row ps-5 pb-2 fs-4">${Product.name}</div>
+				<div class="row ps-5 pb-2 fs-4">${Product.pname}</div>
 				<div class="row-sm ps-5 pe-3  ">
 					<div class="row">
 						<div class="col-3" style="font-size: 12px;">상품 등록일</div>
@@ -159,8 +193,14 @@
 				</div>
 				<div class="row-sm ps-5 mb-4 pe-3  ">
 					<div class="row">
-						<div class="col-4">남은수량</div>
-						<div class="col-8">quantity2(재고수량)</div>
+						<div class="col-4">수량 선택</div>
+						<div class="col-8">
+							<select name="quantity">
+							<c:forEach begin="1" end="10" var="i">
+								<option value="${i}">${i}</option>
+							</c:forEach>
+							</select>&nbsp;개
+						</div>
 					</div>
 				</div>
 				<hr>
@@ -172,8 +212,8 @@
 						</div>
 
 						<div class="col-sm">
-							<a type="button" class="btn btn-outline-secondary">장바구니</a> <a
-								type="button" class="btn btn-outline-secondary">관심상품</a>
+							<button class="btn btn-outline-secondary" id="btnCart">장바구니</button> 
+							<button class="btn btn-outline-secondary" id="btnWish">관심상품</button>
 						</div>
 
 					</div>
@@ -181,8 +221,8 @@
 			</div>
 		</div>
 	</div>
+	</form>
 	<br>
-
 	<!-- 사용자의 PHOTO 리뷰 공간 -->
 	<div class="container mb-5">
 		<div class="row">
@@ -228,7 +268,7 @@
 
 
 	<!-- footer (고객센터) -->
->>>>>>> fa2beb7a9034057b79c639253ccc4a4325e4f919
+
 	<jsp:include page="/WEB-INF/views/homeLayout/homefooter.jsp"></jsp:include>
 
 

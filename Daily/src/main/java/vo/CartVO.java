@@ -13,5 +13,6 @@ public class CartVO {
 	private String pname; // 상품명
 	private int money; // 총금액
 	private int price2; // 상품금액
+	private String image; //상품 이미지
 	
 }

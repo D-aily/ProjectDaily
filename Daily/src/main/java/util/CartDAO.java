@@ -23,33 +23,28 @@ public class CartDAO {
 	}
 	
 	// insert 장바구니 담기
-	public int insert(CartVO cvo) {
-		return sqlSession.insert(NS+"insert",cvo);
+	public int addCart(CartVO cvo) {
+		return sqlSession.insert(NS+"addCart",cvo);
 	}
 	
 	// list 장바구니 목록 
-	public List<CartVO> cartList(String id){
-		return sqlSession.selectList(NS+"cartList",id);
+	public List<CartVO> cartList(String loginInfo){
+		return sqlSession.selectList(NS+"cartList",loginInfo);
 	}
 	
 	// 장바구니 전체 삭제
-	public int deleteAll(String id) {
-		return sqlSession.delete(NS+"deleteAll",id);
+	public int deleteAll(CartVO cvo) {
+		return sqlSession.delete(NS+"deleteAll",cvo);
 	}
 	
 	// 장바구니 개별 삭제
-	public int delete(int cartnum) {
-		return sqlSession.delete(NS+"delete", cartnum);
-	}
-	
-	// 장바구니 업데이트
-	public void update(int cartnum) {
-		
+	public int deleteCart(CartVO cvo) {
+		return sqlSession.delete(NS+"deleteCart", cvo.getCartnum());
 	}
 	
 	// 장바구니 금액합계
-	public int sumMoney(String id) {
-		return sqlSession.selectOne(NS+"sumMoney", id);
+	public int sumMoney(String loginInfo) {
+		return sqlSession.selectOne(NS+"sumMoney", loginInfo);
 	}
 	
 	// 장바구니 상품갯수
@@ -57,14 +52,9 @@ public class CartDAO {
 		return 0;
 	}
 	
-	// 장바구니 수정
-	public void updateCart(CartVO cvo) {
-		
-	}
-	
-	// 
-	public int modifyCart(CartVO cvo) {
-		return sqlSession.update(NS+"modifyCart", cvo);
+	// 장바구니 업데이트 (상품 수량 수정하는 메서드)
+	public int updateCart(CartVO cvo) {
+		return sqlSession.update(NS+"updateCart", cvo);
 	}
 	
 }//class
