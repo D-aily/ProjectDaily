@@ -27,7 +27,7 @@ create table member (
 
 create table product (
 	productnum int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	name varchar(50) not null,
+	name varchar(50) not null UNIQUE,
 	content varchar(1000),
 	date DATETIME DEFAULT NOW(),
 	image varchar(100),
@@ -46,7 +46,7 @@ create table product (
 
 
 
-create table wish_list(
+create table WishList(
 	wlnum int NOT NULL AUTO_INCREMENT primary key,
 	id varchar(100) not null,
 	productnum int not null,
@@ -98,11 +98,14 @@ create table review(
 
 create table product_qna(
 	prodqnanum int NOT NULL AUTO_INCREMENT primary key,
-	productnum int not null,
+	name varchar(50) not null UNIQUE,
+	CONSTRAINT FK_prodqna_name FOREIGN KEY (name) REFERENCES product(name),
 	id varchar(100) not null,
-	CONSTRAINT FK_prodqna_id FOREIGN KEY (id) REFERENCES member(id),
-	 CONSTRAINT FK_prodqna_productnum FOREIGN KEY (productnum) REFERENCES product(productnum),
+	CONSTRAINT FK_prodqna_id FOREIGN KEY (id) REFERENCES member(id),	
+	title varchar(200),
 	content varchar(1000),
+	root int,
+	step int,
 	date DATETIME DEFAULT NOW(),
 	state char(1),
 	secret char(1)
@@ -259,6 +262,11 @@ insert into ntc (id,title,content) values('admin','이번 한달간 적립금 �
 
 
 =======================================================================
+wish list 위시리스트/찜목록
+
+insert into wishlist(id, productnum, quantity) values('test','2','1');
+
+=======================================================================
 faq 자주묻는 질문 데이터 
 
 insert into faq (id,title,content) values('admin','배송은 언제되는 것인가여?','주문직후 바로 배송 처리합니다.');
@@ -274,3 +282,8 @@ insert into cart(cartnum,id,productnum,quantity) values (2,'aaa22',1,2);
 Join 구문
 select m.name,p.name, quantity,price2*quantity money from member m, product p ,cart c where m.id=c.id and p.productnum = c.productnum;
 
+===========================================================================
+
+insert into product_qna
+(name,id,title,content,root,step,state,secret)
+values("긴팔티셔츠","aaa11","상품 질문입니다."," 오.. 상품이 심상치 않은데? 반품 해주세요",1,0,'T',1);

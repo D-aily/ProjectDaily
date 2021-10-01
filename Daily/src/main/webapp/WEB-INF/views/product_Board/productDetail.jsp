@@ -11,12 +11,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Bootstrap CSS -->
+<script src="resources/Lib/jquery-3.6.0.min.js"></script>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
-
+<script src="resources/Lib/prodqna/prodqna_ajax.js"></script>
 <title>Product details</title>
 <script>
 $(function() {
@@ -55,6 +56,7 @@ $(function() {
 	<jsp:include page="/WEB-INF/views/homeLayout/homeheader.jsp"></jsp:include>
 	<!-- nav  (메뉴바)-->
 	<jsp:include page="/WEB-INF/views/homeLayout/homemenubar.jsp"></jsp:include>
+<<<<<<< HEAD
 <%-- 
 <form action="addCart" method="post" name="cart">
 <table>
@@ -120,6 +122,9 @@ $(function() {
 
 <!-- footer (고객센터) -->
  --%>
+=======
+
+>>>>>>> cb27c3b76bfcb848d5083069aaf178dfac48b946
 	<br>
 	<br>
 	<br>
@@ -134,7 +139,11 @@ $(function() {
 			<!-- 제목  설명 가격 색상 사이즈 구매 장바구니 관심상품 -->
 			<div class="col align-self-center">
 
+<<<<<<< HEAD
 				<c:if test="${ Lv == 5 && loginInfo.Id ne null}">
+=======
+				<c:if test="${ Lv == '5' && loginInfo != null}">
+>>>>>>> cb27c3b76bfcb848d5083069aaf178dfac48b946
 					<div class="row ps-5">
 						<div class="col">
 							<a href="pddetail?productnum=${Product.productnum}&jcode=U">수정하기</a>
@@ -212,8 +221,13 @@ $(function() {
 						</div>
 
 						<div class="col-sm">
+<<<<<<< HEAD
 							<button class="btn btn-outline-secondary" id="btnCart">장바구니</button> 
 							<button class="btn btn-outline-secondary" id="btnWish">관심상품</button>
+=======
+							<a type="button" class="btn btn-outline-secondary">장바구니</a> <a
+								type="button" class="btn btn-outline-secondary" onclick="addwishlist()">관심상품</a>
+>>>>>>> cb27c3b76bfcb848d5083069aaf178dfac48b946
 						</div>
 
 					</div>
@@ -258,12 +272,14 @@ $(function() {
 		<div class="row d-flex justify-content-center">
 			<div id="" class="col-sm-2 text-center">상세정보</div>
 			<div id="" class="col-sm-2 text-center">상품리뷰</div>
-			<div id="" class="col-sm-2 text-center">QnA</div>
+			<div id="pqnaList" class="col-sm-2 text-center">상품QnA</div>
 		</div>
 		<hr>
 
 		<!-- Ajax 결과 공간  -->
-		<div class="resultArea"></div>
+		
+		<div id="resultArea"></div>
+	
 	</div>
 
 

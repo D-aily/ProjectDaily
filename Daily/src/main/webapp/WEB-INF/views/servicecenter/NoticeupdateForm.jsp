@@ -63,7 +63,7 @@
 		<br>
 		<hr>
 
-		<c:if test="${loginInfo.id !=null  && loginInfo.lv == 5 }">
+		<c:if test="${loginInfo !=null  && Lv == '5' }">
 			<div class="list_item">
 				<a href="ntcdelete?ntcnum=${Ntcdetail.ntcnum}">글삭제</a>
 				<a href="ntclist">돌아가기</a>&nbsp;

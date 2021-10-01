@@ -48,7 +48,7 @@
 		<br>
 		<hr>
 
-		<c:if test="${loginInfo.id !=null && loginInfo.lv == '5'}">
+		<c:if test="${loginInfo !=null && Lv == '5'}">
 			<div class="list_item">
 				<a href="ntcinsertf">공지사항 글쓰기</a>
 			</div>

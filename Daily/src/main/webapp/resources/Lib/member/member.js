@@ -1,9 +1,23 @@
 $(function() {
 	//location.reload(); 
 	
-	
+	$('.deleteBtn').click(function(){
+		$.ajax({
+			type:'Post',
+			url:'wishlistdeleteone',
+			data: {
+				id:$('#id').val(),
+				wlnum:$('#wlnum').val()
+				},
+			success:function(){
+				location.reload(); 
+			},
+			error:function(){
+				alert('error');
+			}
+		});	
+	});
 
-	
 	//비밀번호 변경변경
 	$('#info_pwchange').click(function(){
 		$.ajax({
@@ -24,6 +38,7 @@ $(function() {
 			}
 		});	
 	});
+
 	//개인정보 변경변경
 	$('#info_change').click(function(){
 		$.ajax({
@@ -42,8 +57,7 @@ $(function() {
 		});	
 	});
 	
-	
-	// page -----------------------------------------------
+	// Page -----------------------------------------------
 	//개인정보 변경 page
 	$('#info_change_page').click(function(){
 		$.ajax({
@@ -72,7 +86,21 @@ $(function() {
 		}); //ajax
 	}); //infopage	
 
-	//비밀번호 변경
+	// 위시리스트 page 이동
+	$('#wishlistpage').click(function(){
+		$.ajax({
+			type:'Post',
+			url:'wishlistpage',
+			success:function(resultPage){
+				$('#contentArea').html(resultPage);
+			},
+			error:function(){
+				alert('error');
+			}
+		}); //ajax
+	});	
+
+	//비밀번호 변경 page
 	$('#info_pwchange_page').click(function(){
 		$.ajax({
 			type:'Post',
@@ -86,6 +114,7 @@ $(function() {
 		}); //ajax
 	});	
 
+	
 
 
 }); // ready

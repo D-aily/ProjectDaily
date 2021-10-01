@@ -3,10 +3,11 @@ package vo;
 import lombok.Data;
 
 @Data
-public class Wish_listVO {
+public class WishListVO {
 	private int wlnum;
 	private String id;
-	private String productnum;
-	private String quantity;
+	private int productnum;
+	private int quantity;
 	private String date;
+	private String name;
 }

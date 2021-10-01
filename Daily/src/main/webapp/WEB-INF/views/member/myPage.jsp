@@ -14,7 +14,7 @@
 /* .menu { */
 div {
 	/* background-color: ; */
-	border: 1px solid #000;
+	/* border: 1px solid #000; */
 }
 
 #content {
@@ -25,7 +25,7 @@ div {
 	width: 10%;
 	margin-left: 10%;
 	float: left;
-	background-color: yellow;
+	background-color: #d5d5d5;
 	text-align: center;
 	float: left;
 }
@@ -48,6 +48,7 @@ div {
 </style>
 </head>
 <body>
+<top id="top"/>
 	<!-- header (로그인 ,마이페이지,위시리스트) -->
 	<div>
 		<jsp:include page="../homeLayout/homeheader.jsp"></jsp:include>
@@ -68,7 +69,9 @@ div {
 		<div class="myactivity">
 			<div>MY 활동</div>
 			<div>리뷰관리</div>
-			<div>찜리스트</div>
+			<div id="wishlistpage">
+				<a>위시리스트</a>
+			</div>
 		</div>
 		<div class="myinfo">
 			<div>MY 정보</div>
@@ -92,19 +95,19 @@ div {
 				<td colspan="2" style="text-align: center">
 					<div
 						style="border-radius: 15px; border: 1px solid #d7d7d7; padding: 10px;">
-						<div>위로 △</div>
-						<div>홈으로</div>
+						<div><a href="#top">위로 △</a></div>
+						<div><a href="home">홈으로</a></div>
 						<div>
 							<div>장바구니</div>
 							<div id="cartArea">여기에 장바구니 table</div>
 						</div>
-						<div>아래로 ▽</div>
+						<div><a href="#bottom">아래로 ▽</a></div>
 					</div>
 				</td>
 			</tr>
 		</table>
 	</div>
 
-
+<bottom id="bottom"/>
 </body>
 </html>

@@ -66,9 +66,9 @@
 		<br>
 		<hr>
 
-		<c:if test="${loginInfo.id !=null}">
+		<c:if test="${loginInfo !=null}">
 			<div class="list_item">
-				<c:if test="${loginInfo.id==Qnadetail.id || loginInfo.lv == 5 }">
+				<c:if test="${loginInfo==Qnadetail.id || Lv == '5' }">
 					<a href="qnadetail?qnanum=${Qnadetail.qnanum}&jcode=Update">문의글
 						수정</a>
 					<a href="qnadelete?qnanum=${Qnadetail.qnanum}">글삭제</a>
