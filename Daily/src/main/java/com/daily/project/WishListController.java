@@ -19,8 +19,27 @@ public class WishListController {
 	@Autowired
 	WishListService service;
 	// 기능-------------------------------------------------------------
-
-
+	@RequestMapping(value = "/wishlistdeleteone")
+	public ModelAndView wishlistdeleteone(ModelAndView mv, WishListVO vo, HttpServletRequest request) {
+		HttpSession session = request.getSession(true);
+		if(session.getAttribute("loginInfo")!=null) {
+//			System.out.println(vo);
+			//로그인 상태
+			if(service.deleteOne(vo)>0) {
+				//삭제성공 id, wlnum 참고해서 지움
+				mv.addObject("complete","T");
+			}else {
+				//삭제 실패 
+				mv.addObject("complete","F");
+			}
+			mv.setViewName("jsonView");
+		}else {
+			// 로그인 안한 상태 - 로그인창으로 
+			mv.setViewName("member/mloginPage");
+		}
+		mv.setViewName("jsonView");
+		return mv;
+	}
 
 
 	// page 이동 -------------------------------------------------	
@@ -31,13 +50,11 @@ public class WishListController {
 		HttpSession session = request.getSession(true);
 		// 로그인 한 아이디 기준으로 검색 
 		if(session.getAttribute("loginInfo")!=null) {
-		
 			//로그인상태
 			vo.setId((String)session.getAttribute("loginInfo"));
 			List<WishListVO> list = service.WishList(vo);
 			if(list != null) {
 				//찜목록 있음
-				
 				mv.addObject("wishlist",list);
 				mv.addObject("complete","T");
 			}else {
@@ -45,8 +62,6 @@ public class WishListController {
 				mv.addObject("complete","F");
 			}
 			mv.setViewName("mypage/wishlistpage");
-
-		
 		}else {
 			// 로그인 안한 상태 - 로그인창으로 
 			mv.setViewName("member/mloginPage");
@@ -55,29 +70,6 @@ public class WishListController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/wishlistdeleteone")
-	public ModelAndView wishlistdeleteone(ModelAndView mv, WishListVO vo, HttpServletRequest request) {
-		HttpSession session = request.getSession(true);
-		System.out.println("vo값");
-		System.out.println(vo);
-		
-//		if(session.getAttribute("loginInfo")!=null) {
-//			//로그인 상태
-//			if(service.deleteOne(vo)>0) {
-//				//삭제성공 id, wlnum 참고해서 지움
-//				mv.addObject("complete","F");
-//			}else {
-//				//삭제 실패 
-//				mv.addObject("complete","F");
-//			}
-//			mv.setViewName("redirect:wishlistpage");
-//			
-//		}else {
-//			// 로그인 안한 상태 - 로그인창으로 
-//			mv.setViewName("member/mloginPage");
-//		}
-		return mv;
-	}
-
+	
 
 }// MemberController

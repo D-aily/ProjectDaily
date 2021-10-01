@@ -114,7 +114,7 @@
 
 						<div class="col-sm">
 							<a type="button" class="btn btn-outline-secondary">장바구니</a> <a
-								type="button" class="btn btn-outline-secondary">관심상품</a>
+								type="button" class="btn btn-outline-secondary" onclick="addwishlist()">관심상품</a>
 						</div>
 
 					</div>

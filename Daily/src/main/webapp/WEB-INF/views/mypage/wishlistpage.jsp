@@ -9,10 +9,6 @@
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
 <script src="resources/Lib/member/member.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
-<script>
-	
-</script>
-
 </head>
 <body>
 	<!-- list -->
@@ -27,7 +23,7 @@
 			<div id="wlnum" hidden="hidden">${list.wlnum}</div>
 			<div id="id" hidden="hidden">${list.id}</div>
 			<div>${list.name}</div>
-			<div>${list.quantity}</div>
+			<div>${list.quantity}개</div>
 			<div><input type="button" id="${list.wlnum}" class="deleteBtn" value="삭제"></div>
 			<hr>
 </c:forEach>
