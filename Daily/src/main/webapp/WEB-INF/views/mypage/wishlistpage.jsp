@@ -22,7 +22,7 @@
 <c:forEach var="list" items="${wishlist}" varStatus="status">
 			<div id="wlnum" hidden="hidden">${list.wlnum}</div>
 			<div id="id" hidden="hidden">${list.id}</div>
-			<div>${list.name}</div>
+			<div>${list.pname}</div>
 			<div>${list.quantity}개</div>
 			<div><input type="button" id="${list.wlnum}" class="deleteBtn" value="삭제"></div>
 			<hr>

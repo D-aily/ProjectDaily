@@ -56,7 +56,6 @@ $(function() {
 	<jsp:include page="/WEB-INF/views/homeLayout/homeheader.jsp"></jsp:include>
 	<!-- nav  (메뉴바)-->
 	<jsp:include page="/WEB-INF/views/homeLayout/homemenubar.jsp"></jsp:include>
-<<<<<<< HEAD
 <%-- 
 <form action="addCart" method="post" name="cart">
 <table>
@@ -122,9 +121,6 @@ $(function() {
 
 <!-- footer (고객센터) -->
  --%>
-=======
-
->>>>>>> cb27c3b76bfcb848d5083069aaf178dfac48b946
 	<br>
 	<br>
 	<br>
@@ -139,11 +135,7 @@ $(function() {
 			<!-- 제목  설명 가격 색상 사이즈 구매 장바구니 관심상품 -->
 			<div class="col align-self-center">
 
-<<<<<<< HEAD
-				<c:if test="${ Lv == 5 && loginInfo.Id ne null}">
-=======
 				<c:if test="${ Lv == '5' && loginInfo != null}">
->>>>>>> cb27c3b76bfcb848d5083069aaf178dfac48b946
 					<div class="row ps-5">
 						<div class="col">
 							<a href="pddetail?productnum=${Product.productnum}&jcode=U">수정하기</a>
@@ -221,13 +213,11 @@ $(function() {
 						</div>
 
 						<div class="col-sm">
-<<<<<<< HEAD
 							<button class="btn btn-outline-secondary" id="btnCart">장바구니</button> 
 							<button class="btn btn-outline-secondary" id="btnWish">관심상품</button>
 =======
 							<a type="button" class="btn btn-outline-secondary">장바구니</a> <a
 								type="button" class="btn btn-outline-secondary" onclick="addwishlist()">관심상품</a>
->>>>>>> cb27c3b76bfcb848d5083069aaf178dfac48b946
 						</div>
 
 					</div>
