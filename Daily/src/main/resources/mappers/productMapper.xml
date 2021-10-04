@@ -69,7 +69,7 @@
 	</sql>
 	<sql id="keyword">
 		<if test="keyword != null">
-			and name Like '%' || #{keyword} || '%'
+			and pname Like '%' || #{keyword} || '%'
 		</if>
 		
 	</sql>
@@ -101,11 +101,7 @@
 	<!-- 입력 통합검색 -->
 	<select id="keywordsearchList" resultType="vo.ProductVO">
 	<![CDATA[
-<<<<<<< HEAD
 		select productnum,pname,content,date,imgae,state,price1,price2,price3,
-=======
-		select productnum,name,content,date,image,state,price1,price2,price3,
->>>>>>> cb27c3b76bfcb848d5083069aaf178dfac48b946
 		quantity1,quantity2,kind,count,score from product 
 		where productnum > 0 ]]>
 		<include refid="keyword"></include>
@@ -129,7 +125,7 @@
 	</select>
 
 	<select id="totalRowCount" resultType="int">
-		select count(*) from board
+		select count(*) from product
 	</select>
 
 	<!-- 기본 CRUD + countUp 추가 -->

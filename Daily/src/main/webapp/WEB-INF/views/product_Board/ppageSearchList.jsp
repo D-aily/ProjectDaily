@@ -154,7 +154,7 @@
 							<div class="col-sm">
 								<div class="row">
 									<a
-										href="pddetail?productnum=${list.productnum}&name=${list.name}">
+										href="pddetail?productnum=${list.productnum}&pname=${list.pname}">
 										<img src="${list.image}" id="product_img1" width="100%"
 										height="100%">
 									</a>
@@ -162,7 +162,7 @@
 								</div>
 								<div class="product_name">
 									<a
-										href="pddetail?productnum=${list.productnum}&name=${list.name}">
+										href="pddetail?productnum=${list.productnum}&pname=${list.pname}">
 										${list.name} </a>
 								</div>
 								<div class="product_price">

@@ -26,9 +26,13 @@ $(function() {
 			$.ajax({
 				type:"Get",
 				url:"addCart",
+				data:{
+					productnum: $('#productnum').val(),
+					quantity: $('#quantity').val()
+				},
 				success:function(resultData){
 					if(resultData.success == 'T'){
-						if(confirm("장바구니로 이동하시겠습니까?")){
+						if(confirm("장바구니로 이동하시겠습니까?"+resultData.success)){
 							location.href("cartlist");
 						}
 					}else if(resultData.success == 'F'){
@@ -56,7 +60,7 @@ $(function() {
 	<jsp:include page="/WEB-INF/views/homeLayout/homeheader.jsp"></jsp:include>
 	<!-- nav  (메뉴바)-->
 	<jsp:include page="/WEB-INF/views/homeLayout/homemenubar.jsp"></jsp:include>
-<<<<<<< HEAD
+
 <%-- 
 <form action="addCart" method="post" name="cart">
 <table>
@@ -122,9 +126,7 @@ $(function() {
 
 <!-- footer (고객센터) -->
  --%>
-=======
 
->>>>>>> cb27c3b76bfcb848d5083069aaf178dfac48b946
 	<br>
 	<br>
 	<br>
@@ -138,12 +140,7 @@ $(function() {
 			</div>
 			<!-- 제목  설명 가격 색상 사이즈 구매 장바구니 관심상품 -->
 			<div class="col align-self-center">
-
-<<<<<<< HEAD
-				<c:if test="${ Lv == 5 && loginInfo.Id ne null}">
-=======
 				<c:if test="${ Lv == '5' && loginInfo != null}">
->>>>>>> cb27c3b76bfcb848d5083069aaf178dfac48b946
 					<div class="row ps-5">
 						<div class="col">
 							<a href="pddetail?productnum=${Product.productnum}&jcode=U">수정하기</a>
@@ -156,11 +153,8 @@ $(function() {
 					<br>
 					<br>
 
-					<div class="row ps-5">
-						<div class="col-3" style="font-size: 12px;">PN.</div>
-						<div class="col-4" style="font-size: 12px;">${Product.productnum}</div>
-					</div>
 				</c:if>
+				<input type="hidden" id="productnum" value="${Product.productnum}">
 				<div class="row ps-5 pb-2 fs-4">${Product.pname}</div>
 				<div class="row-sm ps-5 pe-3  ">
 					<div class="row">
@@ -204,7 +198,7 @@ $(function() {
 					<div class="row">
 						<div class="col-4">수량 선택</div>
 						<div class="col-8">
-							<select name="quantity">
+							<select name="quantity" id="quantity">
 							<c:forEach begin="1" end="10" var="i">
 								<option value="${i}">${i}</option>
 							</c:forEach>
@@ -221,13 +215,8 @@ $(function() {
 						</div>
 
 						<div class="col-sm">
-<<<<<<< HEAD
 							<button class="btn btn-outline-secondary" id="btnCart">장바구니</button> 
-							<button class="btn btn-outline-secondary" id="btnWish">관심상품</button>
-=======
-							<a type="button" class="btn btn-outline-secondary">장바구니</a> <a
-								type="button" class="btn btn-outline-secondary" onclick="addwishlist()">관심상품</a>
->>>>>>> cb27c3b76bfcb848d5083069aaf178dfac48b946
+							<button class="btn btn-outline-secondary" onclick="addwishlist()">관심상품</button>
 						</div>
 
 					</div>
