@@ -55,6 +55,7 @@ create table WishList(
 	quantity int default 1,
 	date DATETIME DEFAULT NOW()	
 );
+alter table wishlist drop quantity;
 	
 create table cart(
 	cartnum int NOT NULL AUTO_INCREMENT primary key,

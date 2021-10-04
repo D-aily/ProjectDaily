@@ -2,15 +2,17 @@ $(function() {
 	//location.reload(); 
 	
 	$('.deleteBtn').click(function(){
+		var wlnum = $(this).attr('id');
+		var id = session.getAttribute("loginInfo");
 		$.ajax({
 			type:'Post',
 			url:'wishlistdeleteone',
-			data: {
-				id:$('#id').val(),
-				wlnum:$('#wlnum').val()
-				},
-			success:function(){
-				location.reload(); 
+			data:{
+				id:id,
+				wlnum:wlnum
+			},
+			success:function(resultPage){
+				$('#contentArea').html(resultPage); 
 			},
 			error:function(){
 				alert('error');

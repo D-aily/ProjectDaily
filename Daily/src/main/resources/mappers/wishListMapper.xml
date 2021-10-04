@@ -4,12 +4,12 @@
 <mapper namespace="daily.mapper.wishListMapper">
 
 	<insert id="addCart">
- 		insert into wishlist(id, productnum, quantity)
-     	values (#{id}, #{productnum},#{quantity})
+ 		insert into wishlist(id, productnum)
+     	values (#{id}, #{productnum})
 </insert>
 
 	<select id="wishList" resultType="vo.WishListVO">
-		select wishlist.wlnum, wishlist.id, product.pname as pname, wishlist.quantity 
+		select wishlist.wlnum, wishlist.id, product.pname as name 
 		from wishlist, product 
 		where wishlist.id=#{id} and product.productnum = wishlist.productnum
 		order by wishlist.wlnum desc

@@ -21,10 +21,12 @@ public class WishListController {
 	// 기능-------------------------------------------------------------
 	@RequestMapping(value = "/wishlistdeleteone")
 	public ModelAndView wishlistdeleteone(ModelAndView mv, WishListVO vo, HttpServletRequest request) {
-		HttpSession session = request.getSession(true);
-		if(session.getAttribute("loginInfo")!=null) {
-//			System.out.println(vo);
+		//HttpSession session = request.getSession(true);
+		//if(session.getAttribute("loginInfo")!=null) {
 			//로그인 상태
+			//vo.setId((String)session.getAttribute("loginInfo"));
+		
+		System.out.println(vo);
 			if(service.deleteOne(vo)>0) {
 				//삭제성공 id, wlnum 참고해서 지움
 				mv.addObject("complete","T");
@@ -32,12 +34,11 @@ public class WishListController {
 				//삭제 실패 
 				mv.addObject("complete","F");
 			}
-			mv.setViewName("jsonView");
-		}else {
-			// 로그인 안한 상태 - 로그인창으로 
-			mv.setViewName("member/mloginPage");
-		}
-		mv.setViewName("jsonView");
+//		}else {
+//			// 로그인 안한 상태 - 로그인창으로 
+//			mv.setViewName("member/mloginPage");
+//		}
+		mv.setViewName("redirect:wishlistpage");
 		return mv;
 	}
 
@@ -66,7 +67,6 @@ public class WishListController {
 			// 로그인 안한 상태 - 로그인창으로 
 			mv.setViewName("member/mloginPage");
 		}
-		System.out.println(mv);
 		return mv;
 	}
 
