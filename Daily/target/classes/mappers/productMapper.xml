@@ -69,7 +69,7 @@
 	</sql>
 	<sql id="keyword">
 		<if test="keyword != null">
-			and name Like '%' || #{keyword} || '%'
+			and pname Like '%' || #{keyword} || '%'
 		</if>
 		
 	</sql>
@@ -125,7 +125,7 @@
 	</select>
 
 	<select id="totalRowCount" resultType="int">
-		select count(*) from board
+		select count(*) from product
 	</select>
 
 	<!-- 기본 CRUD + countUp 추가 -->

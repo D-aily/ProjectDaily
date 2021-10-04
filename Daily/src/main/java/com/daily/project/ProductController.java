@@ -39,7 +39,6 @@ public class ProductController {
 				} catch (NumberFormatException e) {
 					System.out.println("잘못된 currpage 입니다");
 				}
-				
 								
 				
 				//페이지 값 내용 열 set
@@ -133,14 +132,14 @@ public class ProductController {
 			request.setAttribute("Product", vo);
 			if("U".equals(request.getParameter("jcode"))) {
 				//업데이트로 넘어가기
-				System.out.println("1");
+				System.out.println("11");
 				mv.setViewName("product_Board/productUpdateF");
 			}else {
-				System.out.println("2");
+				System.out.println("22");
 				mv.setViewName("product_Board/productDetail");
 			}
 		}else {
-			System.out.println("3");
+			System.out.println("33");
 			mv.addObject("message","해당 상품을 찾을 수 없습니다.");
 			mv.setViewName("redirect:pdlist");
 		}
