@@ -64,37 +64,10 @@ public class MemberController {
 		return mv;
 	}
 
-	// ajax 로그인
-		@RequestMapping(value = "/popmlogin")
-		public ModelAndView popmlogin(ModelAndView mv, MemberVO vo, HttpServletRequest request) {
-			HttpSession session = request.getSession(false);
-			String pw = vo.getPw();
-
-			vo = service.mselectOne(vo);
-			if (vo != null) {
-				if (vo.getPw().equals(pw)) {
-					// 로그인 성공
-					session.setAttribute("loginInfo", vo.getId());
-
-					String Lev = String.valueOf(vo.getLv());
-					request.getSession().setAttribute("Lv", Lev);
-
-					mv.setViewName("redirect:closepage");
-				} else {
-					// password 틀림
-					mv.addObject("message", "비밀번호가 일치하지 않습니다. 다시시도해 주세요");
-					mv.setViewName("redirect:mloginpage");
-				}
-			} else {
-				mv.setViewName("redirect:mloginpage");
-			}
-			return mv;
-		}
-
 	
-	// 로그인
+	//로그인
 	@RequestMapping(value = "/mlogin")
-	public ModelAndView mlogin(ModelAndView mv, MemberVO vo, HttpServletRequest request) {
+	public ModelAndView mlogin(ModelAndView mv, MemberVO vo,HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
 		String pw = vo.getPw();
 
@@ -103,21 +76,18 @@ public class MemberController {
 			if (vo.getPw().equals(pw)) {
 				// 로그인 성공
 				session.setAttribute("loginInfo", vo.getId());
-
-				String Lev = String.valueOf(vo.getLv());
-				request.getSession().setAttribute("Lv", Lev);
-
 				mv.setViewName("redirect:home");
-			} else {
+			}else {
 				// password 틀림
-				mv.addObject("message", "비밀번호가 일치하지 않습니다. 다시시도해 주세요");
+				mv.addObject("message","비밀번호가 일치하지 않습니다. 다시시도해 주세요");
 				mv.setViewName("redirect:mloginpage");
 			}
-		} else {
+		}else {
 			mv.setViewName("redirect:mloginpage");
 		}
 		return mv;
 	}
+
 
 	
 	// 로그아웃
@@ -290,7 +260,7 @@ public class MemberController {
 		HttpSession session = request.getSession(false);
 		// 로그인 했을경우
 		if (session.getAttribute("loginInfo") != null) {
-			vo.setId((String) session.getAttribute("loginInfo"));
+			vo.setId((String)session.getAttribute("loginInfo"));
 			vo = service.mselectOne(vo);
 			if (vo != null) {
 				mv.addObject("loginInfo", vo);

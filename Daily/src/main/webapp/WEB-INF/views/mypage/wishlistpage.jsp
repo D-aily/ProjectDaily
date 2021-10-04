@@ -13,20 +13,15 @@
 <body>
 	<!-- list -->
 	<table>
-		<tr>
-			<th>찜 번호</th>
-			<th>아이디</th>
-			<th>상품명</th>
-			<th>갯 수</th>
-		</tr>
-<c:forEach var="list" items="${wishlist}" varStatus="status">
+		<c:forEach var="list" items="${wishlist}" varStatus="status">
 			<div id="wlnum" hidden="hidden">${list.wlnum}</div>
 			<div id="id" hidden="hidden">${list.id}</div>
-			<div>${list.name}</div>
-			<div>${list.quantity}개</div>
-			<div><input type="button" id="${list.wlnum}" class="deleteBtn" value="삭제"></div>
+			<div> 상품명 : ${list.pname}<br>
+				 상품 개수 : ${list.quantity}개
+				<input type="button" id="${list.wlnum}" class="deleteBtn" value="삭제">
+			</div>
 			<hr>
-</c:forEach>
+		</c:forEach>
 	</table>
 
 </body>
