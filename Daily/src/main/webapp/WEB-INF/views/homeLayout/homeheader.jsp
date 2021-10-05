@@ -61,7 +61,7 @@ $(function(){
 			<div class="col-md-4">
 				<div class="d-flex flex-row-reverse bd-highlight header_right_item">
 					<div class="p-2 bd-highlight header_item">
-						<a href="wishlist">위시리스트</a>
+						<a href="cartlist">장바구니</a>
 					</div>
 					<div class="p-2 bd-highlight header_item">
 						<a href="mypage">마이페이지</a>

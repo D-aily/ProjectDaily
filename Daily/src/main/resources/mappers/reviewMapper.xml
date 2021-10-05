@@ -22,6 +22,10 @@
 		select * from review where name =#{name} and state = 'T' order by root desc, step asc;
 	</select>
 
+	<select id="myreview" resultType="vo.ReviewVO">
+		select review.reviewnum, product.pname, review.id, review.date, review.content  from review, product where id=#{id} and product.productnum = review.productnum
+		
+	</select>
 	<select id="selectOne" resultType="vo.ProductVO">
 		select * from review where reviewnum = #{reviewnum}
 	</select>

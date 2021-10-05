@@ -29,12 +29,16 @@ public class ReviewDAO {
 
 	// ----------------------------------------------------------
 	// CRUD 
+	// myreview
+	public List<ReviewVO> myreview(ReviewVO vo) {
+		return sqlSession.selectList(NS + "myreview",vo);
+	}
 
 	// selectList
 	public List<ReviewVO> selectList() {
 		return sqlSession.selectList(NS + "selectList");
 	}
-
+	
 	// selectOne
 	public ReviewVO selectOne(ReviewVO vo) {
 		return sqlSession.selectOne(NS + "selectOne", vo);

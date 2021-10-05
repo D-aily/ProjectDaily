@@ -35,13 +35,17 @@
 					<tr align="center">
 						<th>상품이미지</th>
 						<th>상품명</th>
+						<th>댓글내용</th>
+						<th>날짜</th>
 						<th></th>
 					</tr>
-					<c:forEach var="list" items="${wishlist}" varStatus="status">
+					<c:forEach var="list" items="${myreview}" varStatus="status">
 						<tr align="center">
 							<td><img src="${list.image}" width="100px" height="100px"></td>
 							<td>${list.pname}</td>
-							<td><input type="button" id="${list.wlnum}" class="wishdeleteBtn" value="삭제"></td>
+							<td>${list.content}</td>
+							<td>${list.date}</td>
+							<td><input type="button" id="${list.reviewnum}" class="deleteBtn" value="삭제"></td>
 						</tr>
 					</c:forEach>
 				</table>

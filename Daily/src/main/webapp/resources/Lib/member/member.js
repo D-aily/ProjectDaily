@@ -1,7 +1,24 @@
 $(function() {
 	//location.reload(); 
+
+	$('.reviewdeleteBtn').click(function(){
+		var reviewnum = $(this).attr('id');
+		$.ajax({
+			type:'Post',
+			url:'reviewdeleteone',
+			data:{
+				reviewnum:reviewnum
+			},
+			success:function(resultPage){
+				$('#contentArea').html(resultPage); 
+			},
+			error:function(){
+				alert('error');
+			}
+		});	
+	});
 	
-	$('.deleteBtn').click(function(){
+	$('.wishdeleteBtn').click(function(){
 		var wlnum = $(this).attr('id');
 		$.ajax({
 			type:'Post',
@@ -114,6 +131,18 @@ $(function() {
 		}); //ajax
 	});	
 
+	$('#myreviewpage').click(function(){
+		$.ajax({
+			type:'Post',
+			url:'myreviewpage',
+			success:function(resultPage){
+				$('#contentArea').html(resultPage);
+			},
+			error:function(){
+				alert('error');
+			}
+		}); //ajax
+	});
 	
 
 

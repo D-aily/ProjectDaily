@@ -40,5 +40,8 @@ public class ReviewServiceImpl implements ReviewService {
 		public int delete(ReviewVO vo) {
 			return dao.delete(vo);
 		}	
-	
+	@Override
+	public List<ReviewVO> myreview(ReviewVO vo) {
+		return dao.myreview(vo);
+	}
 }// class
