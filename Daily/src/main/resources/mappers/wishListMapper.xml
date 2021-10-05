@@ -9,7 +9,7 @@
 </insert>
 
 	<select id="wishList" resultType="vo.WishListVO">
-		select wishlist.wlnum, wishlist.id, product.pname as pname
+		select wishlist.wlnum, wishlist.id, product.pname as pname, product.image
 		from wishlist, product 
 		where wishlist.id=#{id} and product.productnum = wishlist.productnum
 		order by wishlist.wlnum desc

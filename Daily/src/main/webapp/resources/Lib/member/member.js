@@ -3,12 +3,10 @@ $(function() {
 	
 	$('.deleteBtn').click(function(){
 		var wlnum = $(this).attr('id');
-		var id = session.getAttribute("loginInfo");
 		$.ajax({
 			type:'Post',
 			url:'wishlistdeleteone',
 			data:{
-				id:id,
 				wlnum:wlnum
 			},
 			success:function(resultPage){
