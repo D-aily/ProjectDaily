@@ -15,9 +15,6 @@
 	<!-- nav  (메뉴바)-->
 	<jsp:include page="/WEB-INF/views/homeLayout/homemenubar.jsp"></jsp:include>
 
-	<c:if test="${message!=null}">
- => ${message}<br>
-	</c:if>
 	<!-- 상품 등록 Form enctype="multipart/form-data"-->
 	<form action="pdregist" method="post" enctype="multipart/form-data">
 		<table class="regist_table">

@@ -38,8 +38,17 @@
 							+ "&costsearch=" + $('#costsearch').val()
 							+ "&kindsearch=" + $('#kindsearch').val()
 							+ "&scoresearch=" + $('#scoresearch').val()
-				})
-
+		});
+		
+		$("#keyopsearchBtn").on(
+				"click",
+				function() {
+					self.location = "pkplist" + "${pageMaker.makeQuery(1)}"
+							+ "&costsearch=" + $('#costsearch').val()
+							+ "&kindsearch=" + $('#kindsearch').val()
+							+ "&scoresearch=" + $('#scoresearch').val()
+							+ "&keyword=" + $('#keyword').val()
+		});
 	})// ready
 </script>
 <body>
@@ -136,7 +145,12 @@
 						</select>
 
 						<div class="col my-3">
-							<button id="opsearchBtn" class="btn btn-primary">검색</button>
+							<c:if test="${keyword == null}">
+								<button id="opsearchBtn" class="btn btn-primary">검색</button>
+							</c:if>
+							<c:if test="${keyword != null}">
+								<button id="keyopsearchBtn" class="btn btn-primary">검색</button>
+							</c:if>
 						</div>
 
 					</div>
@@ -182,6 +196,7 @@
 	<!-- paging -->
 
 	<div align="center">
+		<c:if test="${keyword == null}">
 		<!-- 1)  First << ,  Prev <  처리 -->
 		<c:if test="${pageMaker.prev && pageMaker.spageNo>1}">
 			<a href="poslist${pageMaker.searchQuery(1)}" class="FF">FF</a>&nbsp;
@@ -206,6 +221,35 @@
 				id="Next" class="Next">Next</a>&nbsp;
 		<a href="poslist${pageMaker.searchQuery(pageMaker.lastPageNo)}"
 				id="LL" class="LL">LL</a>&nbsp;&nbsp;
+		</c:if>
+	</c:if>
+	<c:if test="${keyword !=null}">
+	<!-- 1)  First << ,  Prev <  처리 -->
+		<c:if test="${pageMaker.prev && pageMaker.spageNo>1}">
+			<a href="pkplist${pageMaker.searchQuery(1)}" class="FF">FF</a>&nbsp;
+		<a href="pkplist${pageMaker.searchQuery(pageMaker.spageNo-1)}"
+				class="Prev">Prev</a>
+		</c:if>
+
+		<!-- 2) sPageNo ~ ePageNo 까지, displayPageNo 만큼 표시 -->
+		<c:forEach var="i" begin="${pageMaker.spageNo}"
+			end="${pageMaker.epageNo}">
+			<c:if test="${i==pageMaker.spage.currPage}">
+				<font size="5" color="Orange">${i}</font>&nbsp;
+		</c:if>
+			<c:if test="${i!=pageMaker.spage.currPage}">
+				<a href="pkplist${pageMaker.searchQuery(i)}" class="i_page">${i}</a>&nbsp;
+		</c:if>
+		</c:forEach>
+		&nbsp;
+		<!-- 3) Next >  ,  Last >>  처리 -->
+		<c:if test="${pageMaker.next && pageMaker.epageNo>0}">
+			<a href="pkplist${pageMaker.searchQuery(pageMaker.epageNo+1)}"
+				id="Next" class="Next">Next</a>&nbsp;
+		<a href="pkplist${pageMaker.searchQuery(pageMaker.lastPageNo)}"
+				id="LL" class="LL">LL</a>&nbsp;&nbsp;
+		</c:if>
+	
 	</c:if>
 	</div>
 

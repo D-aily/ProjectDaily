@@ -69,7 +69,7 @@
 	</sql>
 	<sql id="keyword">
 		<if test="keyword != null">
-			and pname Like '%' || #{keyword} || '%'
+			and pname Like concat('%',#{keyword},'%')
 		</if>
 		
 	</sql>
@@ -90,7 +90,7 @@
 
 	<select id="searchRowsCount" resultType="int">
 	<![CDATA[
-		select count(*) from product where productnum > 0 ]]>
+		select count(*) from product where productnum > 0 ]]> 
 		<include refid="costsearch"></include>
 		<include refid="kindsearch"></include>
 		<include refid="scoresearch"></include>
@@ -100,16 +100,19 @@
 
 	<!-- 입력 통합검색 -->
 	<select id="keywordsearchList" resultType="vo.ProductVO">
-		select * from product where pname Like concat('%',#{keyword},'%')
+	<![CDATA[select * from product where productnum > 0 ]]> 
+		<include refid="costsearch"></include>
+		<include refid="kindsearch"></include>
+		<include refid="scoresearch"></include>
+		<include refid="keyword"></include>
 		order by  productnum desc
-		<!-- LIMIT #{rowPerPage} OFFSET #{offset_sno} -->
 	</select>
+	<!-- select * from product where productnum > 0  and price2 between 10000 and 30000 and pname Like "%티셔%" -->
 
 	<!-- 옵션 조합검색 -->
 	<select id="optionsearchList" resultType="vo.ProductVO">
 	<![CDATA[
-		select productnum,pname,content,date,state,price1,price2,price3,
-		quantity1,quantity2,kind,count,score from product 
+		select * from product 
 		where productnum > 0 ]]>
 		<include refid="costsearch"></include>
 		<include refid="kindsearch"></include>

@@ -43,9 +43,9 @@ public class ProductController {
 				
 				//페이지 값 내용 열 set
 				spage.setSnoEno();
-				
-				//옵션 선택 쿼리
-				mv.addObject("spList",service.optionsearchList(spage));
+				List<ProductVO> list = service.optionsearchList(spage);
+				//옵션 선택 쿼리;
+				mv.addObject("spList",list);
 				
 				//시작번호 끝 번호
 				pageMaker.setPage(spage);
@@ -55,7 +55,7 @@ public class ProductController {
 				
 				mv.addObject("pageMaker",pageMaker);
 				mv.setViewName("product_Board/ppageSearchList");
-				
+				System.out.println("list=="+list);
 				return mv;
 			}
 	

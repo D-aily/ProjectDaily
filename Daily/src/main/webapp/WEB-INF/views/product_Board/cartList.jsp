@@ -28,7 +28,9 @@
 	<hr>
 	<c:choose>
 	  <c:when test="${map.count == 0}">
-	  		<h2> 장바구니가 비어있습니다.</h2>
+	  		<div align="center"><h2> 장바구니가 비어있습니다.</h2>
+	  		<a href="pdlist"><button type="button" class="btn btn-primary">상품 보기</button></a>
+	  		</div>
 	  </c:when>
 	  <c:otherwise>
 			<form>
