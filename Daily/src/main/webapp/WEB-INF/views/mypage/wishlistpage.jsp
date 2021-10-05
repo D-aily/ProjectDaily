@@ -14,11 +14,9 @@
 	<!-- list -->
 	<table>
 		<c:forEach var="list" items="${wishlist}" varStatus="status">
-			<div id="wlnum" hidden="hidden">${list.wlnum}</div>
-			<div id="id" hidden="hidden">${list.id}</div>
 			<div> 상품명 : ${list.pname}<br>
-				 상품 개수 : ${list.quantity}개
 				<input type="button" id="${list.wlnum}" class="deleteBtn" value="삭제">
+				${list.wlnum}
 			</div>
 			<hr>
 		</c:forEach>
