@@ -27,7 +27,7 @@ create table member (
 
 create table product (
 	productnum int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	name varchar(50) not null UNIQUE,
+	pname varchar(50) not null UNIQUE,
 	content varchar(1000),
 	date DATETIME DEFAULT NOW(),
 	image varchar(100),
@@ -52,7 +52,6 @@ create table WishList(
 	productnum int not null,
 	 CONSTRAINT FK_wish_id FOREIGN KEY (id) REFERENCES member(id),
 	 CONSTRAINT FK_wish_productnum FOREIGN KEY (productnum) REFERENCES product(productnum),
-	quantity int default 1,
 	date DATETIME DEFAULT NOW()	
 );
 	
@@ -98,7 +97,7 @@ create table review(
 
 create table product_qna(
 	prodqnanum int NOT NULL AUTO_INCREMENT primary key,
-	name varchar(50) not null UNIQUE,
+	pname varchar(50) not null UNIQUE,
 	CONSTRAINT FK_prodqna_name FOREIGN KEY (name) REFERENCES product(name),
 	id varchar(100) not null,
 	CONSTRAINT FK_prodqna_id FOREIGN KEY (id) REFERENCES member(id),	
@@ -184,41 +183,38 @@ values('admin','12345!','관리자','성남시분당구미금역','010-1234-5328
 ======================================================================
 product(상품) 데이터 넣어주기
 
-Insert into product (productnum,name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
+Insert into product (productnum,pname,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
 Values(1,'티셔츠','목늘어남이 적은 기본 무지 티셔츠',now(),'T',3000,6000,(price2-price1),30,20,'1',
 5);
 
 Insert into product 
-(name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
+(pname,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
 Values('긴팔티셔츠','롱 슬리브 티셔츠',now(),'T',9000,15000,(price2-price1),30,20,'1',
 4);
 
 Insert into product 
-(name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
+(pname,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
 Values('롱더블코트','기장감이 길고 오버핏의 코트','2021-09-04','T',22000,128000,(price2-price1),10,5,'3',
 5);
 
 Insert into product 
-(name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
+(pname,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
 Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
 4);
 
 Insert into product 
-(name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
+(pname,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
 Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
 4);
 Insert into product 
-(name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
+(pname,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
 Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
 4);
 Insert into product 
-(name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
+(pname,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
 Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
 4);
-Insert into product 
-(name,content,date,state,price1,price2,price3,quantity1,quantity2,kind,score)
-Values('구찌백팩','하이브랜드 구찌에서 제작한 백백','2021-09-04','T',225000,998000,(price2-price1),20,18,'4',
-4);
+
 =======================================================================
 qna(질문) 데이터 넣어주기 
 

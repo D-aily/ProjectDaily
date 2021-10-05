@@ -163,7 +163,7 @@
 								<div class="product_name">
 									<a
 										href="pddetail?productnum=${list.productnum}&pname=${list.pname}">
-										${list.name} </a>
+										${list.pname} </a>
 								</div>
 								<div class="product_price">
 									<span>$</span>

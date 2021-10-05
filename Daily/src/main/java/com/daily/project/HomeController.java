@@ -1,17 +1,22 @@
 package com.daily.project;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.ws.RespectBinding;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -59,10 +64,9 @@ public class HomeController {
    
    //keywordsearchlist 
       @RequestMapping(value="pkplist")
-      public ModelAndView pkplist(ModelAndView mv, Searchpage spage , PageMaker pageMaker) {
-         
-    	  spage.setSnoEno();
-         
+      public ModelAndView pkplist(ModelAndView mv ,Searchpage spage , PageMaker pageMaker) {
+         spage.setSnoEno();
+         System.out.println(spage);
          mv.addObject("spList",service.keywordsearchList(spage));
          pageMaker.setPage(spage);
          pageMaker.setTotalRowCount(service.searchRowsCount(spage));
@@ -70,7 +74,7 @@ public class HomeController {
          System.out.println("*** pageMaker =>"+ pageMaker);
          mv.addObject("pageMaker",pageMaker);
          mv.setViewName("product_Board/ppageSearchList");
-         
+         System.out.println("vo = " +mv);
          return mv;
       }
    

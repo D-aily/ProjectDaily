@@ -20,17 +20,17 @@ public class ProductDAO {
 
 	
 	//pageList
-	public int searchRowsCount(PageRow pr ){
+	public int searchRowsCount(Searchpage pr ){
 		return sqlSession.selectOne(NS+"searchRowsCount",pr);
 	}
 	
 	// 입력 통합검색
-	public List<ProductVO> keywordsearchList(PageRow pr) {
+	public List<ProductVO> keywordsearchList(Searchpage pr) {
 		return sqlSession.selectList(NS+"keywordsearchList", pr);
 	}
 	
 	// 상품옵션 통합검색 
-	public List<ProductVO> optionsearchList(PageRow pr) {
+	public List<ProductVO> optionsearchList(Searchpage pr) {
 		return sqlSession.selectList(NS+"optionsearchList", pr);
 	}
 

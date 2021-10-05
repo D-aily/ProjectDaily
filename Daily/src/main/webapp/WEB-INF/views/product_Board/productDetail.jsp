@@ -32,8 +32,8 @@ $(function() {
 				},
 				success:function(resultData){
 					if(resultData.success == 'T'){
-						if(confirm("장바구니로 이동하시겠습니까?"+resultData.success)){
-							location.href("cartlist");
+						if(confirm("장바구니로 이동하시겠습니까?")){
+							location.href="cartlist";
 						}
 					}else if(resultData.success == 'F'){
 						alert("장바구니 담기가 실패 하였습니다.");
