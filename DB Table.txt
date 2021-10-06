@@ -73,7 +73,10 @@ create table cart(
 create table orders(
 	ordersnum int NOT NULL AUTO_INCREMENT primary key,
 	id varchar(100) not null,
-	CONSTRAINT FK_order_id FOREIGN KEY (id) REFERENCES member(id)
+	productnum int not null,
+	quantity int not null,
+	CONSTRAINT FK_order_id FOREIGN KEY (id) REFERENCES member(id),
+	CONSTRAINT FK_order_productnum FOREIGN KEY (productnum) REFERENCES product(productnum)
 );
 
 

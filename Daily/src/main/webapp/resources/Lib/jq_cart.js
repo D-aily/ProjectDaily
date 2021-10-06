@@ -56,7 +56,16 @@ $(function() {
 // 쇼핑하기 버튼 JQuery
 	$('.shopping_button').click(function() {
 		location.href="pdlist";
-	});//click
+	});//shopping click
+	
+// 구매하기 버튼 JQuery
+	$('#btnOrder').click(function(){
+		if(confirm("구매하시겠습니까?")){
+			location.href="orderlist";
+		}else{
+			alert("취소 되었습니다.");
+		}
+	});//order click
 
 });//ready
 

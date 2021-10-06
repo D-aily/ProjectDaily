@@ -114,7 +114,7 @@
 					<div class="row">
 
 						<div class="col-sm  ps-5">
-							<a href="#" class="btn w-100 text-white bg-dark">구매하기</a>
+							<button class="btn w-100 text-white bg-dark" id="btnOrder">구매하기</button>
 						</div>
 
 						<div class="col-sm">

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import service.OrdersService;
 import service.ReviewService;
 import service.WishListService;
 import vo.OrdersVO;
@@ -18,7 +19,8 @@ import vo.WishListVO;
 
 @Controller
 public class MypageController {
-
+	@Autowired
+	OrdersService ordersservice;
 	@Autowired
 	WishListService wishservice;
 	@Autowired
@@ -51,7 +53,22 @@ public class MypageController {
 	// 주문목록 페이지
 	@RequestMapping(value = "/orderListPage")
 	public ModelAndView orderListPage(ModelAndView mv, OrdersVO vo, HttpServletRequest request) {
-		
+		HttpSession session = request.getSession(true);
+		// 로그인 한 아이디 기준으로 검색 
+		if(session.getAttribute("loginInfo")!=null) {
+			//로그인상태
+			vo.setId((String)session.getAttribute("loginInfo"));
+			List<OrdersVO> list = ordersservice.ordersList(vo);
+			if(list != null) {
+				mv.addObject("orderlist", list);
+				mv.setViewName("member/orderPage");
+			}else {
+				
+			}
+		}else {
+			// 로그인 안한 상태 - 로그인창으로 
+			mv.setViewName("member/mloginPage");
+		}
 		return mv;
 	}
 	

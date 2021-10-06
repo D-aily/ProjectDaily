@@ -162,9 +162,11 @@
 	<br>
 	<br>
 	<div class="container my-5 content2">
+	<div class=" product_titlebar">
+			<div class="product_title"><b>Man's Wear</b></div>
+			<div class="product_title_item">더보기</div>
+		</div>
 	</div>
-
-
 	<div class="container">
 		<!--컨텐트 캐러벨 -->
 

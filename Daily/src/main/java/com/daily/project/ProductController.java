@@ -39,7 +39,6 @@ public class ProductController {
 				} catch (NumberFormatException e) {
 					System.out.println("잘못된 currpage 입니다");
 				}
-								
 				
 				//페이지 값 내용 열 set
 				spage.setSnoEno();
