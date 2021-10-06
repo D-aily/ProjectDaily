@@ -72,7 +72,7 @@ public class CartController {
 		}else {
 			//로그인 안한경우
 			rttr.addFlashAttribute("message", "로그인이 필요한 서비스 입니다.");
-			mv.setViewName("redirect:mloginPage");
+			mv.setViewName("redirect:mloginpage");
 		}
 		return mv;
 	}

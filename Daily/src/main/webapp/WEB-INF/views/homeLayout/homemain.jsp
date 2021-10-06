@@ -46,9 +46,9 @@
 		</div>
 
 		<!--부제목 공간지정 -->
-		<div class="img_content_subtitle">cloth</div>
+		<div class="img_content_subtitle">Woman's</div>
 		<!--제목 공간지정 -->
-		<div class="img_content_title">2021-2022 여성 가을 컬렉션</div>
+		<div class="img_content_title">2021-2022 여성 F/W 컬렉션</div>
 		<!--쇼핑버튼 공간지정 -->
 		<div class="img_shopping">
 			<button type="button" class="shopping_button" name="button">
@@ -142,10 +142,12 @@
 					<span class="carousel-control-next-icon" aria-hidden="true"></span>
 					<span class="visually-hidden">Next</span>
 				</button>
+				<br>
+		
 				<!--부제목 공간지정 -->
-				<div class="img_content_subtitle">cloth</div>
+				<div class="img_content_subtitle">Man's</div>
 				<!--제목 공간지정 -->
-				<div class="img_content_title">2021-2022 남성 가을 컬렉션</div>
+				<div class="img_content_title">2021-2022 남성 F/W 컬렉션</div>
 				<!--쇼핑버튼 공간지정 -->
 				<div class="img_shopping">
 					<button type="button" class="shopping_button" name="button">
@@ -157,13 +159,11 @@
 	</div>
 	<br>
 	<br>
-
-
+	<br>
+	<br>
 	<div class="container my-5 content2">
 	</div>
 
-	<br>
-	<br>
 
 	<div class="container">
 		<!--컨텐트 캐러벨 -->
@@ -177,34 +177,34 @@
 							<div class="row my-4 align-items-center">
 								<div class="col">
 									<img src="resources/img/dieter-blom-kokau7OYfe4-unsplash.jpg"
-										class="d-block w-100">
+										class="d-block w-100" height="450px">
 									<div class="">
-										<div class="product_name">상품명 1</div>
-										<div class="product_price">가격</div>
-										<div class="product_review">리뷰 수</div>
+										<div class="product_name">Baige Suit</div>
+										<div class="product_price">가격 : ₩ 1,200,000</div>
+										<div class="product_review">리뷰 수 : 21</div>
 									</div>
 								</div>
 								<div class="col">
 									<img src="resources/img/gregory-hayes-AjJsc0hk9s0-unsplash.jpg"
-										class="d-block w-100">
-									<div class="product_name">상품명 1</div>
-									<div class="product_price">가격</div>
-									<div class="product_review">리뷰 수</div>
+										class="d-block w-100" height="450px">
+									<div class="product_name">Black Suit</div>
+									<div class="product_price">가격 : ₩ 790,000</div>
+									<div class="product_review">리뷰 수 : 22</div>
 								</div>
 								<div class="col">
 									<img src="resources/img/nate-johnston-dLbz-zn89EU-unsplash.jpg"
-										class="d-block w-100">
-									<div class="product_name">상품명 1</div>
-									<div class="product_price">가격</div>
-									<div class="product_review">리뷰 수</div>
+										class="d-block w-100" height="450px">
+									<div class="product_name">White Shirt</div>
+									<div class="product_price">가격 : ₩ 40,000</div>
+									<div class="product_review">리뷰 수 : 30</div>
 								</div>
 								<div class="col">
 									<img
 										src="resources/img/mohamad-khosravi-Ll6ggwPpKIo-unsplash.jpg"
-										class="d-block w-100">
-									<div class="product_name">상품명 1</div>
-									<div class="product_price">가격</div>
-									<div class="product_review">리뷰 수</div>
+										class="d-block w-100" height="450px">
+									<div class="product_name">Shirt + Pants</div>
+									<div class="product_price">가격 : ₩ 490,000</div>
+									<div class="product_review">리뷰 수 : 34</div>
 								</div>
 							</div>
 						</div>
@@ -217,35 +217,35 @@
 								<div class="col">
 									<img
 										src="resources/img/lukacs-krisztina-by-TNnbC4uc-unsplash.jpg"
-										class="d-block w-100">
+										class="d-block w-100" height="450px">
 									<div class="">
-										<div class="product_name">상품명 1</div>
-										<div class="product_price">가격</div>
-										<div class="product_review">리뷰 수</div>
+										<div class="product_name">3P Check Suit</div>
+										<div class="product_price">가격 : ₩ 1,200,000</div>
+										<div class="product_review">리뷰 수 : 17</div>
 									</div>
 								</div>
 								<div class="col">
 									<img src="resources/img/dieter-blom-Y8Me4ZbyEb4-unsplash.jpg"
-										class="d-block w-100">
-									<div class="product_name">상품명 1</div>
-									<div class="product_price">가격</div>
-									<div class="product_review">리뷰 수</div>
+										class="d-block w-100" height="450px">
+									<div class="product_name">Black Suit + Gram Perfume</div>
+									<div class="product_price">가격 : ₩ 990,000</div>
+									<div class="product_review">리뷰 수 : 11</div>
 									
 								</div>
 								<div class="col">
 									<img
 										src="resources/img/jacob-blankenship-lfJil4DrWRU-unsplash.jpg"
-										class="d-block w-100">
-									<div class="product_name">상품명 1</div>
-									<div class="product_price">가격</div>
-									<div class="product_review">리뷰 수</div>
+										class="d-block w-100" height="450px">
+									<div class="product_name">Black Half Coat</div>
+									<div class="product_price">가격 : ₩ 990,000</div>
+									<div class="product_review">리뷰 수 : 27</div>
 								</div>
 								<div class="col">
 									<img src="resources/img/grigore-ricky-TVUUz6bMFSQ-unsplash.jpg"
-										class="d-block w-100">
-									<div class="product_name">상품명 1</div>
-									<div class="product_price">가격</div>
-									<div class="product_review">리뷰 수</div>
+										class="d-block w-100" height="450px">
+									<div class="product_name">Gray Check Suit</div>
+									<div class="product_price">가격 : ₩ 660,000</div>
+									<div class="product_review">리뷰 수 : 42</div>
 								</div>
 							</div>
 						</div>
@@ -257,35 +257,35 @@
 							<div class="row my-4 align-items-center">
 								<div class="col">
 									<img src="resources/img/nojan-namdar-a3RhaDG_pNM-unsplash.jpg"
-										class="d-block w-100">
+										class="d-block w-100" height="450px">
 									<div class="">
-										<div class="product_name">상품명 1</div>
-										<div class="product_price">가격</div>
-										<div class="product_review">리뷰 수</div>
+										<div class="product_name">Navy Check Suit</div>
+										<div class="product_price">가격 : ₩ 490,000</div>
+										<div class="product_review">리뷰 수 : 4</div>
 									</div>
 								</div>
 								<div class="col">
 									<img
 										src="resources/img/wiktor-marcinkowski-U5tPDKLRVgc-unsplash.jpg"
-										class="d-block w-100">
-									<div class="product_name">상품명 1</div>
-									<div class="product_price">가격</div>
-									<div class="product_review">리뷰 수</div>
+										class="d-block w-100" height="450px">
+									<div class="product_name">Deep Navy Suit</div>
+									<div class="product_price">가격 : ₩ 690,000</div>
+									<div class="product_review">리뷰 수 : 7</div>
 								</div>
 								<div class="col">
 									<img
 										src="resources/img/mei-ling-mirow-Kbl1RYTPIDA-unsplash.jpg"
-										class="d-block w-100">
-									<div class="product_name">상품명 1</div>
-									<div class="product_price">가격</div>
-									<div class="product_review">리뷰 수</div>
+										class="d-block w-100" height="450px">
+									<div class="product_name">Black Suit + silk Tie</div>
+									<div class="product_price">가격 : ₩ 790,000</div>
+									<div class="product_review">리뷰 수 : 8</div>
 								</div>
 								<div class="col">
 									<img src="resources/img/andrew-wise-R_UlRPqb8Iw-unsplash.jpg"
-										class="d-block w-100">
-									<div class="product_name">상품명 1</div>
-									<div class="product_price">가격</div>
-									<div class="product_review">리뷰 수</div>
+										class="d-block w-100" height="450px">
+									<div class="product_name">Check Double Suit</div>
+									<div class="product_price">가격 : ₩ 990,000</div>
+									<div class="product_review">리뷰 수 : 41</div>
 								</div>
 							</div>
 						</div>
@@ -293,9 +293,9 @@
 				</div>
 			</div>
 			<!--부제목 공간지정 -->
-			<div class="img_content_subtitle">cloth</div>
+			<div class="img_content_subtitle">Man's Suit</div>
 			<!--제목 공간지정 -->
-			<div class="img_content_title">2021-2022 남성 가을 컬렉션</div>
+			<div class="img_content_title">2021-2022 남성 F/W 수트 컬렉션</div>
 			<!--쇼핑버튼 공간지정 -->
 			<div class="img_shopping">
 				<button type="button" class="shopping_button" name="button">
