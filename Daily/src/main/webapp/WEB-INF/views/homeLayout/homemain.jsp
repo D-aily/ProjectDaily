@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>main</title>
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
+<script src="resources/Lib/jq_cart.js"></script>
 <link rel="stylesheet" href="resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="resources/Lib/mainhome.css">
 </head>
@@ -50,7 +51,7 @@
 		<div class="img_content_title">2021-2022 여성 가을 컬렉션</div>
 		<!--쇼핑버튼 공간지정 -->
 		<div class="img_shopping">
-			<button type="button" id="shopping_button" name="button">
+			<button type="button" class="shopping_button" name="button">
 				<h2>쇼핑하기</h2>
 			</button>
 		</div>
@@ -63,52 +64,50 @@
 	<!--상품 간단 목록 리스트  공간지정 -->
 	<div class="container my-5 content2">
 		<div class=" product_titlebar">
-			<div class="product_title">Perfume</div>
+			<div class="product_title"><b>Perfume</b></div>
 			<div class="product_title_item">더보기</div>
 		</div>
 		<br>
 
-		<div class="row my-4 align-items-center">
+		<div class="row my-4 align-items-center" align="center">
 			<div class="col-sm">
 				<div class="row">
-					<img src="resources/img/black.jpg" id="product_img1">
+					<img src="resources/img/dip.jpeg" class="product_img">
 				</div>
 
-				<div class="product_name">상품명 1</div>
-				<div class="product_price">가격</div>
-				<div class="product_review">리뷰 수</div>
+				<div class="product_name">Diptyque Doson</div>
+				<div class="product_price">가격 : ₩ 110,000</div>
+				<div class="product_review">리뷰 수 : 8</div>
 
 			</div>
 			<div class="col-sm">
 				<div class="row">
-					<img src="resources/img/calvin-klein.jpg"
-						id="product_img2">
+					<img src="resources/img/afrimo.jpeg" class="product_img">
 				</div>
 
-				<div class="product_name">상품 2</div>
-				<div class="product_price">가격</div>
-				<div class="product_review">리뷰 수</div>
+				<div class="product_name">Afrimo</div>
+				<div class="product_price">가격 : ₩ 98,000</div>
+				<div class="product_review">리뷰 수 : 10</div>
 			</div>
 
 			<div class="col-sm">
 				<div class="row">
-					<img src="resources/img/essential-oil-3073901_1920.jpg"
-						id="product_img3">
+					<img src="resources/img/chanel.jpeg" class="product_img">
 				</div>
 
-				<div class="product_name">상품 3</div>
-				<div class="product_price">가격</div>
-				<div class="product_review">리뷰 수</div>
+				<div class="product_name">CHANEL No.5</div>
+				<div class="product_price">가격 : ₩ 214,000</div>
+				<div class="product_review">리뷰 수 : 24</div>
 			</div>
-
+		
 			<div class="col-sm">
 				<div class="row">
-					<img src="resources/img/mens-perfume-394683_1280.jpg"
-						id="product_img4">
+					<img src="resources/img/jomal.jpeg" class="product_img">
 				</div>
-				<div class="product_name">상품 4</div>
-				<div class="product_price">가격</div>
-				<div class="product_review">리뷰 수</div>
+				
+				<div class="product_name">JO MALONE</div>
+				<div class="product_price">가격 : ₩ 115,000</div>
+				<div class="product_review">리뷰 수 : 14</div>
 			</div>
 		</div>
 	</div>
@@ -121,7 +120,7 @@
 				data-bs-ride="carousel">
 				<div class="carousel-inner">
 					<div class="carousel-item active ">
-						<img src="resources/img/austin-wade-d2s8NQ6WD24-unsplash.jpg"
+						<img src="resources/img/mohamad-khosravi-YGJ9vfuwyUg-unsplash.jpg"
 							class="d-block w-100">
 					</div>
 					<div class="carousel-item">
@@ -149,7 +148,7 @@
 				<div class="img_content_title">2021-2022 남성 가을 컬렉션</div>
 				<!--쇼핑버튼 공간지정 -->
 				<div class="img_shopping">
-					<button type="button" id="shopping_button" name="button">
+					<button type="button" class="shopping_button" name="button">
 						<h2>쇼핑하기</h2>
 					</button>
 				</div>
@@ -158,25 +157,9 @@
 	</div>
 	<br>
 	<br>
-	<br>
-	<br>
-	<br>
+
 
 	<div class="container my-5 content2">
-		<div class="row">
-			<div class="col">
-				<div class="row">
-					<img src="resources/img/suit-690048_1280.jpg" id="main_img2">
-				</div>
-				<div class="img_content_subtitle">Best</div>
-				<div class="img_content_title">2021-2022 Suit 컬렉션</div>
-				<div class="img_shopping">
-					<button type="button" id="shopping_button" name="button">
-						<h2>쇼핑하기</h2>
-					</button>
-				</div>
-			</div>
-		</div>
 	</div>
 
 	<br>
@@ -308,6 +291,16 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			<!--부제목 공간지정 -->
+			<div class="img_content_subtitle">cloth</div>
+			<!--제목 공간지정 -->
+			<div class="img_content_title">2021-2022 남성 가을 컬렉션</div>
+			<!--쇼핑버튼 공간지정 -->
+			<div class="img_shopping">
+				<button type="button" class="shopping_button" name="button">
+						<h2>쇼핑하기</h2>
+			</button>
 			</div>
 		</div>
 	</div>

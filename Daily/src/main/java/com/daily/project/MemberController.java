@@ -76,6 +76,7 @@ public class MemberController {
 			if (vo.getPw().equals(pw)) {
 				// 로그인 성공
 				session.setAttribute("loginInfo", vo.getId());
+				session.setAttribute("rank",vo.getLv());
 				mv.setViewName("redirect:home");
 			}else {
 				// password 틀림

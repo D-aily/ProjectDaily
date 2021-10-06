@@ -1,6 +1,20 @@
 $(function() {
 	//location.reload(); 
-
+	// 오더리스트 이동
+	$('#orderListPage').click(function(){
+		$.ajax({
+			type:'Post',
+			url:'orderListPage',
+			success:function(resultPage){
+				$('#contentArea').html(resultPage); 
+			},
+			error:function(){
+				alert('error');
+			}
+		});	
+	});
+	
+	// 리뷰삭제
 	$('.reviewdeleteBtn').click(function(){
 		var reviewnum = $(this).attr('id');
 		$.ajax({
@@ -18,6 +32,7 @@ $(function() {
 		});	
 	});
 	
+	//위시리스트 삭제
 	$('.wishdeleteBtn').click(function(){
 		var wlnum = $(this).attr('id');
 		$.ajax({

@@ -54,6 +54,8 @@ create table WishList(
 	 CONSTRAINT FK_wish_productnum FOREIGN KEY (productnum) REFERENCES product(productnum),
 	date DATETIME DEFAULT NOW()	
 );
+
+
 alter table wishlist drop quantity;
 	
 create table cart(

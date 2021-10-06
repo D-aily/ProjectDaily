@@ -12,6 +12,7 @@
 
 <!-- Bootstrap CSS -->
 <script src="resources/Lib/jquery-3.6.0.min.js"></script>
+<script src="resources/Lib/jq_cart.js"></script>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -19,39 +20,7 @@
 	crossorigin="anonymous">
 <script src="resources/Lib/prodqna/prodqna_ajax.js"></script>
 <title>Product details</title>
-<script>
-$(function() {
-	$("#btnCart").click(function() {
-		if(confirm("장바구니에 담으시겠습니까?")){
-			$.ajax({
-				type:"Get",
-				url:"addCart",
-				data:{
-					productnum: $('#productnum').val(),
-					quantity: $('#quantity').val()
-				},
-				success:function(resultData){
-					if(resultData.success == 'T'){
-						if(confirm("장바구니로 이동하시겠습니까?")){
-							location.href="cartlist";
-						}
-					}else if(resultData.success == 'F'){
-						alert("장바구니 담기가 실패 하였습니다.");
-						
-					}else{
-						alert("로그인 후 이용하세요!");
-						location.href("mlogin");
-					}
-				},
-				error:function(){
-					alert("서버 오류 잠시후 이용해 주시기 바랍니다.");
-				}
-			});//ajax
-		}//if_confirm
-	});//btnCart
-})//ready
 
-</script>
 </head>
 
 <body>
@@ -60,72 +29,6 @@ $(function() {
 	<jsp:include page="/WEB-INF/views/homeLayout/homeheader.jsp"></jsp:include>
 	<!-- nav  (메뉴바)-->
 	<jsp:include page="/WEB-INF/views/homeLayout/homemenubar.jsp"></jsp:include>
-
-<%-- 
-<form action="addCart" method="post" name="cart">
-<table>
-	<tr height="40"><td bgcolor="SkyBlue">PN.</td>
-		<td><input type="hidden" name="productnum" value="${Product.productnum }">
-		${Product.productnum}</td></tr>
-	<tr height="40"><td bgcolor="SkyBlue">상품명</td>
-		<td>${Product.pname}</td></tr>
-	<tr height="40"><td bgcolor="SkyBlue">상품상세설명</td>
-		<td>${Product.content}</td>
-	</tr>
-	<tr height="40"><td bgcolor="SkyBlue">등록일</td>
-		<td>${Product.date}</td></tr>	
-	<tr height="40"><td bgcolor="SkyBlue">상품사진</td>
-		<td><img src="${Product.image}"></td></tr>	
-	<tr height="40"><td bgcolor="SkyBlue">가격</td>
-	
-		<td><span>₩</span>
-		<fmt:formatNumber value="${Product.price2}"
-				pattern="#,###,###,###" /></td>
-	</tr>
-		
-	<tr height="40"><td bgcolor="SkyBlue">종류</td>
-		<c:set var="kind" value="${Product.kind}" />
-		<c:choose>
-			<c:when test="${kind eq '1'.charAt(0)}">
-				<td>상의</td>
-			</c:when>
-			<c:when test="${kind eq '2'.charAt(0)}">
-				<td>하의</td>
-			</c:when>
-			<c:when test="${kind eq '3'.charAt(0)}">
-				<td>아우터</td>
-			</c:when>
-			<c:otherwise>
-				<td>가방</td>
-			</c:otherwise>
-		</c:choose>
-	</tr>
-	<tr height="40"><td bgcolor="SkyBlue">조회수</td>
-		<td>${Product.count}</td></tr>
-	<tr><td bgcolor="SkyBlue">수량</td>
-		<td><select name="quantity">
-			<c:forEach begin="1" end="10" var="i">
-				<option value="${i}">${i}</option>
-			</c:forEach>
-		</select>&nbsp;개</td>
-	</tr>
-	<tr height="40"><td bgcolor="SkyBlue">평점</td>
-		<td>${Product.score}</td></tr>
-	<tr height="40"><td bgcolor="SkyBlue">리뷰</td>
-		<td></td></tr>
-	<tr height="40"><td bgcolor="SkyBlue">상품qna</td>
-		<td></td></tr>	
-	<tr><td><input type="button" value="주문하기"></td>
-		<td><input type="submit" value="장바구니담기"></td>
-	</tr>
-</table></form>
-<hr>
-<a href="pddetail?productnum=${Product.productnum}&jcode=U">수정하기</a>&nbsp;
-<input type="button" value="찜하기">
-
-
-<!-- footer (고객센터) -->
- --%>
 
 	<br>
 	<br>
@@ -140,7 +43,7 @@ $(function() {
 			</div>
 			<!-- 제목  설명 가격 색상 사이즈 구매 장바구니 관심상품 -->
 			<div class="col align-self-center">
-				<c:if test="${ Lv == '5' && loginInfo != null}">
+				<c:if test="${ rank == '5' && loginInfo != null}">
 					<div class="row ps-5">
 						<div class="col">
 							<a href="pddetail?productnum=${Product.productnum}&jcode=U">수정하기</a>

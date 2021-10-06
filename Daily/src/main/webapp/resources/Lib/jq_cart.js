@@ -21,16 +21,21 @@ $(function() {
 			}); //ajax
 		  }//if confirm
 		});//click
-/*		
+
+// 장바구니 담기 버튼
 	$("#btnCart").click(function() {
 		if(confirm("장바구니에 담으시겠습니까?")){
 			$.ajax({
 				type:"Get",
 				url:"addCart",
+				data:{
+					productnum: $('#productnum').val(),
+					quantity: $('#quantity').val()
+				},
 				success:function(resultData){
 					if(resultData.success == 'T'){
 						if(confirm("장바구니로 이동하시겠습니까?")){
-							location.href("cartlist");
+							location.href="cartlist";
 						}
 					}else if(resultData.success == 'F'){
 						alert("장바구니 담기가 실패 하였습니다.");
@@ -45,10 +50,14 @@ $(function() {
 				}
 			});//ajax
 		}//if_confirm
-	});//btnCart	
-		
-	*/	
-		
+	});//btnCart
+
+
+// 쇼핑하기 버튼 JQuery
+	$('.shopping_button').click(function() {
+		location.href="pdlist";
+	});//click
+
 });//ready
 
 //Update 버튼

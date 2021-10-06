@@ -21,7 +21,7 @@
 			<th>상품 등록</th>
 			<tr>
 				<td>상품명</td>
-				<td><input type="text" name="name" id="name"></td>
+				<td><input type="text" name="pname" id="pname"></td>
 			</tr>
 			<tr>
 				<td>상세 설명</td>

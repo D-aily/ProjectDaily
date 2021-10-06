@@ -82,7 +82,7 @@
 
 					<div class="row" id="searchBar">
 						<p></p>
-						<p>가격대</p>
+						<p><b>가격대</b></p>
 						<select class="form-select form-select"
 							aria-label=".form-select-lg example" name="costsearch"
 							id="costsearch">
@@ -105,7 +105,7 @@
 						</select> <br> <br>
 
 						<p></p>
-						<p>종류</p>
+						<p><b>종류</b></p>
 						<select class="form-select form-select"
 							aria-label=".form-select-lg example" name="kindsearch"
 							id="kindsearch">
@@ -125,7 +125,7 @@
 						</select> <br> <br>
 
 						<p></p>
-						<p>평점</p>
+						<p><b>평점</b></p>
 						<select class="form-select form-select"
 							aria-label=".form-select-lg example" name="scoresearch"
 							id="scoresearch">

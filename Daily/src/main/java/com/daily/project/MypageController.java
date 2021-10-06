@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import service.ReviewService;
 import service.WishListService;
+import vo.OrdersVO;
 import vo.ReviewVO;
 import vo.WishListVO;
 
@@ -47,6 +48,13 @@ public class MypageController {
 
 	// page 이동 -------------------------------------------------	
 
+	// 주문목록 페이지
+	@RequestMapping(value = "/orderListPage")
+	public ModelAndView orderListPage(ModelAndView mv, OrdersVO vo, HttpServletRequest request) {
+		
+		return mv;
+	}
+	
 	// 위시리스트 페이지
 	@RequestMapping(value = "/wishlistpage")
 	public ModelAndView wishlistpage(ModelAndView mv, WishListVO vo, HttpServletRequest request) {
