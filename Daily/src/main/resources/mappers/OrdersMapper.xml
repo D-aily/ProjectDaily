@@ -9,7 +9,7 @@
  		   values (LAST_INSERT_ID(),#{id},#{productnum},#{quantity}) 
  </insert>
  
- <select id="ordersList" resultType="vo.OredersVO">
+ <select id="ordersList" resultType="vo.OrdersVO">
  	select
  	ordersnum,p.image,o.id,o.productnum,p.pname,o.quantity,price2,(price2*quantity) money 
  	from orders o, member m, product p
@@ -19,7 +19,7 @@
  <select id="sumMoney" resultType="int">
  	select
  	IFNULL(sum(price2*quantity),0) money
- 	from order o , product p
+ 	from orders o , product p
  	where o.productnum = p.productnum AND o.id = #{id}
  </select>	
  <delete id="deleteOne">
